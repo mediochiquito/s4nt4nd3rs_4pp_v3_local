@@ -1,0 +1,295 @@
+.TextoArea{
+	
+	-webkit-appearance: none;
+	background-color: #fff;
+	border: solid 1px #ccc;
+	font-size: 20px;
+	color: #666;
+	font-family: 'Conv_FuturaBT Medium';
+	padding: 10px;
+	/*-webkit-box-shadow: 0px 0px 10px -5px #000;*/
+	border-radius: 0;
+
+}
+.Solapa{
+
+	width: 93px;
+	height: 36px;
+	border-radius: 7px 7px 0px 0px;
+	position: absolute;
+
+}
+
+.Solapa_txt{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 11px;
+	top: 13px;
+	font-family: 'GothamBold';
+	line-height: 13px;
+	pointer-events:none;
+}
+._BotonToogle{
+	position: relative;
+	margin: 0 auto;
+}
+
+
+.InputText{
+	
+	-webkit-appearance: none;
+	
+	padding: 0px 10px 0px 10px;
+	outline: none;
+	font-family: 'GothamBook';
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-webkit-appearance: none;
+	height: 31px;
+	border-radius: 5px;
+	border: solid 1px #ccc;
+	
+	position: absolute;
+}
+.InputTextError{
+	
+	-webkit-appearance: none;
+	padding: 0px 10px 0px 10px;
+	outline: none;
+	font-family: 'GothamBook';
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-webkit-appearance: none;
+	height: 31px;
+	border-radius: 5px;
+	border: solid 1px #D35454;
+	background-color: #FFECEC;
+	position: absolute;
+
+}
+.InputTextEnable{
+	background-color: #fff;
+	color: #666;
+}
+.InputTextDisnable{
+	opacity: .4;
+	background-color: #ccc;
+}
+
+.BotonAzul{
+	
+	background-color: #3b5a99;
+	color: #fff;
+	font-family: 'GothamBold';
+	padding: 11px 0px 11px 0px;
+	font-size: 12px;
+	position: absolute;
+	border-radius: 7px;
+	width: 140px;
+	text-align: center;
+}
+.BotonAzul img{
+	position: absolute;
+	left: 8px;
+	top: 4px;
+}
+
+.BotonNormalDashboard{
+	width: 100%;
+	height: 40px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	background-image: url(../img/controls/bg_btn_dashboard.png);
+	position: relative !important;
+	margin: 0 auto;
+	background-position: 0 283px;
+	background-size: 100% 200%;
+}
+
+.BotonNormalDashboard .BotonNormalDashboard_label{
+	color: #fff;
+	position: relative !important;
+	font-size: 12px;
+	font-family: 'GothamBook';
+	width: 100%;
+	text-align: center;
+	padding-top: 11px;
+}
+
+
+.BotonDashboard{
+	width: 90px;
+	height: 90px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.BotonDashboard .BotonDashboard_icon{
+	width: 52px;
+	height: 52px;
+
+	position: relative !important;
+	margin: 0 auto;
+	background-image: url(../img/controls/bg_btn_dashboard.png);
+	
+	background-position: 0 260px;
+	background-size: 100% 200%;
+}
+.BotonDashboard .BotonDashboard_label{
+	color: #fff;
+	position: relative !important;
+	font-size: 12px;
+	font-family: 'GothamBook';
+	width: 100%;
+	text-align: center;
+	margin-top: 5px;
+}
+
+.Boton{
+	
+	background-image: -webkit-linear-gradient(bottom, #E91C24 30%, #F28F6C 100%);
+	color: #fff;
+	font-family: 'GothamBold';
+	padding: 11px 0px 11px 0px;
+	font-size: 12px;
+	position: absolute;
+	border-radius: 7px;
+	width: 140px;
+	text-align: center;
+}
+
+.Boton > div{
+	pointer-events:none;
+}
+
+.Boton2Frames{
+	overflow: hidden;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.Boton2Frames img{
+	position: absolute;
+
+}
+
+
+
+
+/*! rangeslider - v0.1.0 | (c) 2014 @andreruffert | MIT license | http://github.com/andreruffert/rangeslider */
+
+.rangeslider {
+	 -webkit-transform: scale3d(1, 1, 1) translate3d(0px, 0px, 0px);
+	bottom: 10px;
+	height: 50px;
+	left: 60px;
+	position: absolute;
+}
+.rangeslider_holder_labels{
+
+	font-family: 'GothamBook';
+	font-size: 12px;
+	
+
+	top: 25px;
+	
+	
+
+	width: 95%;
+	
+
+	height: 50px;
+
+	left: 2%;
+
+}
+.rangeslider_holder_labels > div{
+
+	text-align: center;
+	
+
+	width: 20px;
+	
+
+	margin-left: -10px;
+	float: left;
+
+}
+
+.rangeslider_tiutlo{
+
+	font-family: 'GothamBold';
+	font-size: 13px;
+
+	top: -32px;
+
+}
+
+.rangeslider__range,
+.rangeslider__fill {
+  background: #9E9C9C;
+  border: none;
+  display: block;
+  height: 10px;
+  width: 100%;
+  margin: 0;
+  -webkit-box-shadow: 0px 2px 2px rgba(255, 255, 255, 0.25), inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 2px rgba(255, 255, 255, 0.25), inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(255, 255, 255, 0.25), inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.rangeslider__fill {
+  background: #ec1c24;
+  position: absolute;
+  top: 0;
+}
+
+.rangeslider__handle {
+  background: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -10px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+}
+.rangeslider__handle:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.13)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0));
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+}

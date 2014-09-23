@@ -10,7 +10,7 @@
 		define("DB_PASS", "");
 		define("DB_NAME", "santanders");
 		
-	}else if($_SERVER['HTTP_HOST'] == '192.168.235.140:8888'){
+	}else if($_SERVER['HTTP_HOST'] == '192.168.235.140:8888' || $_SERVER['HTTP_HOST'] == '192.168.235.100:8888'){
 
 		define("DB_HOST", "localhost:8888");
 		define("DB_USER", "root");

@@ -1,0 +1,114 @@
+#SeccionHomeOfertas_holder_banner{
+
+	position: relative;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+}
+#SeccionHomeOfertas_que_hay_cerca{
+	width: 234px;
+	margin-top: 10px;
+}
+
+.ItemListaOferta_hoy{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 30px;
+}
+
+#ListaOfertas_btn_ver_terms{
+	position: absolute;
+	right: 7px;
+	top: 8px;
+
+}
+#ListaOfertas_header_banner{
+	position: relative;
+	
+	height: 35px;
+	width: 100%;
+	background-color: #ed1c24;
+	margin-top: -4px;
+}
+#ListaOfertas_header_banner_titulo_txt{
+	position: absolute;
+	
+	height: 35px;
+	width: 90%;
+	color: #fff;
+	font-family: 'GothamBold';
+	font-size: 14px;
+	top: 9px;
+	left: 11px;
+}
+#ListaOfertas{
+	position: absolute;
+
+	width: 100%;
+}
+
+#ListaOferta_banner{
+	padding: 0 auto;
+}
+#ListaOfertas_holder{
+	overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+     -webkit-transform: translateZ(0); 
+}
+
+#ListaOferta_combo_deptos{
+	-webkit-appearance: none;
+	border: none;
+	padding: 0px 10px 0px 10px;
+	outline: none;
+	font-family: 'GothamBook';
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-webkit-appearance: none;
+	height: 31px;
+	border-radius: 5px;
+	border: solid 1px #ccc;
+	position: absolute;
+	background-image: url(../img/form/flecha_combo.png);
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	background-position: right 0px;
+	top: 11px;
+	left: 50%;
+	margin-left: -15px;
+	width: 147px;
+	position: absolute;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#ListaOferta_holder_combo_deptos{
+	height: 55px;
+	padding: 0 auto;
+	position: relative;
+}
+
+.ItemListaOferta{
+	position: relative !important;
+	padding: 10px 5px 8px 20px;
+	border-bottom: solid 1px #e5e5e5;
+	outline: none;
+}
+
+.ItemListaOferta_txt_nombre{
+
+	 font-family: 'GothamBook';
+	 font-size: 13px;
+	 pointer-events:none;
+}
+.ItemListaOferta_txt_descuento{
+
+	font-family: 'GothamBold';
+	 font-size: 13px;
+	 color: #ed1c24;
+	 position: absolute;
+	right: 10px;
+	top: 10px;
+	text-align: right;
+	pointer-events:none;
+}

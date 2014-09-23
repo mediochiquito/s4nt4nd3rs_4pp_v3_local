@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D3A34486-C1D2-4B3C-843A-3F5D6A83C884</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Ideas para hoy</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>25C55F89F24A3E2148B66FBD039FDE3E949A6364</key>
+		<string>https://github.com/mediochiquito/s4nt4nd3rs_4pp_v3_local.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/Ideas para hoy.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>25C55F89F24A3E2148B66FBD039FDE3E949A6364</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mediochiquito/s4nt4nd3rs_4pp_v3_local.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>25C55F89F24A3E2148B66FBD039FDE3E949A6364</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>25C55F89F24A3E2148B66FBD039FDE3E949A6364</string>
+			<key>IDESourceControlWCCName</key>
+			<string>s4nt4nd3rs_4pp_v3_local</string>
+		</dict>
+	</array>
+</dict>
+</plist>

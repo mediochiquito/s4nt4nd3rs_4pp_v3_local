@@ -1,12 +1,85 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.pimod.santanderapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>SantanderApp</name>
+<widget id="com.pimod.santanderapp" 
+		versionCode = "16" 
+        version   = "3.0" 
+        xmlns="http://www.w3.org/ns/widgets" 
+		xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Ideas para hoy</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Santander Uruguay Ideas para Hoy permite a los usuarios acceder a información sobre eventos de verano y descuentos para usuarios de tarjetas Santander en Punta del Este, Uruguay.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
     <content src="index.html" />
     <access origin="*" />
+
+ 	<gap:config-file platform="ios" parent="UIStatusBarHidden">
+        <true/>
+    </gap:config-file>
+
+    <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
+        <false/>
+    </gap:config-file>
+
+    <icon src="www/icon.png" />
+    <gap:splash src="www/splash.png" />
+
+
+
+
+    <icon src="www/img/icons/icon.png" gap:platform="ios" width="57" height="57" />
+    <icon src="www/img/icons/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="www/img/icons/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
+    <icon src="www/img/icons/icon-76.png" gap:platform="ios" width="76" height="76" />
+    <icon src="www/img/icons/icon-120.png" gap:platform="ios" width="120" height="120" />
+    <icon src="www/img/icons/icon-152.png" gap:platform="ios" width="152" height="152" />
+
+
+    <platform name="ios">
+	    <!-- images are determined by width and height. The following are supported -->
+	    <splash src="www/img/splash/ios/Default.png" width="320" height="480"/>
+	    <splash src="www/img/splash/ios/Default_at_2x.png" width="640" height="960"/>
+	   <!--  <splash src="res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
+	    <splash src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+	    <splash src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+	    <splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
+	    <splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/> -->
+	</platform>
+
+<!--     <gap:splash src="www/img/splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
+    <gap:splash src="www/img/splash/ios/Default_at_2x.png" gap:platform="ios" width="640" height="960" />
+    <gap:splash src="www/img/splash/ios/Default_iphone5.png" gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="www/img/splash/ios/Default-Portrait.png" gap:platform="ios" width="768" height="1004" />
+    <gap:splash src="www/img/splash/ios/Default-Portrait_at_2x.png" gap:platform="ios" width="1536" height="2008" />
+ -->
+
+    <gap:splash src="www/img/splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="www/img/splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="www/img/splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="www/img/splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+
+
+
+
+
+
+
+
+
+    <preference name="Fullscreen" value="true" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true"/>
+    <preference name="SplashScreen" value="splash" />
+    <preference name="splash-screen-duration" value="10000"/>
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="auto-hide-splash-screen"    value="false" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+
+    <preference name="android-minSdkVersion" value="11" />
+    <preference name="android-targetSdkVersion" value="14" />
+
+
 </widget>

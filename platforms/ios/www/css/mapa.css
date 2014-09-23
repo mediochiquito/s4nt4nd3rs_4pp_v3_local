@@ -1,0 +1,191 @@
+#SeccionMapa{
+	position: absolute;
+
+}
+
+#SeccionMapa .holder_blanco_secciones{
+	-webkit-mask-image: url('../img/mapa/mask.png');
+}
+#MapaHolderSlider{
+	position: absolute;
+	 bottom: 10px;
+	 height: 50px;
+	 width: 100%;
+}
+
+#MapaHolderSliderBar{
+	position: absolute;
+	 bottom: 10px;
+	 height: 50px;
+	 width: 100%;
+}
+
+
+#Mapa_btn_volver{
+
+	position: absolute;
+	left: 15px;
+	
+}
+#SeccionMapa_txt_drag{
+	background-color: #FFFFDA;
+	position: relative !important;
+	top: 63px;
+	text-align: center;
+	font-family: 'GothamBook';
+	font-size: 12px;
+	left: 25px;
+
+	padding: 5px;
+
+	border-radius: 5px;
+	border: solid 1px #F1E271;
+}
+#SeccionMapaForm_btn_aceptar{
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -75px;
+	width: 140px;
+}
+
+#SeccionMapa img{
+	position: absolute;
+
+}
+#SeccionMapa div{
+	position: absolute;
+
+}
+#SeccionMapaForm_btn_aceptar > div{
+	position: relative !important;
+}
+
+#SeccionMapa_txt_filtrar{
+
+	 font-family: 'GothamBold';
+	 font-size: 13px;
+	 left: 50%;
+	 
+
+	 bottom: 30px;
+	 
+	-webkit-backface-visibility: hidden;
+	 margin-left: -127px;
+}
+
+#SeccionMapa_imposible{
+ 	font-family: 'GothamBook';
+	 
+ 	font-size: 10px;
+	padding: 5px;
+	
+ 	position: absolute;
+
+
+ 	top: 67px;
+ 	text-align: center;
+ 	/* width: 80%; */
+ 	background-color: #fff;
+ 
+ 	left: 50%;
+ 	margin-left: -116px;
+ 	box-shadow: 2px 2px 8px #000;
+}
+#SeccionMapa_txt_eventos{
+
+	 font-family: 'GothamBook';
+	 font-size: 13px;
+	  left: 50%;
+	 
+
+	 bottom: 30px;
+	  -webkit-backface-visibility: hidden;
+
+	 margin-left: -70px;
+}
+#SeccionMapa_txt_ofertas{
+
+	 font-family: 'GothamBook';
+	 font-size: 13px;
+	 left: 50%;
+	 
+
+	 bottom: 30px;
+	  -webkit-backface-visibility: hidden;
+
+	 margin-left: 23px;
+}
+#Mapa_chk_eventos{
+	left: 50%;
+	bottom: 24px;
+	margin-left: -13px;
+	-webkit-backface-visibility: hidden;
+}
+#Mapa_chk_oferta{
+	left: 50%;
+		bottom: 24px;
+		
+	margin-left: 105px;
+	-webkit-backface-visibility: hidden;
+
+}
+
+#SeccionMapa_holdermap_canvas{
+
+	top: 0px;
+	left: 0px;
+	
+}
+
+#SeccionMapa_map_canvas{
+
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+}
+#SeccionMapa_esquina_der{
+
+	top: 49px;
+	
+	-webkit-backface-visibility: hidden;
+	width: 15px;
+
+}
+#SeccionMapa_esquina_si{
+
+	top: 49px;
+	left: 9px;
+	-webkit-backface-visibility: hidden;
+	width: 15px;
+
+}
+#SeccionMapa_holdermap_canvas{
+	
+	width: 100%;
+	height: 100%;
+}
+
+#SeccionMapa_holdermap_canvas *{
+
+	
+}
+#SeccionMapa_holdermap_canvas img{
+	
+	max-width: none;
+	-webkit-backface-visibility: hidden;
+	
+}
+
+
+
+#SeccionMapa_holdermap_canvas .gmnoprint img{
+
+	-webkit-backface-visibility: visible;
+	
+}
+.openlayers-map img{ margin:0px }

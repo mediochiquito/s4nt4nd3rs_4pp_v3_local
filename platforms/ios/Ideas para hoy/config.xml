@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.pimod.santanderapp" version="3.0" versionCode="16" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value=".25" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="TopActivityIndicator" value="gray" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
+    <feature name="PushPlugin">
+        <param name="ios-package" value="PushPlugin" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <splash height="480" src="www/img/splash/ios/Default.png" width="320" />
+    <splash height="960" src="www/img/splash/ios/Default_at_2x.png" width="640" />
+    <name>Ideas para hoy</name>
+    <description>
+        Santander Uruguay Ideas para Hoy permite a los usuarios acceder a información sobre eventos de verano y descuentos para usuarios de tarjetas Santander en Punta del Este, Uruguay.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <gap:config-file parent="UIStatusBarHidden" platform="ios">
+        <true />
+    </gap:config-file>
+    <gap:config-file parent="UIViewControllerBasedStatusBarAppearance" platform="ios">
+        <false />
+    </gap:config-file>
+    <icon src="www/icon.png" />
+    <gap:splash src="www/splash.png" />
+    <icon gap:platform="ios" height="57" src="www/img/icons/icon.png" width="57" />
+    <icon gap:platform="ios" height="72" src="www/img/icons/icon-72.png" width="72" />
+    <icon gap:platform="ios" height="114" src="www/img/icons/icon_at_2x.png" width="114" />
+    <icon gap:platform="ios" height="76" src="www/img/icons/icon-76.png" width="76" />
+    <icon gap:platform="ios" height="120" src="www/img/icons/icon-120.png" width="120" />
+    <icon gap:platform="ios" height="152" src="www/img/icons/icon-152.png" width="152" />
+    <gap:splash gap:density="ldpi" gap:platform="android" src="www/img/splash/android/ldpi.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="www/img/splash/android/mdpi.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="www/img/splash/android/hdpi.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="www/img/splash/android/xhdpi.png" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="SplashScreen" value="splash" />
+    <preference name="splash-screen-duration" value="10000" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="android-minSdkVersion" value="11" />
+    <preference name="android-targetSdkVersion" value="14" />
+</widget>
