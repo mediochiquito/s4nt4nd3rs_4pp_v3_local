@@ -81,5 +81,18 @@
     <string>3.0</string>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string></string>
+    <key>FacebookAppID</key>
+    <string>381248932009498</string>
+    <key>FacebookDisplayName</key>
+    <string>Ideas para hoy</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb381248932009498</string>
+        </array>
+      </dict>
+    </array>
   </dict>
 </plist>

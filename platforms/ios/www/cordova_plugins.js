@@ -88,7 +88,8 @@ module.exports.metadata =
     "org.apache.cordova.inappbrowser": "0.5.2",
     "org.apache.cordova.dialogs": "0.2.10",
     "com.phonegap.plugins.PushPlugin": "2.2.1",
-    "org.apache.cordova.splashscreen": "0.3.3"
+    "org.apache.cordova.splashscreen": "0.3.3",
+    "com.phonegap.plugins.facebookconnect": "0.4.0"
 }
 // BOTTOM OF METADATA
 });
