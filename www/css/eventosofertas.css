@@ -1,0 +1,197 @@
+
+#SeccionHomeEventos{
+	width: 100%;
+	text-align: center;
+}
+#SeccionHomeEventos_holder_banner{
+
+	position: relative;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+}
+#SeccionHomeEventos_eventos_hoy{
+	width: 195px;
+	margin-top: 10px;
+}
+#SeccionHomeEventos_banner_que_hay_para_hacer{
+
+	width: 195px;
+	position: relative;
+	
+
+	margin: 10px auto;
+}
+#eventos_resultado_del_dia{
+
+	 font-family: 'GothamBold';
+	 font-size: 13px;
+	 
+
+	 padding: 10px 10px 10px 10px;
+	 width: 100%;
+	 color: #fff;
+	 
+
+	 background-color: #ec1c24;
+}
+#ListaEventos{
+	position: absolute;
+	
+	width: 100%;
+}
+.ItemListaEvento_fecha_mas{
+
+	font-size: 12px;
+	
+
+	width: 100%;
+
+	height: 0px;
+
+	color: #674d97;
+
+	clear: both;
+
+}
+
+#ListaOferta_txt_deptos,#ListaEventos_txt_deptos{
+
+ 	 font-family: 'GothamBold';
+	 font-size: 13px;
+	 position: absolute;
+	 width: 130px;
+ 	 margin-left: -120px;
+	 left: 50%;
+ 	 top: 20px;
+
+}
+#ListaEventos_combo_deptos{
+
+	-webkit-appearance: none;
+	border: none;
+	padding: 0px 10px 0px 10px;
+	outline: none;
+	font-family: 'GothamBook';
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-webkit-appearance: none;
+	height: 31px;
+	border-radius: 5px;
+	border: solid 1px #ccc;
+	position: absolute;
+	background-image: url(../img/form/flecha_combo.png);
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	background-position: right 0px;
+	top: 11px;
+	left: 50%;
+	margin-left: -15px;
+	width: 147px;
+	position: absolute;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#ListaEventos_holder_combo_deptos{
+	
+	height: 55px;
+	padding: 0 auto;
+	position: relative;
+	
+}
+
+
+#ListaEventos_holder{
+	overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+     -webkit-transform: translateZ(0); 
+}
+#ListaEventos_btn_ver_en_mapa{
+	left: 50%;
+	width: 130px;
+	z-index: 1000;
+}
+#ListaEventos_btn_subir_evento{
+	left: 50%;
+	width: 130px;
+}
+#ListaOfertas_btn_ver_en_mapa{
+	left: 50%;
+	width: 140px;
+}
+
+#ListaOfertasWrapper,#ListaEventosWrapper{
+	border-top: solid 1px #e5e5e5;
+}
+
+.Tabs_holder{
+	position: absolute;
+	border: solid 1px #e5e5e5;
+	left: 20px;
+	top: 83px;
+
+	
+}
+
+
+
+#SeccionEventosOfertas_holder_tabs{
+
+	position: absolute;
+	border-top: solid 1px #e5e5e5;
+	width: 200px;
+	height: 200px;
+	top: 96px;
+	left: 20px;
+
+}
+.ItemListaEvento{
+	position: relative !important;
+	padding: 10px 5px 8px 20px;
+	border-bottom: solid 1px #e5e5e5;
+	outline: none;
+	
+	 
+}
+.ItemListaEvento_txt_nombre{
+	 font-family: 'GothamBook';
+	 font-size: 13px;
+	  pointer-events:none;
+}
+
+.ItemListaEvento_fecha{
+	position: relative;
+	font-family: 'GothamBold';
+	 font-size: 13px;
+	 
+	color: #674d97;
+	 pointer-events:none;
+	width: 55px;
+
+	display: block;
+	float: left;
+
+}
+.ItemListaEvento_nombre{
+	position: relative;
+	pointer-events:none;
+	float: left;
+}
+.sin_resultados{
+
+	font-family: 'GothamBook';
+	margin-top: 10px;
+	font-size: 13px;
+	color: #ccc;
+	width: 100%;
+	height: 50px;
+	position: relative !important;
+	display: block;
+
+}
+.sin_resultados div{
+
+	padding: 5px;
+	height: 50px;
+	position: relative;
+}

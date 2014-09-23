@@ -1,0 +1,144 @@
+
+#UnaOferta{
+	position: absolute;
+ 
+}
+	
+#ItemLocal{
+	position: relative;
+
+
+}
+
+.ItemLocal_disancia{
+	font-family: 'GothamBook';
+	font-size: 10px;
+	color: #8D8C8C;
+	position: absolute;
+	top: 13px;
+	right: 29px;
+	width: 60px;
+	text-align: right;
+}
+#ItemLocal_header_titulo{
+	position: relative;
+	width: 100%;
+	background-color: #dedcdc;
+	border-bottom: solid 1px #fff;
+}
+#ItemLocal_titulo_txt{
+	position: relative;
+	width: 80%;
+	color: #000;
+	font-family: 'GothamBold';
+	font-size: 12px;
+	padding: 10px;
+
+}
+
+#UnaOferta_btn_ver_en_mapa{
+
+	position: absolute;
+	right: 6px;
+	
+
+	top: 10px;
+}
+
+#UnaOferta_holder{
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+ 	-webkit-transform: translateZ(0); 
+}
+#SeccionUnaOferta{
+	position: absolute;
+}
+
+#SeccionUnaOferta_img{
+	position: relative;
+	
+
+}
+#UnaOferta_btn_volver{
+
+	position: absolute;
+	right: 6px;
+	
+
+	top: 4px;
+}
+#UnaOferta_hoy{
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 70px;
+}
+
+#UnaOferta_header_titulo{
+	position: relative;
+	
+	height: 35px;
+	width: 100%;
+	background-color: #ed1c24;
+	margin-top: -4px;
+}
+#UnaOferta_titulo_txt{
+	position: absolute;
+	
+	height: 35px;
+	width: 90%;
+	color: #fff;
+	font-family: 'GothamBold';
+	font-size: 14px;
+	top: 9px;
+	left: 11px;
+}
+#UnaOferta_holder_data{
+	position: relative;
+	
+
+}
+
+
+
+.UnaOferta_reg{
+	position: relative;
+	
+	
+	
+}
+.UnaOferta_label{
+	position: absolute;
+	width: 120px;
+	font-family: 'GothamBold';
+	font-size: 12px;
+	top:5px;
+	
+	left: 10px;
+}
+.UnaOferta_data{
+	position: relative;
+	font-family: 'GothamBook';
+	font-size: 12px;
+	float: left;
+
+	min-height: 25px;
+	width: 100%;
+	border-bottom: solid 1px #e5e5e5;
+}
+.UnaOferta_data>div{
+	padding: 5px;
+	margin-left: 130px;
+}
+
+#UnaOferta_holder_footer{
+	position: relative;
+	
+	height: 70px;
+}
+#UnaOferta_btn_compartir{
+	left: 50%;
+	top: 15px;
+	margin-left: -75px;
+}

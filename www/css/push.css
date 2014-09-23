@@ -1,0 +1,83 @@
+#Push_header_labels{
+	position: relative;
+	height: 35px;
+	background-color: #ed1c24;
+	margin-top: 6px;
+	margin: 10px;
+}
+
+
+.Push_col1{
+	
+	width: 50%;
+	/*background-color: blue;*/
+	position: relative;
+	float: left;
+	font-family: 'GothamBold';
+	font-size: 14px;
+	 
+	box-sizing: border-box;
+	 color: #fff;
+	 
+	padding: 10px;
+}
+.ItemDeptoPush .Push_col1{
+	color: #000;
+}
+.Push_col2{
+	height: 40px;
+	width: 25%;
+/*	background-color: red;*/
+	position: relative;
+	float: left;
+	 box-sizing: border-box;
+	 text-align: center;
+	 
+	padding: 3px;
+}
+
+#Push_holder .Push_col2 {
+	padding-top: 10px;
+}
+#Push_holder .Push_col3 {
+	padding-top: 10px;
+}
+.Push_col3{
+	height: 30px;
+	width: 25%;
+	/*background-color: orange;*/
+	position: relative;
+	float: left;
+	 box-sizing: border-box;
+	 text-align: center;
+	 padding: 3px;
+	}
+
+#Push_holder {
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	-webkit-transform: translateZ(0);
+}
+.Push_holder {
+	position: absolute;
+	border: solid 1px #e5e5e5;
+	left: 20px;
+	top: 122px;
+}
+#Push_btn_aceptar{
+	left: 50%;
+	width: 130px;
+	bottom: 26px;
+	margin-left: -137px;
+	background-image: -webkit-linear-gradient(bottom, #482b54 30%, #994886 100%);
+}
+#Push_btn_cancelar{
+	left: 50%;
+	width: 130px;
+	bottom: 26px;
+}
+.ItemDeptoPush{
+		border-bottom: solid 1px #e5e5e5;
+		height: 38px;
+		overflow: hidden;
+}
