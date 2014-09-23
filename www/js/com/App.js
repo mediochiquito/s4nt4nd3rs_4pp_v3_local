@@ -241,7 +241,7 @@ function App(){
 		    }
 			else {
 			   app.plataforma = 'ios';
-			   StatusBar.hide();
+			  // StatusBar.hide();
 			}
 	
    		}
