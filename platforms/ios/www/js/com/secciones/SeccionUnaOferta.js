@@ -57,6 +57,9 @@ function SeccionUnaOferta()
 	var obj;
 
 	function doVolver(){
+		if(obj.viene_de_push)
+			app.secciones.go(app.secciones.seccionhome, 300);
+		else
 		app.secciones.go(app.secciones.seccionlistaofertas, 300)
 	}
 	

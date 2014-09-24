@@ -19,9 +19,11 @@ function App(){
 	this.redirect_push_object = null;
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
-	this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
+	this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/';
+	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/';
 	//this.server = 'http://dev.santander.crudo.com.uy/';
+
 	this.json_db_tipo_ofertas = '[{"ofertas_tipo_id": 1,"ofertas_tipo_nombre": "Alquiler de autos"}, {"ofertas_tipo_id": 11,"ofertas_tipo_nombre": "Audio y video"}, {"ofertas_tipo_id": 12,"ofertas_tipo_nombre": "Automóvil"}, {"ofertas_tipo_id": 13,"ofertas_tipo_nombre": "Camping"}, {"ofertas_tipo_id": 14,"ofertas_tipo_nombre": "Confitería"}, {"ofertas_tipo_id": 15,"ofertas_tipo_nombre": "Deportes"}, {"ofertas_tipo_id": 16,"ofertas_tipo_nombre": "Entretenimiento"}, {"ofertas_tipo_id": 2,"ofertas_tipo_nombre": "Farmacia"}, {"ofertas_tipo_id": 17,"ofertas_tipo_nombre": "Hogar y decoración"}, {"ofertas_tipo_id": 18,"ofertas_tipo_nombre": "Institutos de enseñanza"}, {"ofertas_tipo_id": 3,"ofertas_tipo_nombre": "Joyería"}, {"ofertas_tipo_id": 4,"ofertas_tipo_nombre": "Librería"}, {"ofertas_tipo_id": 5,"ofertas_tipo_nombre": "Óptica"}, {"ofertas_tipo_id": 19,"ofertas_tipo_nombre": "Piscinas, Saunas y Spas"}, {"ofertas_tipo_id": 6,"ofertas_tipo_nombre": "Repuestos para autos"}, {"ofertas_tipo_id": 7,"ofertas_tipo_nombre": "Restaurantes"}, {"ofertas_tipo_id": 20,"ofertas_tipo_nombre": "Salud"}, {"ofertas_tipo_id": 21,"ofertas_tipo_nombre": "Tecnología e Informática"}, {"ofertas_tipo_id": 8,"ofertas_tipo_nombre": "Turismo"}, {"ofertas_tipo_id": 9,"ofertas_tipo_nombre": "Vestimenta infantil y juguetería"}, {"ofertas_tipo_id": 10,"ofertas_tipo_nombre": "Vestimenta y calzado"}]',
 	this.db = openDatabase('santanders_app_punta', '1.0', 'santanders_app_punta', 2000000);
 	this._ManagePush;
@@ -76,37 +78,41 @@ function App(){
 
 	$(document).bind('CARGAR_LISTAS', doCargarListas);
 	
-	function doCargarListas(e){
+	this.recibiendo_una_push = function (){
 
-		
-		
-
-		if(app.redirigiendo_una_push){
-app.alerta('app.redirigiendo_una_push.go: ' + app.redirect_push_object.go)
-		app.alerta('app.redirigiendo_una_push.id: ' + app.redirect_push_object.id)
 
 			app.db.transaction(function (tx) {
 									
 				if(app.redirect_push_object.go == 'oferta'){
-												tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id='"+app.redirect_push_object.id+"'  AND  ofertas_estado=1" , [], 
-														function (tx, resultado) {
-															if(resultado.rows.length == 1)
-											    			app.secciones.go(app.secciones.seccionunaoferta, 300, {row: resultado.rows.item(0)});
-											    		}
-										    	);
+						tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id=?  AND  ofertas_estado=1" , [app.redirect_push_object.id], 
+								function (tx, resultado) {
+									if(resultado.rows.length == 1)
+					    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
+					    		}
+				    	);
 				}
 
 				if(app.redirect_push_object.go == 'evento'){
-												tx.executeSql("SELECT * FROM eventos WHERE eventos_id='"+app.redirect_push_object.id+"'  AND  eventos_estado=1" , [], 
-														function (tx, resultado) {
-															if(resultado.rows.length == 1)
-											    				app.secciones.go(app.secciones.seccionunevento, 300, {row: resultado.rows.item(0)});
-											    		}
-										    	);					
+
+						tx.executeSql('SELECT *, MIN(datetime_eventos_fecha_hora) as fecha_menor, COUNT(*) as cantidad FROM eventos INNER JOIN datetime_eventos ON datetime_eventos_eventos_id = eventos_id  WHERE eventos_id=? AND eventos_estado=1 GROUP BY eventos_id ORDER BY fecha_menor ASC, eventos_nombre ASC' , [app.redirect_push_object.id],	
+			    			function (tx, resultado) {
+									if(resultado.rows.length == 1)
+					    				app.secciones.go(app.secciones.seccionunevento, 300, {viene_de_push:true, row: resultado.rows.item(0)});
+					    	}
+				    	);					
 				}
 
 			});	
 
+
+	}
+
+	function doCargarListas(e){
+
+		if(app.redirigiendo_una_push){
+			
+			app.recibiendo_una_push()
+			
 		}
 
 	}
@@ -447,19 +453,15 @@ app.alerta('app.redirigiendo_una_push.go: ' + app.redirect_push_object.go)
 		    				
 		    				sync_value = resultado.rows.item(0).sync_value
 
-		    			
-			    				if(String(resultado.rows.item(0).push) != '2' ) {
-			    					
-			    					self._ManagePush.registrar(function(){
+	    					self._ManagePush.registrar(function(){
+	    						if(String(resultado.rows.item(0).push) != '2' ) {
 
-			    					
-			    						if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado()
-			    							primer_registro_push = true
+		    						if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado()
+		    							primer_registro_push = true
 
-
-			    					});
-			    				}
-			    					
+								}
+	    					});
+			    				
 		    				if(app.hay_internet()) verfificar_sync();
 							else $(document).trigger('CARGAR_LISTAS');
 

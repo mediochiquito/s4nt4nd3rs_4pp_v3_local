@@ -33,7 +33,7 @@ function BotonDashboard($icon, $label, $callback, $color){
 
 		this.main.addEventListener("touchend", do_mouseout);
 		this.main.addEventListener("touchstart", do_mouseover);
-		this.main.addEventListener("touchstart", do_touchstart);
+		this.main.addEventListener("click", do_click);
 
 	}else{
 
@@ -62,8 +62,6 @@ function BotonDashboard($icon, $label, $callback, $color){
 
 	
 		setTimeout(function (){
-
-			
 			do_mouseout()
 			do_click()
 		}, 200)

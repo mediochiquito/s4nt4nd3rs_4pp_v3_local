@@ -8,8 +8,9 @@ org.apache.cordova.splashscreen 0.3.3 "Splashscreen"
 cordova plugin add https://github.com/apache/cordova-plugin-geolocation.git
 
 cordova plugin remove com.phonegap.plugins.facebookconnect
+cordova plugin remove com.phonegap.plugins.PushPlugin
 
-cordova plugin add https://github.com/phonegap-build/FacebookConnect
+
 cordova plugin add  https://github.com/phonegap-build/GAPlugin.git
 cordova plugin add https://github.com/phonegap-build/StatusBarPlugin.git
 cordova -d plugin add https://github.com/phonegap-build/FacebookConnect.git --variable APP_ID="381248932009498" --variable APP_NAME="Ideas para hoy"
@@ -18,11 +19,17 @@ cordova -d plugin add https://github.com/phonegap-build/FacebookConnect.git --va
 cordova -d plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
 cordova plugin add https://github.com/VitaliiBlagodir/cordova-plugin-datepicker
 
-
 cordova plugin add https://github.com/VitaliiBlagodir/cordova-plugin-datepicker
-
-
 
 cordova plugin add https://github.com/mediochiquito/PushPlugin.git
 
 https://github.com/mediochiquito/PushPlugin.git
+
+cordova plugin add https://github.com/sclement41/PushPlugin
+cordova plugin add https://github.com/mateomenestrina/PushPlugin
+
+
+
+cordova platform remove ios 
+
+cordova build ios

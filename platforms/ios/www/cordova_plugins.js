@@ -15,13 +15,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
-        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
-        "clobbers": [
-            "PushNotification"
-        ]
-    },
-    {
         "file": "plugins/com.plugin.datepicker/www/ios/DatePicker.js",
         "id": "com.plugin.datepicker.DatePicker",
         "clobbers": [
@@ -109,6 +102,13 @@ module.exports = [
         "clobbers": [
             "navigator.splashscreen"
         ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+        "clobbers": [
+            "PushNotification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -116,7 +116,6 @@ module.exports.metadata =
 {
     "com.adobe.plugins.GAPlugin": "2.3.1",
     "com.phonegap.plugin.statusbar": "1.1.0",
-    "com.phonegap.plugins.PushPlugin": "2.3.1",
     "com.plugin.datepicker": "0.4.0",
     "nl.x-services.plugins.toast": "2.0.1",
     "org.apache.cordova.device": "0.2.12",
@@ -125,6 +124,7 @@ module.exports.metadata =
     "org.apache.cordova.inappbrowser": "0.5.2",
     "org.apache.cordova.network-information": "0.2.12",
     "org.apache.cordova.splashscreen": "0.3.3",
+    "com.phonegap.plugins.PushPlugin": "2.3.1",
     "com.phonegap.plugins.facebookconnect": "0.4.0"
 }
 // BOTTOM OF METADATA

@@ -1,6 +1,8 @@
 <?
 include dirname(__FILE__) . '/_init.php';
 $sync_value = $_GET['sync_value'];	
+
+
 echo '<root>';
 	
 	echo "<!-- " .  date('Y-m-d H:i:s', ($sync_value)) . "  -->";

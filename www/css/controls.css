@@ -123,7 +123,11 @@
 	height: 90px;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
+ .BotonDashboard_icon img{
+	width: 100%;
+	
+	
+}
 .BotonDashboard .BotonDashboard_icon{
 	width: 52px;
 	height: 52px;

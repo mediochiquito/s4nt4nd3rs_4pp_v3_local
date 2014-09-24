@@ -80,7 +80,10 @@ function SeccionUnEvento()
 	var obj;
 
 	function doVolver(){
-		app.secciones.go(app.secciones.seccionlistaeventos, 300)
+		if(obj.viene_de_push)
+			app.secciones.go(app.secciones.seccionhome, 300);
+		else
+			app.secciones.go(app.secciones.seccionlistaeventos, 300);
 	}
 	function doVerEnMapa(){
 		app.secciones.go(app.secciones.seccionmapa, 300, {desde_donde_viene:'un_evento', row_evento:obj.row});
@@ -324,6 +327,7 @@ function SeccionUnEvento()
 
 		app.db.transaction(function (tx) {
 			
+
 			tx.executeSql("SELECT * FROM datetime_eventos WHERE datetime_eventos_eventos_id="+obj.row.eventos_id+" AND datetime_eventos_fecha_hora>'"+obj.row.fecha_menor+"' ORDER BY datetime_eventos_fecha_hora ASC " , [], function (tx, resultado) {
 		    	
 		    	var cant_eventos = resultado.rows.length;

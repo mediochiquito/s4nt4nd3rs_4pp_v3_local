@@ -99,10 +99,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PushPlugin\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"DatePicker\"><param name=\"ios-package\" value=\"DatePicker\" /></feature>",
                             "count": 1
                         },
@@ -132,6 +128,10 @@
                         },
                         {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushPlugin\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
                             "count": 1
                         },
                         {
@@ -198,9 +198,6 @@
         "com.phonegap.plugin.statusbar": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.pimod.santanderapp"
-        },
         "com.plugin.datepicker": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
@@ -223,6 +220,9 @@
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.pimod.santanderapp"
+        },
+        "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "com.phonegap.plugins.facebookconnect": {

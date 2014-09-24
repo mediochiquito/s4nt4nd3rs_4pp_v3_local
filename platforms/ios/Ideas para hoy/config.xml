@@ -27,9 +27,6 @@
     </feature>
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
-    <feature name="PushPlugin">
-        <param name="ios-package" value="PushPlugin" />
-    </feature>
     <feature name="DatePicker">
         <param name="ios-package" value="DatePicker" />
     </feature>
@@ -55,14 +52,20 @@
         <param name="ios-package" value="CDVSplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <access origin="https://m.facebook.com" />
-    <access origin="https://graph.facebook.com" />
-    <access origin="https://api.facebook.com" />
-    <access origin="https://*.fbcdn.net" />
-    <access origin="https://*.akamaihd.net" />
-    <feature name="org.apache.cordova.facebook.Connect">
-        <param name="ios-package" value="FacebookConnectPlugin" />
-    </feature>
+    <icon height="60" src="res/ios/icon-60.png" width="60" />
+    <icon height="120" src="res/ios/icon-60@2x.png" width="120" />
+    <icon height="76" src="res/ios/icon-76.png" width="76" />
+    <icon height="152" src="res/ios/icon-76@2x.png" width="152" />
+    <icon height="40" src="res/ios/icon-40.png" width="40" />
+    <icon height="80" src="res/ios/icon-40@2x.png" width="80" />
+    <icon height="57" src="res/ios/icon.png" width="57" />
+    <icon height="114" src="res/ios/icon@2x.png" width="114" />
+    <icon height="72" src="res/ios/icon-72.png" width="72" />
+    <icon height="144" src="res/ios/icon-72@2x.png" width="144" />
+    <icon height="29" src="res/ios/icon-small.png" width="29" />
+    <icon height="58" src="res/ios/icon-small@2x.png" width="58" />
+    <icon height="50" src="res/ios/icon-50.png" width="50" />
+    <icon height="100" src="res/ios/icon-50@2x.png" width="100" />
     <splash height="480" src="www/img/splash/ios/Default.png" width="320" />
     <splash height="960" src="www/img/splash/ios/Default_at_2x.png" width="640" />
     <name>Ideas para hoy</name>
@@ -82,12 +85,6 @@
     </gap:config-file>
     <icon src="www/icon.png" />
     <gap:splash src="www/splash.png" />
-    <icon gap:platform="ios" height="57" src="www/img/icons/icon.png" width="57" />
-    <icon gap:platform="ios" height="72" src="www/img/icons/icon-72.png" width="72" />
-    <icon gap:platform="ios" height="114" src="www/img/icons/icon_at_2x.png" width="114" />
-    <icon gap:platform="ios" height="76" src="www/img/icons/icon-76.png" width="76" />
-    <icon gap:platform="ios" height="120" src="www/img/icons/icon-120.png" width="120" />
-    <icon gap:platform="ios" height="152" src="www/img/icons/icon-152.png" width="152" />
     <gap:splash gap:density="ldpi" gap:platform="android" src="www/img/splash/android/ldpi.png" />
     <gap:splash gap:density="mdpi" gap:platform="android" src="www/img/splash/android/mdpi.png" />
     <gap:splash gap:density="hdpi" gap:platform="android" src="www/img/splash/android/hdpi.png" />
@@ -104,4 +101,15 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="android-minSdkVersion" value="11" />
     <preference name="android-targetSdkVersion" value="14" />
+    <feature name="PushPlugin">
+        <param name="ios-package" value="PushPlugin" />
+    </feature>
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
+    <feature name="org.apache.cordova.facebook.Connect">
+        <param name="ios-package" value="FacebookConnectPlugin" />
+    </feature>
 </widget>

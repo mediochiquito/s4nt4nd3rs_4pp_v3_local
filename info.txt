@@ -1,3 +1,9 @@
+Node version: v0.10.25
+
+Cordova version: 0.21.13
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.pimod.santanderapp" 
 		versionCode = "16" 
@@ -26,39 +32,14 @@
     <gap:splash src="www/splash.png" />
 
 
-    <platform name="android">
-              <icon src="res/android/ldpi.png" density="ldpi" />
-              <icon src="res/android/mdpi.png" density="mdpi" />
-              <icon src="res/android/hdpi.png" density="hdpi" />
-              <icon src="res/android/xhdpi.png" density="xhdpi" />
-     </platform>
 
-    <platform name="ios">
-              <!-- iOS 7.0+ -->
-              <!-- iPhone / iPod Touch  -->
-              <icon src="res/ios/icon-60.png" width="60" height="60" />
-              <icon src="res/ios/icon-60@2x.png" width="120" height="120" />
-              <!-- iPad -->
-              <icon src="res/ios/icon-76.png" width="76" height="76" />
-              <icon src="res/ios/icon-76@2x.png" width="152" height="152" />
-              <!-- iOS 6.1 -->
-              <!-- Spotlight Icon -->
-              <icon src="res/ios/icon-40.png" width="40" height="40" />
-              <icon src="res/ios/icon-40@2x.png" width="80" height="80" />
-              <!-- iPhone / iPod Touch -->
-              <icon src="res/ios/icon.png" width="57" height="57" />
-              <icon src="res/ios/icon@2x.png" width="114" height="114" />
-              <!-- iPad -->
-              <icon src="res/ios/icon-72.png" width="72" height="72" />
-              <icon src="res/ios/icon-72@2x.png" width="144" height="144" />
-              <!-- iPhone Spotlight and Settings Icon -->
-              <icon src="res/ios/icon-small.png" width="29" height="29" />
-              <icon src="res/ios/icon-small@2x.png" width="58" height="58" />
-              <!-- iPad Spotlight and Settings Icon -->
-              <icon src="res/ios/icon-50.png" width="50" height="50" />
-              <icon src="res/ios/icon-50@2x.png" width="100" height="100" />
 
-    </platform>
+    <icon src="www/img/icons/icon.png" gap:platform="ios" width="57" height="57" />
+    <icon src="www/img/icons/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="www/img/icons/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
+    <icon src="www/img/icons/icon-76.png" gap:platform="ios" width="76" height="76" />
+    <icon src="www/img/icons/icon-120.png" gap:platform="ios" width="120" height="120" />
+    <icon src="www/img/icons/icon-152.png" gap:platform="ios" width="152" height="152" />
 
 
     <platform name="ios">
@@ -72,10 +53,7 @@
 	    <splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/> -->
 	</platform>
 
-    
-
-
-<!-- <gap:splash src="www/img/splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
+<!--     <gap:splash src="www/img/splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
     <gap:splash src="www/img/splash/ios/Default_at_2x.png" gap:platform="ios" width="640" height="960" />
     <gap:splash src="www/img/splash/ios/Default_iphone5.png" gap:platform="ios" width="640" height="1136" />
     <gap:splash src="www/img/splash/ios/Default-Portrait.png" gap:platform="ios" width="768" height="1004" />
@@ -111,3 +89,14 @@
 
 
 </widget>
+
+
+Plugins: 
+
+com.adobe.plugins.GAPlugin,com.phonegap.plugin.statusbar,com.phonegap.plugins.PushPlugin,com.phonegap.plugins.facebookconnect,com.plugin.datepicker,nl.x-services.plugins.toast,org.apache.cordova.device,org.apache.cordova.dialogs,org.apache.cordova.geolocation,org.apache.cordova.inappbrowser,org.apache.cordova.network-information,org.apache.cordova.splashscreen
+
+iOS platform:
+
+Xcode 6.0.1
+Build version 6A317
+

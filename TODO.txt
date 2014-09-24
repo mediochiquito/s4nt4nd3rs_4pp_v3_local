@@ -1,14 +1,8 @@
-- deep link push notification
-
-- dashboard boton no touchable
-
 - disabel combos por el tab
 
 - bases banner home ofertas
 
 - agregar campo relacion datetime
-
-- cambiar pyush ide_evento
 
 - circulo distancia mapa
 
