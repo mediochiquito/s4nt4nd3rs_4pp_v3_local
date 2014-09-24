@@ -80,6 +80,7 @@ function SeccionPush()
 					error:function (){
 
 						app.alerta('Ocurrio un error, por favor intenta mas tarde.');
+						app.secciones.go(app.secciones.seccionhome, 300)
 
 					}
 				});

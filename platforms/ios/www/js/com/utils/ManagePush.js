@@ -71,7 +71,7 @@ function ManagePush(){
 
 
 	function sendToken(){
-		alert(self.token)
+		
 		$.ajax({
 
 			type: "POST",
@@ -100,12 +100,12 @@ function ManagePush(){
 	}
 	
 	function errorHandler (error) {
-		alert('errorHandler:' + error)
+		
 	  	if(_callback_error != null) _callback_error();
 	}
 
 	function tokenHandler (result) {
-		alert('tokenHandler:' + result)
+		
  		self.token = result
 		sendToken();
 	}
@@ -167,7 +167,7 @@ function ManagePush(){
 		if(typeof($obj_push.o) !='undefined'){
 			if($obj_push.o > 0){
 				app.redirect_push_object = {go: 'oferta', id:$obj_push.o}
-			
+				
 			}
 		}
 
