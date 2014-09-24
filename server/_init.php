@@ -1,16 +1,18 @@
 <?php
 	ob_start("ob_gzhandler");
 	ignore_user_abort ( true );
-	error_reporting( E_ALL ^ E_NOTICE);
+	//error_reporting( E_ALL ^ E_NOTICE);
+	error_reporting(0);
 
-	if($_SERVER['HTTP_HOST'] == '127.0.0.1' || $_SERVER['HTTP_HOST'] == '192.168.0.2' || $_SERVER['HTTP_HOST'] == 'localhost') 	
-	{
+	if($_SERVER['HTTP_HOST'] == '127.0.0.1' || $_SERVER['HTTP_HOST'] == '192.168.0.2' || $_SERVER['HTTP_HOST'] == 'localhost') 	{
+
 		define("DB_HOST", "localhost");
 		define("DB_USER", "root");
 		define("DB_PASS", "");
 		define("DB_NAME", "santanders");
+
 		
-	}else if($_SERVER['HTTP_HOST'] == '192.168.235.140:8888' || $_SERVER['HTTP_HOST'] == '192.168.235.100:8888'){
+	}else if($_SERVER['HTTP_HOST'] == '192.168.235.140:8888' || $_SERVER['HTTP_HOST'] == '192.168.0.100:8888'){
 
 		define("DB_HOST", "localhost:8888");
 		define("DB_USER", "root");

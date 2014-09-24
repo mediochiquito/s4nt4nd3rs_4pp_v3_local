@@ -78,9 +78,9 @@ function App(){
 	
 	function doCargarListas(e){
 
-		app.alerta('doCargarListas: ' + app.redirigiendo_una_push)
+		/*app.alerta('doCargarListas: ' + app.redirigiendo_una_push)
 		app.alerta('app.redirigiendo_una_push.go: ' + app.redirigiendo_una_push.go)
-		app.alerta('app.redirigiendo_una_push.id: ' + app.redirigiendo_una_push.id)
+		app.alerta('app.redirigiendo_una_push.id: ' + app.redirigiendo_una_push.id)*/
 		if(app.redirigiendo_una_push != null){
 
 			app.db.transaction(function (tx) {
@@ -208,8 +208,8 @@ function App(){
 
 		if(app.is_phonegap()){
 
-			/*gaPlugin = window.plugins.gaPlugin;
-	  	    gaPlugin.init(function(){}, function(){}, "UA-46773616-2", 10);*/
+			gaPlugin = window.plugins.gaPlugin;
+	  	    gaPlugin.init(function(){}, function(){}, "UA-46773616-2", 10);
 
 			if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
 			if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
@@ -237,18 +237,18 @@ function App(){
 	    	self._Facebook.init() 
 
 		    if ( device.platform == 'android' || device.platform == 'Android' ) {
-		    	//app.plataforma = 'android';
+		    	app.plataforma = 'android';
 		    }
 			else {
 			   app.plataforma = 'ios';
-			  // StatusBar.hide();
+			   StatusBar.hide();
 			}
 	
    		}
 
 
    		
-   		 if(navigator.geolocation) {
+   		if(navigator.geolocation) {
 
 		    		watchid = navigator.geolocation.watchPosition(
 											onLocation, 
@@ -257,7 +257,7 @@ function App(){
 												timeout: 5000
 											}
 					);
-			}
+		}
 
         self.ancho = window.innerWidth;
 		self.alto = window.innerHeight;
@@ -446,7 +446,7 @@ function App(){
 		    				sync_value = resultado.rows.item(0).sync_value
 
 		    				/*if(app.is_phonegap()){*/
-			    				if(String(resultado.rows.item(0).push) != '2' ) {
+			    				//if(String(resultado.rows.item(0).push) != '2' ) {
 			    					
 			    					self._ManagePush.registrar(function(){
 
@@ -456,7 +456,7 @@ function App(){
 
 
 			    					});
-			    				}
+			    				//}
 			    					
 		    				if(app.hay_internet()) verfificar_sync();
 							else $(document).trigger('CARGAR_LISTAS');

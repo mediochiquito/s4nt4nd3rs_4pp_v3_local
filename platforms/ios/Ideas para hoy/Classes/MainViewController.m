@@ -19,7 +19,7 @@
 
 //
 //  MainViewController.h
-//  SantanderApp
+//  Ideas para hoy
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
@@ -144,7 +144,17 @@
     return [super getCommandInstance:className];
 }
 
-- (NSString*)pathForResource:(NSString*)resourcepath
+/*
+   NOTE: this will only inspect execute calls coming explicitly from native plugins,
+   not the commandQueue (from JavaScript). To see execute calls from JavaScript, see
+   MainCommandQueue below
+*/
+- (BOOL)execute:(CDVInvokedUrlCommand*)command
+{
+    return [super execute:command];
+}
+
+- (NSString*)pathForResource:(NSString*)resourcepath;
 {
     return [super pathForResource:resourcepath];
 }

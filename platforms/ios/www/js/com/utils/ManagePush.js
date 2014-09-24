@@ -7,7 +7,7 @@ function ManagePush(){
 	var _callback = null
 	var _callback_error = null;
 
-	 this.registrar = function($callback, $callback_error){
+	this.registrar = function($callback, $callback_error){
 
 	 	if(typeof($callback) != 'undefined') _callback = $callback;
 	 	else _callback = null;
@@ -36,6 +36,7 @@ function ManagePush(){
 		}
 		else
 		{
+
 		    pushNotification.register(
 		        tokenHandler,
 		        errorHandler, {
@@ -70,7 +71,7 @@ function ManagePush(){
 
 
 	function sendToken(){
-		alert( self.plataform + ' , ' + self.token)
+		alert(self.token)
 		$.ajax({
 
 			type: "POST",
@@ -99,14 +100,14 @@ function ManagePush(){
 	}
 	
 	function errorHandler (error) {
+		alert('errorHandler:' + error)
 	  	if(_callback_error != null) _callback_error();
 	}
 
 	function tokenHandler (result) {
-	  
+		alert('tokenHandler:' + result)
  		self.token = result
 		sendToken();
-
 	}
 	
 	// iOS
