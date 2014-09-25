@@ -1,0 +1,70 @@
+#SeccionTerms{
+
+
+}
+#SeccionTerms_holder{
+	position: absolute;
+	color: #000;
+	top:60px;
+	left: 20px;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+
+}
+#SeccionTerms_scroleable{
+	padding: 10px;
+}
+
+#SeccionTerms_titulo{
+	position: relative;
+	font-family: 'GothamBold';
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+#SeccionTerms_txt{
+	position: relative;
+	font-family: 'GothamBook';
+	font-size: 13px;
+}
+
+#SeccionTermsBanner_holder{
+	position: absolute;
+	color: #000;
+	top:60px;
+	left: 20px;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	font-family: 'GothamBook';
+	font-size: 13px;
+	border-bottom: solid 1px #e5e5e5;
+}
+
+
+#SeccionTermsBanner_holder h1{
+	position: relative;
+	font-family: 'GothamBold';
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+#loading_terms{
+ position: absolute;
+ width: 100%;
+ height:100%;
+ background-color: #000;
+ opacity: 0.9;
+ display: none;
+
+}
+#SeccionTermsBanner_btn_volver{
+
+	position: absolute;
+	
+	
+
+	left: 23px;
+	
+	
+
+	bottom: 29px;
+
+}

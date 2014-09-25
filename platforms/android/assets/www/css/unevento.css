@@ -1,0 +1,200 @@
+#UnEvento{
+	position: absolute;
+	
+}
+#UnEvento_holder{
+
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+ 	-webkit-transform: translateZ(0); 
+}
+#UnEvento_btn_volver{
+
+	position: absolute;
+	right: 6px;
+	top: 4px;
+}
+.UnEvento_disancia{
+	font-family: 'GothamBook';
+	font-size: 10px;
+	color: #979797;
+	position: absolute;
+	top: 2px;
+	right: 28px;
+	width: 60px;
+	text-align: right;
+}
+#UnEvento_btn_ver_en_mapa{
+
+	position: absolute;
+	
+
+	right: 2px;
+	
+
+	top: -3px;
+	z-index: 1000;
+
+}
+
+#SeccionUnEvento{
+	position: absolute;
+}
+
+#SeccionUnEvento_img{
+	position: relative;
+	
+
+}
+#UnEvento_header_titulo{
+	position: relative;
+	
+	background-color: #674d97;
+		
+
+	margin-top: -4px;
+}
+#UnEvento_titulo_txt{
+	position: relative;
+	color: #fff;
+	font-family: 'GothamBold';
+	font-size: 14px;
+	margin-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 8px;
+}
+#UnEvento_fecha_txt{
+	position: relative;
+	color: #fff;
+	font-family: 'GothamBook';
+	font-size: 10px;
+	margin-left: 11px;
+	padding-top: 7px;
+	padding-bottom: 0px;
+}
+
+#UnEvento_holder_data{
+	position: relative;
+	
+	
+}
+.UnEvento_reg{
+	position: relative;
+	
+	
+}
+
+.UnEvento_label{
+	position: relative;
+	width: 100%;
+	font-family: 'GothamBold';
+	font-size: 13px;
+	margin-top: 5px;
+	
+	margin-left: 10px;
+}
+.UnEvento_data{
+	position: relative;
+	font-family: 'GothamBook';
+	font-size: 13px;
+	float: left;
+
+	width: 100%;
+	border-bottom: solid 1px #e5e5e5;
+	padding-bottom: 6px;
+	padding-right: 30px;
+	box-sizing: border-box;
+}
+.UnEvento_data>div{
+	margin-left: 10px;
+}
+
+
+
+#UnEvento_holder_footer{
+	position: relative;
+
+	height: 70px;
+}
+#UnEvento_btn_participar{
+	left: 50%;
+	top: 15px;
+	margin-left: -132px;
+	width: 130px;
+}
+#UnEvento_btn_compartir{
+	left: 50%;
+	top: 15px;
+	margin-left: 2px;
+	width: 130px;
+}
+#UnEvento_holder_participaciones{
+
+        position: relative;
+    	width: 100%;
+        
+        border-top: solid 1px #ccc;
+
+}
+#UnEvento_txt_tambien_participan{
+        position: relative;
+        font-family: 'GothamBold';
+        font-size: 12px;
+       	padding: 5px;
+        float: left;
+        height: 24px;
+        clear: both;
+}
+#UnEvento_holder_usuarios_fb{
+	padding: 5px;
+        position: relative;
+      
+        /* background-color: #ff0000; */
+
+}
+#UnEvento_holder_usuarios_fb img{
+
+        position: relative;
+        width: 50px;
+        height: 50px;
+        padding: 2px;
+        float: left;
+
+}
+#UnEvento_txt_tambien_participan{
+	position: relative;
+	font-family: 'GothamBold';
+	font-size: 12px;
+	
+	float: left;
+	height: 10px;
+	clear: both;
+}
+#UnEvento_holder_usuarios_fb{
+
+	position: relative;
+	
+	
+
+	clear: both;
+
+}
+#UnEvento_holder_usuarios_fb img{
+
+	position: relative;
+	width: 50px;
+	height: 50px;
+	padding: 2px;
+	float: left;
+
+
+}
+#UnEvento_mensaje_participantes{
+
+
+        font-family: 'GothamBook';
+        font-size: 12px;
+        font-style: italic;
+        color: #ccc;
+
+}

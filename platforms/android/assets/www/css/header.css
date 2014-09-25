@@ -1,0 +1,79 @@
+#Header{
+	
+	height: 50px;
+	position: absolute;
+	width: 100%;
+
+	
+	background-color: #ff151f;
+	/* box-shadow: 0px -1px 10px -2px #000; */
+}
+
+.header_con_sombra{
+
+	box-shadow: 0px -1px 10px -2px #000;
+}
+
+#Header div{
+	position: absolute;
+}
+#Header img{
+	
+	position: absolute;
+	
+}
+#Header_btn_menu{
+
+left: 0px;
+
+top: 10px;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+}
+
+#Header_logito{
+	width: 25px;
+	left: 26px;
+	top: 14px;
+}
+#Header_lupa{
+	width: 16px;
+	right: 50%;
+	top: 26px;
+}
+#Header_btn_close{
+	position: absolute;
+	right: 10px;
+	
+	
+	top: 10px;
+}
+#Header input{
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-user-modify: read-write-plaintext-only;
+	
+}
+#Header_search{
+	right: 10px;
+	
+	border-radius: 20px;
+	background-color: #fff;
+	border: none;
+	top: 10px;
+	height: 30px;
+	position: absolute;
+	padding: 0px;
+	outline: none;
+	font-family: 'GothamBook';
+	font-size: 12px;
+	padding-left: 35px;
+ 	-webkit-border-radius: 20px;
+	-webkit-appearance: none;
+	background-image: url(../img/header/lupa.png);
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-position: 9px 8px;
+	
+ 	
+  	outline-style: none;
+}

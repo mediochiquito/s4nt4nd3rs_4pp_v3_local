@@ -1,0 +1,75 @@
+#SeccionMenu{
+	
+
+
+	
+}
+#SeccionMenu_header_bg{
+	width: 100%;
+	height: 40px;
+	background-color: #000;
+	opacity: 0.3;
+	position: absolute;
+	top: 60px;
+	color: #fff;
+	left: 10px;
+
+
+}
+#SeccionMenu_chk_push{
+	position: absolute;
+	right: 0px;
+	top: 5px;
+	
+
+}
+#SeccionMenu_punta{
+
+	position: absolute;
+	
+
+	left: 22px;
+	
+
+	top: 46px;
+}
+#SeccionMenu_header{
+
+	font-family: 'GothamBold';
+    
+
+	font-size: 17px;
+    
+
+	top: 70px;
+    
+
+	left: 29px;
+
+
+	color: #fff;
+
+	position: absolute;
+
+}
+#SeccionMenu_holder{
+	position: absolute;
+	top: 52px;
+
+
+}
+.ItemMenu{
+	position: relative;
+	font-family: 'GothamBook';
+	font-size: 13px;
+	color: #fff;
+	border-bottom: solid 1px #fff;
+	padding: 10px 10px 10px 40px;
+	margin-left: 0px;
+}
+.ItemMenu > img{
+	position: absolute;
+	width: 25px;
+	top: 4px;
+	left: 5px;
+}
