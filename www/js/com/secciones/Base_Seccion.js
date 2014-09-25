@@ -61,7 +61,7 @@ function Base_Seccion(){
 		}, t, function(){ 
 
 			$(self.main).transition({x:2000},0)
-			
+			$(self.main).hide()
 
 			
 		})
