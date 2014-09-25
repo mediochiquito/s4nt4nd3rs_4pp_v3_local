@@ -18,6 +18,7 @@ function Base_Seccion(){
 		
 
 		$(self.main).transition({x:app.ancho},0)
+		$(self.main).show()
 		$(this.main).transition({
 			  x:0,
 			  scale: 1, 
@@ -60,6 +61,8 @@ function Base_Seccion(){
 		}, t, function(){ 
 
 			$(self.main).transition({x:2000},0)
+			
+
 			
 		})
 		

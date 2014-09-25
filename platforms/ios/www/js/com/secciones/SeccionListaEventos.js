@@ -211,7 +211,6 @@ function SeccionListaEventos()
 							else btn_ver_en_mapa.habil(true);
 					}
 
-
 			    	if(cant_eventos == 0){
 
 			    		//btn_ver_en_mapa.habil(false)
@@ -221,7 +220,6 @@ function SeccionListaEventos()
 			    		else 
 			    			$(holder).find('#ListaEventosWrapper').append('<div class="sin_resultados"><div>No hay eventos publicados por el momento.<br /><br />Te invitamos a que consultes la sección Descuentos.</div></div>');
 
-
 			    	}else{
 			    		//	btn_ver_en_mapa.habil(true)
 			    		
@@ -230,12 +228,14 @@ function SeccionListaEventos()
 			    	
 		    		array_ids_encontrados = new Array();
 		    		for(var i=0; i<cant_eventos; i++){
+		    			//for(var u=0; u<50; u++){
+
 		    				ultimo_resultado  = resultado
 			    			array_ids_encontrados.push(resultado.rows.item(i).eventos_id)
 							
 							var _ItemListaEvento = new ItemListaEvento(resultado.rows.item(i), item_con_fecha);
 							$(holder).find('#ListaEventosWrapper').append(_ItemListaEvento.main)
-			          
+			         // 	}
 			        }
 
 

@@ -51,10 +51,12 @@
 #ListaOferta_banner{
 	padding: 0 auto;
 }
-#ListaOfertas_holder{
+
+#ListaOfertas_holder {
 	overflow: scroll;
+	overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-     -webkit-transform: translateZ(0); 
+
 }
 
 #ListaOferta_combo_deptos{

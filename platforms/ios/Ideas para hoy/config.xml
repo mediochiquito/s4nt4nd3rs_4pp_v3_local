@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.pimod.santanderapp" version="3.0" versionCode="16" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.pimod.santanderapp" version="3.0.0" versionCode="16" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="BackupWebStorage" value="cloud" />
@@ -22,6 +22,14 @@
     <feature name="GAPlugin">
         <param name="ios-package" value="GAPlugin" />
     </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <feature name="PushPlugin">
+        <param name="ios-package" value="PushPlugin" />
+    </feature>
     <feature name="DatePicker">
         <param name="ios-package" value="DatePicker" />
     </feature>
@@ -34,6 +42,9 @@
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
@@ -44,9 +55,15 @@
         <param name="ios-package" value="CDVSplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="PushPlugin">
-        <param name="ios-package" value="PushPlugin" />
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
+    <feature name="org.apache.cordova.facebook.Connect">
+        <param name="ios-package" value="FacebookConnectPlugin" />
     </feature>
+    <gap:splash src="www/splash.png" />
     <icon height="60" src="res/ios/icon-60.png" width="60" />
     <icon height="120" src="res/ios/icon-60@2x.png" width="120" />
     <icon height="76" src="res/ios/icon-76.png" width="76" />
@@ -61,8 +78,9 @@
     <icon height="58" src="res/ios/icon-small@2x.png" width="58" />
     <icon height="50" src="res/ios/icon-50.png" width="50" />
     <icon height="100" src="res/ios/icon-50@2x.png" width="100" />
+    <gap:splash gap:platform="ios" src="img/res/screens/Default-568h@2x~iphone.png" />
     <name>Ideas para hoy</name>
-    <description>
+    <description> s
         Santander Uruguay Ideas para Hoy permite a los usuarios acceder a información sobre eventos de verano y descuentos para usuarios de tarjetas Santander en Punta del Este, Uruguay.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
@@ -70,15 +88,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <gap:config-file parent="UIStatusBarHidden" platform="ios">
-        <true />
-    </gap:config-file>
-    <gap:config-file parent="UIViewControllerBasedStatusBarAppearance" platform="ios">
-        <false />
-    </gap:config-file>
     <icon src="www/icon.png" />
-    <gap:splash src="www/splash.png" />
-    <gap:splash gap:platform="ios" src="img/res/screens/Default-568h@2x~iphone.png" />
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
@@ -91,20 +101,4 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="android-minSdkVersion" value="11" />
     <preference name="android-targetSdkVersion" value="14" />
-    <feature name="StatusBar">
-        <param name="ios-package" onload="true" value="CDVStatusBar" />
-    </feature>
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
-    <feature name="Geolocation">
-        <param name="ios-package" value="CDVLocation" />
-    </feature>
-    <access origin="https://m.facebook.com" />
-    <access origin="https://graph.facebook.com" />
-    <access origin="https://api.facebook.com" />
-    <access origin="https://*.fbcdn.net" />
-    <access origin="https://*.akamaihd.net" />
-    <feature name="org.apache.cordova.facebook.Connect">
-        <param name="ios-package" value="FacebookConnectPlugin" />
-    </feature>
 </widget>

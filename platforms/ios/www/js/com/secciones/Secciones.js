@@ -150,8 +150,11 @@ function Secciones(){
 		}catch(e){}
 		
 		if(guardar_historia) historia.push([$base_seccion, $data]);
-
-		$base_seccion.mostrar($time, $data);
+		
+		setTimeout(function(){
+			$base_seccion.mostrar($time, $data);
+		}, 500)
+		
 
 		obj_seccion_actual = $base_seccion
 			
