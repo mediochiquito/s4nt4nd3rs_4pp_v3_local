@@ -164,8 +164,11 @@ function SeccionMapa()
 			 map.setCenter(pos);
 
 			 my_marker = new google.maps.Marker(
-			           				{
-									  icon: {url:'img/mapa/mypoint.png', scaledSize: new google.maps.Size(20, 20)}
+			           				{ 
+									  icon: {url:'img/mapa/mypoint.png', 
+									  		 scaledSize: new google.maps.Size(20, 20),
+									  		 anchor: new google.maps.Point(10,10)
+									  		}
 									  
 									});
 			my_marker.setMap(map);
@@ -329,7 +332,7 @@ function SeccionMapa()
 				google.maps.event.trigger(map, 'resize')
 		}, 200)		
 	}
-	
+	var map_circle;
 	function listar_ofertas_a_distancia(){
 
 		if(app.posicion_global == ''){
@@ -338,6 +341,25 @@ function SeccionMapa()
 			return;
 		}
 		
+		try{
+
+			map_circle.setMap(null)
+		}catch(e){}
+
+		 var circleOptions = {
+	      strokeColor: '#FF0000',
+	      strokeOpacity: 0.2,
+	      strokeWeight: 2,
+	      fillColor: '#FF0000',
+	      fillOpacity: 0.1,
+	      map: map,
+	      center: my_marker.getPosition(),
+	      radius: (distancia*1000)
+	    };
+
+	    map_circle = new google.maps.Circle(circleOptions);
+
+
 	    for (i in array_markers) {
 		    try{
 		    	array_markers[i].setMap(null);

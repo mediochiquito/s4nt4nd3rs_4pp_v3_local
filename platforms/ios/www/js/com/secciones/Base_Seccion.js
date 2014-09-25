@@ -6,6 +6,7 @@ function Base_Seccion(){
 
 	
 	
+	
 	this.mostrar = function($time, $data){
 		
 		var t = $time;
@@ -39,7 +40,7 @@ function Base_Seccion(){
 	}
 
 	this._remove = function(){
-
+		
 
 	}
 

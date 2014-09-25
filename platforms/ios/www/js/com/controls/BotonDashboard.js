@@ -10,7 +10,6 @@ function BotonDashboard($icon, $label, $callback, $color){
 	BotonDashboard_icon.className =  'BotonDashboard_icon'
 	$(this.main).append(BotonDashboard_icon)
 
-
 	var img= new Image()
 	img.src = 'img/icons_dashboards/'+$icon+'.svg'
 	$(BotonDashboard_icon).append(img)

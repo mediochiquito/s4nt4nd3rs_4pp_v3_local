@@ -701,7 +701,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pablo Buela (7YV37643V7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: PIMOD SRL (C6X8LD6G28)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -731,7 +731,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "1cb1e75a-c964-4ab8-82fc-f5a00686db5b";
+				PROVISIONING_PROFILE = "249FB1A0-01F9-4A22-97E6-C49BC9CC3C64";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -741,7 +741,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pablo Buela (7YV37643V7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: PIMOD SRL (C6X8LD6G28)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ideas para hoy/Ideas para hoy-Prefix.pch";
@@ -769,7 +769,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "1cb1e75a-c964-4ab8-82fc-f5a00686db5b";
+				PROVISIONING_PROFILE = "249FB1A0-01F9-4A22-97E6-C49BC9CC3C64";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
