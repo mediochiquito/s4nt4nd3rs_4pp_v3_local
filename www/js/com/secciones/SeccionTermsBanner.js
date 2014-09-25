@@ -21,17 +21,25 @@ function SeccionTermsBanner()
 	btn_volver.main.id = 'SeccionTermsBanner_btn_volver'
 	$(this.main).append(btn_volver.main)
 
+	var obj;
 
 	function doVolver(){
-		app.secciones.go(app.secciones.seccionlistaofertas, 300)
-	}
-	this._set  = function (obj){
+		if(obj.desde == 'home_oferta'){
+			app.secciones.go(app.secciones.seccionhomeofertas, 300)
+
+		}else{
+
+			app.secciones.go(app.secciones.seccionlistaofertas, 300)
+		}
 		
+	}
+	this._set  = function ($obj){
+		obj = $obj
 		if(!cargada){
 		
 			$.ajax({
 				type: "GET",
-				url: app.server + "html.oferta_banner_terms.php?id="+obj.id,
+				url: app.server + "html.oferta_banner_terms.php?id="+$obj.id,
 				dataType: 'text'
 			}).success(function(html) {
 

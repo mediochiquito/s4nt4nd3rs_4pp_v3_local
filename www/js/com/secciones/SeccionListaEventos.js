@@ -56,6 +56,14 @@ function SeccionListaEventos()
 	btn_volver.main.id = 'UnaOferta_btn_volver'
 	$(holder_blanco_secciones).append(btn_volver.main)
 	
+	var _self = this
+
+	$(document).bind('cerrando_menu', function(){
+		
+		if($(_self.main).css('opacity')==1) $(combo_deptos).attr('disabled', false)
+	})
+
+
 	function doVolver(){
 
 		app.secciones.go(app.secciones.seccionhomeeventos, 300);
@@ -91,7 +99,10 @@ function SeccionListaEventos()
 		return array_fecha[2]+' de '+ app.meses[array_fecha[1]-1]+' '+array_fecha[0];
 
 	}
-
+	this._remove = function(){
+		
+		$(combo_deptos).attr('disabled', true)
+	}
 	this._set = function ($data){
 		
 		if(typeof($data) != 'undefined'){
@@ -117,9 +128,6 @@ function SeccionListaEventos()
 				$(holder).css({width: app.ancho-40, height: app.alto-105});
 			}
 
-			
-			
-
 			// buscando solo fecha
 			if(typeof($data.fecha ) != 'undefined'){
 				$(holder).css({width: app.ancho-40, height: app.alto-175});
@@ -129,10 +137,8 @@ function SeccionListaEventos()
 				$(btn_ver_en_mapa.main).show()
 
 			}
-
-
-
 			this.listar()
+
 		}else{
 
 			$(titulo_seccion).html('Eventos');

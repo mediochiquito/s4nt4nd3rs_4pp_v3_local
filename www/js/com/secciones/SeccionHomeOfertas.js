@@ -70,6 +70,13 @@ function SeccionHomeOfertas()
 				if($json!==false) {
 					
 					$(holder_banner).html('<img width="'+(app.ancho-40)+'" src="http://santander.crudo.com.uy/'+$json.banners_ofertas_url+'" />')			
+					setTimeout(function(){
+						$(holder_banner).find('img').bind('click', function(){
+							app.secciones.go(app.secciones.secciontermsbanner, 300, {id:$json.banners_ofertas_id, desde:'home_oferta'})
+						})
+
+					}, 0)
+
 				//	$(holder_banner).html('<img width="'+(app.ancho-40)+'" src="'+app.server+$json.banners_ofertas_url+'" />')
 						
 						//

@@ -56,16 +56,37 @@ function Secciones(){
 
 	var obj_seccion_actual = null;	
 	var cambiando_historia = false;
+
+	if(app.es_touch()){
+
+		this.main.addEventListener("touchstart", function(){
+			app.secciones.cerrar_desplazamiento()
+		});
+
+	}else{
+
+		this.main.addEventListener("click",  function(){
+			app.secciones.cerrar_desplazamiento()
+		});
+
+	}
+
 	this.get_obj_seccion_actual = function (){
 		return obj_seccion_actual;
 	}
 
 
 	this.cerrar_desplazamiento = function (){
+		if(despazada){
 
-		$(self.main).transition({x:0})
-		despazada = false
-		$('#Header').removeClass('header_con_sombra')
+			$(self.main).transition({x:0})
+			despazada = false
+			$('#Header').removeClass('header_con_sombra')
+			$(document).trigger('cerrando_menu')
+
+		}
+		
+
 
 	}
 
@@ -75,8 +96,11 @@ function Secciones(){
 			$(self.main).transition({x:230})
 			$('#Header').addClass('header_con_sombra')
 			despazada = true
+			$('select').attr('disabled', true)
+	
 		}else{
 			this.cerrar_desplazamiento()
+
 		}
 		
 

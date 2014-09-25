@@ -1,8 +1,1 @@
-- disabel combos por el tab
-
-- bases banner home ofertas
-
-- agregar campo relacion datetime
-
-- circulo distancia mapa
-
+mapa nativo
