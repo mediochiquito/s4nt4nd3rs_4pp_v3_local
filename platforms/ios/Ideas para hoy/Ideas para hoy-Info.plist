@@ -76,6 +76,8 @@
     <array>
       <string>UIInterfaceOrientationPortrait</string>
     </array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string></string>
     <key>FacebookAppID</key>
     <string>381248932009498</string>
     <key>FacebookDisplayName</key>
@@ -89,7 +91,5 @@
         </array>
       </dict>
     </array>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string></string>
   </dict>
 </plist>

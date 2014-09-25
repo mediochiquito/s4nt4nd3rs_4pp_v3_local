@@ -123,9 +123,9 @@ module.exports.metadata =
     "org.apache.cordova.network-information": "0.2.12",
     "org.apache.cordova.splashscreen": "0.3.3",
     "com.phonegap.plugins.PushPlugin": "2.3.1",
-    "com.phonegap.plugins.facebookconnect": "0.4.0",
     "com.phonegap.plugin.statusbar": "1.1.0",
-    "org.apache.cordova.geolocation": "0.3.11-dev"
+    "org.apache.cordova.geolocation": "0.3.11-dev",
+    "com.phonegap.plugins.facebookconnect": "0.4.0"
 }
 // BOTTOM OF METADATA
 });

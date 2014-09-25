@@ -20,8 +20,8 @@ function App(){
 
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
-	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/';
-	this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/';
+	this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/';
+	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/';
 	//this.server = 'http://dev.santander.crudo.com.uy/';

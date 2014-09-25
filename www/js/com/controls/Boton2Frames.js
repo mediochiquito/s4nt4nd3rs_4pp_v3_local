@@ -12,7 +12,12 @@ function Boton2Frames($img, $img_w, $img_h, $callback, $facetor_scale){
 	var ext_array = $img.split('.');
 	var ext = ext_array[ext_array.length-1]
 	if(ext == 'png') $(this.main).find('img').css('-webkit-backface-visibility', 'hidden');
-
+	else {
+/*
+		$(this.main).find('img').css("width", $img_w*2);
+		$(this.main).find('img').css("height", $img_h); 
+		$(this.main).find('img').css("left", -$img_w/2); */
+	}
 
 		
 	$(this.main).css("width", $img_w);

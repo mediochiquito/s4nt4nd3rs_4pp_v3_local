@@ -57,9 +57,9 @@
 		DFB07A3481CC4A5893051D86 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 13475FFD051E4614B6E6574A /* CDVNotification.m */; };
 		E5341CB19EDA493FAEF3949D /* DatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCC7DC4E4A44B2A2431B90 /* DatePicker.xib */; };
 		E8401F03410646F59B3A03AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F185A976CAB04B4C8509B39A /* QuartzCore.framework */; };
-		4C620CEC6CCA4CD392208DCD /* FacebookSDK-3.5.2-Release.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B638AE414F7B4D29AA32AAA1 /* FacebookSDK-3.5.2-Release.a */; };
-		CA4A2CF7963B48918E6138EA /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B814A3347B5455E8FDD8A56 /* FacebookSDKResources.bundle */; };
-		537AB2DBD0A84C38A69325EA /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AAABC034021B49218823767E /* FBUserSettingsViewResources.bundle */; };
+		DD93190AB4A14CD0981BFFE9 /* FacebookSDK-3.5.2-Release.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C84529F3A43F1A6EC918F /* FacebookSDK-3.5.2-Release.a */; };
+		DCD20E510ACF4669A4FBD98D /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDA98641974347CDAF09DCC3 /* FacebookSDKResources.bundle */; };
+		FE53873AB12C42E8BD71A17B /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39FD73DA9A1546F5AFD4F4E9 /* FBUserSettingsViewResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,10 +207,10 @@
 		FC384C97C2824D2BAC7768FF /* FBFrictionlessRecipientCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBFrictionlessRecipientCache.h; path = com.phonegap.plugins.facebookconnect/facebook/FBFrictionlessRecipientCache.h; sourceTree = "<group>"; };
 		FCE7C44261B4456FA23CDC7E /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		FFBA56B89FA34B17BD4EB2E4 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = com.adobe.plugins.GAPlugin/GAI.h; sourceTree = "<group>"; };
-		B638AE414F7B4D29AA32AAA1 /* FacebookSDK-3.5.2-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "FacebookSDK-3.5.2-Release.a"; path = "Ideas para hoy/Plugins/com.phonegap.plugins.facebookconnect/FacebookSDK-3.5.2-Release.a"; sourceTree = "<group>"; fileEncoding = 4; };
-		46B0D607A8BF45C39EAF4F1C /* NSError+FBError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSError+FBError.h"; path = "com.phonegap.plugins.facebookconnect/facebook/NSError+FBError.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		4B814A3347B5455E8FDD8A56 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "FacebookSDKResources.bundle"; path = "FacebookSDKResources.bundle"; sourceTree = "<group>"; };
-		AAABC034021B49218823767E /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "FBUserSettingsViewResources.bundle"; path = "FBUserSettingsViewResources.bundle"; sourceTree = "<group>"; };
+		FE7C84529F3A43F1A6EC918F /* FacebookSDK-3.5.2-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "FacebookSDK-3.5.2-Release.a"; path = "Ideas para hoy/Plugins/com.phonegap.plugins.facebookconnect/FacebookSDK-3.5.2-Release.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		961A644A239E4EFF8B76F2B3 /* NSError+FBError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSError+FBError.h"; path = "com.phonegap.plugins.facebookconnect/facebook/NSError+FBError.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		CDA98641974347CDAF09DCC3 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "FacebookSDKResources.bundle"; path = "FacebookSDKResources.bundle"; sourceTree = "<group>"; };
+		39FD73DA9A1546F5AFD4F4E9 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "FBUserSettingsViewResources.bundle"; path = "FBUserSettingsViewResources.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +228,7 @@
 				4243B7A67D0849D8B271A2C8 /* SystemConfiguration.framework in Frameworks */,
 				E8401F03410646F59B3A03AA /* QuartzCore.framework in Frameworks */,
 				6A3DB837B51E47AFAD325D0A /* AudioToolbox.framework in Frameworks */,
-				4C620CEC6CCA4CD392208DCD /* FacebookSDK-3.5.2-Release.a in Frameworks */,
+				DD93190AB4A14CD0981BFFE9 /* FacebookSDK-3.5.2-Release.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,8 +314,8 @@
 				E1399D1DBF794FD09892A1CD /* CDVNotification.bundle */,
 				18613A065BB844BCB78197A3 /* FacebookSDKResources.bundle */,
 				34D4C46B652647F5BFFEBDD7 /* FBUserSettingsViewResources.bundle */,
-				4B814A3347B5455E8FDD8A56 /* FacebookSDKResources.bundle */,
-				AAABC034021B49218823767E /* FBUserSettingsViewResources.bundle */,
+				CDA98641974347CDAF09DCC3 /* FacebookSDKResources.bundle */,
+				39FD73DA9A1546F5AFD4F4E9 /* FBUserSettingsViewResources.bundle */,
 			);
 			name = Resources;
 			path = "Ideas para hoy/Resources";
@@ -341,6 +341,7 @@
 				81B80AB0CCE847A0AD6B8BB2 /* Security.framework */,
 				D7E96170384F448895D66C45 /* FacebookSDK-3.5.2-Release.a */,
 				B638AE414F7B4D29AA32AAA1 /* FacebookSDK-3.5.2-Release.a */,
+				FE7C84529F3A43F1A6EC918F /* FacebookSDK-3.5.2-Release.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -425,7 +426,7 @@
 				F61C0B1209A24EDD82155771 /* FBViewController.h */,
 				CEC2C634B1704056880F1F20 /* FBWebDialogs.h */,
 				6A9E106919E542929BD187D3 /* FacebookSDK.h */,
-				46B0D607A8BF45C39EAF4F1C /* NSError+FBError.h */,
+				961A644A239E4EFF8B76F2B3 /* NSError+FBError.h */,
 			);
 			name = Plugins;
 			path = "Ideas para hoy/Plugins";
@@ -591,8 +592,8 @@
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
 				E5341CB19EDA493FAEF3949D /* DatePicker.xib in Resources */,
 				6027ED4FF3D94EF8B6DB4C24 /* CDVNotification.bundle in Resources */,
-				CA4A2CF7963B48918E6138EA /* FacebookSDKResources.bundle in Resources */,
-				537AB2DBD0A84C38A69325EA /* FBUserSettingsViewResources.bundle in Resources */,
+				DCD20E510ACF4669A4FBD98D /* FacebookSDKResources.bundle in Resources */,
+				FE53873AB12C42E8BD71A17B /* FBUserSettingsViewResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

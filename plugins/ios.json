@@ -119,6 +119,22 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" onload=\"true\" value=\"CDVStatusBar\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarBackgroundColor\" value=\"#000000\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<access origin=\"https://m.facebook.com\" />",
                             "count": 1
                         },
@@ -140,22 +156,6 @@
                         },
                         {
                             "xml": "<feature name=\"org.apache.cordova.facebook.Connect\"><param name=\"ios-package\" value=\"FacebookConnectPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" onload=\"true\" value=\"CDVStatusBar\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"false\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarBackgroundColor\" value=\"#000000\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -219,15 +219,15 @@
         "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
-        "com.phonegap.plugins.facebookconnect": {
-            "APP_ID": "381248932009498",
-            "APP_NAME": "Ideas para hoy",
-            "PACKAGE_NAME": "com.pimod.santanderapp"
-        },
         "com.phonegap.plugin.statusbar": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.pimod.santanderapp"
+        },
+        "com.phonegap.plugins.facebookconnect": {
+            "APP_ID": "381248932009498",
+            "APP_NAME": "Ideas para hoy",
             "PACKAGE_NAME": "com.pimod.santanderapp"
         }
     },
