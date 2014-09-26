@@ -102,7 +102,7 @@
 
 
 #ListaEventos_holder{
-	overflow: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
      -webkit-transform: translateZ(0); 

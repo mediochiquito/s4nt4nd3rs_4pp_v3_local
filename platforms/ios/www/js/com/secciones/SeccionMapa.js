@@ -60,7 +60,7 @@ function SeccionMapa()
 	var ya_me_localizo_una_vez = false;
 	var ultimo_obj = '';
 	var solo_ver = '';
-
+var map_circle;
 
 	var lat = "";
 	var lon = "";
@@ -73,9 +73,7 @@ function SeccionMapa()
 	var desde_donde_viene = '';
 	var distancia=0;
 
-	var _slider = new Slider()
-	$(this.main).append(_slider.main)
-
+	var _slider
 
 	function doVolver(){
 
@@ -111,7 +109,11 @@ function SeccionMapa()
 	this._remove = function(){
 		
 		$(map_canvas).hide()
-
+		
+		
+		//$(_slider.main).remove()
+		
+		
 		for (i in array_markers) {
 		  array_markers[i].setMap(null);
 		}
@@ -124,13 +126,13 @@ function SeccionMapa()
 
 	function _construct() { 
 			
-		if(app.plataforma=='android'){
+			if(app.plataforma=='android'){
 
-				map_canvas = document.createElement('div')
-				map_canvas.id = 'SeccionMapa_map_canvas'
-				$(holdermap_canvas).append(map_canvas)
-		}
-			 
+					map_canvas = document.createElement('div')
+					map_canvas.id = 'SeccionMapa_map_canvas'
+					$(holdermap_canvas).append(map_canvas)
+			}
+				 
 
 		  var mapOptions = {
 		    zoom: 13,
@@ -178,10 +180,18 @@ function SeccionMapa()
 		}
 		 	
 	}
-
+	var slider_creado = false
 	this._set = function (obj){
 
 		$(map_canvas).show()
+		
+		if(!slider_creado){
+			_slider = new Slider()
+			$(this.main).append(_slider.main)
+			slider_creado =  true
+
+		}
+		
 		desde_donde_viene = obj.desde_donde_viene
 
 				ultimo_obj = obj;
@@ -233,7 +243,6 @@ function SeccionMapa()
 					case  'un_evento':
 						listar_unevento();
 						break;
-
 				}
 		
 	}
@@ -332,7 +341,7 @@ function SeccionMapa()
 				google.maps.event.trigger(map, 'resize')
 		}, 200)		
 	}
-	var map_circle;
+	
 	function listar_ofertas_a_distancia(){
 
 		if(app.posicion_global == ''){

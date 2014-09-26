@@ -12,12 +12,7 @@ function Base_Seccion(){
 		var t = $time;
 		if(typeof($time) == 'undefined') t = 300;
 		
-		
-		/*document.activeElement.blur();
-		$("input").blur();*/
-		
-
-		$(self.main).transition({x:app.ancho},0)
+		$(self.main).transition({scale:1.5},0)
 		$(self.main).show()
 		$(this.main).transition({
 			  x:0,
@@ -49,18 +44,18 @@ function Base_Seccion(){
 		
 		this._remove()
 		var t = $time; 
-		if(typeof($time) ==  'undefined') t = 300
+		if(typeof($time) ==  'undefined') t = 300;
 
 		$(this.main).css('pointer-events', 'none');
 
 		$(this.main).transition({
 			  
-			  scale:.9, 
+			  scale:.7, 
 			  opacity: 0
 
 		}, t, function(){ 
 
-			$(self.main).transition({x:2000},0)
+			//$(self.main).transition({x:2000},0)
 			$(self.main).hide()
 
 			

@@ -74,7 +74,7 @@ function SeccionListaOfertas()
 
 				if($json!==false) {
 
-					$('#ListaOferta_banner').html('<img width="'+(app.ancho-40)+'" src="http://santander.crudo.com.uy/'+$json.banners_ofertas_url+'" /><div id="ListaOfertas_header_banner"><div id="ListaOfertas_header_banner_titulo_txt">Bases y Condiciones</div></div>')
+					$('#ListaOferta_banner').html('<img width="'+(app.ancho-40)+'" src="'+app.server+$json.banners_ofertas_url+'" /><div id="ListaOfertas_header_banner"><div id="ListaOfertas_header_banner_titulo_txt">Bases y Condiciones</div></div>')
 						setTimeout(function(){
 							
 							var btn_terms = new Boton2Frames("img/ofertas/btn_terms_banner.svg", 20, 40, function(){
@@ -95,7 +95,7 @@ function SeccionListaOfertas()
 		$(combo_deptos).attr('disabled', true)
 	}
 	this._set = function ($data){
-
+	
 		if(typeof($data) != 'undefined'){
 
 			categoria_seleccionada = $data.id
@@ -112,9 +112,9 @@ function SeccionListaOfertas()
 			}
 			$(titulo_seccion).html('Descuentos / ' + nombre_cate)
 			this.listar();
-			$(combo_deptos).attr('disabled', false)
+			
 		}
-
+$(combo_deptos).attr('disabled', false)
 	}
 		
 

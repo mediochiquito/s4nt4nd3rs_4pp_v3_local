@@ -141,7 +141,6 @@ function Secciones(){
 
 		if($base_seccion==obj_seccion_actual) return;
 		var d = new Date()
-		//document.location.href = '#'  + d.getTime();
 		$(this.main).css({ display: 'block'});
 		
 		try{

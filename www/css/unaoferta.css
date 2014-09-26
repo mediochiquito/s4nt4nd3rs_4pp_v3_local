@@ -46,7 +46,7 @@
 }
 
 #UnaOferta_holder{
-	overflow-y: scroll;
+	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
  	-webkit-transform: translateZ(0); 
 }

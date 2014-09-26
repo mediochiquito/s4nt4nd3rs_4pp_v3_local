@@ -53,7 +53,7 @@
 }
 
 #ListaOfertas_holder {
-	overflow: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 
