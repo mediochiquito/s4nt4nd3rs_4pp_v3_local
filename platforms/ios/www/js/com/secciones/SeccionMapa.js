@@ -185,12 +185,7 @@ var map_circle;
 
 		$(map_canvas).show()
 		
-		if(!slider_creado){
-			_slider = new Slider()
-			$(this.main).append(_slider.main)
-			slider_creado =  true
-
-		}
+		
 		
 		desde_donde_viene = obj.desde_donde_viene
 
@@ -200,6 +195,15 @@ var map_circle;
 					_slider.mostrar()
 					$(holdermap_canvas).css({	width: app.ancho-20, height: app.alto-150})
 					$(btn_volver.main).css({	bottom: 33})
+
+
+					if(!slider_creado){
+						_slider = new Slider()
+						$(this.main).append(_slider.main)
+						slider_creado =  true
+
+					}
+
 				}else{
 					_slider.ocultar();
 					$(holdermap_canvas).css({	width: app.ancho-20, height: app.alto-120})
