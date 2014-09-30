@@ -184,15 +184,13 @@ var map_circle;
 	this._set = function (obj){
 
 		$(map_canvas).show()
-		
-		
-		
+
 		desde_donde_viene = obj.desde_donde_viene
 
 				ultimo_obj = obj;
 
 				if(desde_donde_viene=='home_ofertas'){
-					_slider.mostrar()
+					
 					$(holdermap_canvas).css({	width: app.ancho-20, height: app.alto-150})
 					$(btn_volver.main).css({	bottom: 33})
 
@@ -203,9 +201,11 @@ var map_circle;
 						slider_creado =  true
 
 					}
+					
+					_slider.mostrar();
 
 				}else{
-					_slider.ocultar();
+					if(slider_creado) _slider.ocultar();
 					$(holdermap_canvas).css({	width: app.ancho-20, height: app.alto-120})
 					$(btn_volver.main).css({	bottom: 18})
 				}
