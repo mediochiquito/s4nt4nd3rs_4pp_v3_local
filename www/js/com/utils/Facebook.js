@@ -40,7 +40,7 @@ function Facebook(){
 
 		    	function (error) { app.alerta("" + error) }
 
-			);
+			); 
 	    
 		}, function (){})
 
