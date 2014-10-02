@@ -11,6 +11,9 @@ cordova plugin add https://github.com/apache/cordova-plugin-geolocation.git
 cordova plugin add  https://github.com/phonegap-build/GAPlugin.git
 cordova plugin add https://github.com/phonegap-build/StatusBarPlugin.git
 cordova -d plugin add https://github.com/phonegap-build/FacebookConnect.git --variable APP_ID="381248932009498" --variable APP_NAME="Ideas para hoy"
+cordova -d plugin add https://github.com/Wizcorp/phonegap-facebook-plugin.git --variable APP_ID="381248932009498" --variable APP_NAME="Ideas para hoy"
+
+cordova -d plugin add /Users/mateo/developer/pluginsCordova/phonegap-facebook-plugin --variable APP_ID="381248932009498" --variable APP_NAME="Ideas para hoy"
 
 
 cordova -d plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
@@ -36,3 +39,6 @@ cordova build ios
 cd platforms/android/ant-build/
 
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /Users/mateomenrstrina/developer/certs/santa_pimod/debug.keystore Ideasparahoy-release-unsigned.apk motoneta
+
+
+cordova platform add android@3.5.1 --usenpm

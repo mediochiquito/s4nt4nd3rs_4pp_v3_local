@@ -38,6 +38,7 @@ function Slider(){
 	              	
 	                onSlide: function(position, value) {
 	                    // do some stuff ...
+
 	              		distancia_elegida = position;
 	              		app.secciones.seccionmapa.ini_set_Distancia(distancia_elegida, maxima_slide)
 	                },
@@ -47,7 +48,7 @@ function Slider(){
 	                 	try{
 	                 		clearInterval(inter)
 	                 	}catch(e){}
-
+	                 	
 	                 	inter = setTimeout(function(){
 	                 		app.secciones.seccionmapa.set_Distancia(distancia_elegida, maxima_slide)
 	                 	}, 500)	

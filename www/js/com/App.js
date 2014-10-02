@@ -221,7 +221,7 @@ function App(){
 			gaPlugin = window.plugins.gaPlugin;
 	  	    gaPlugin.init(function(){}, function(){}, "UA-46773616-2", 10);
 
-			if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
+			/*if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
 			if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
 			if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
 			  
@@ -240,7 +240,7 @@ function App(){
             FB.Event.subscribe('auth.statusChange', function(response) {
                              //  alert('auth.statusChange event');
                                });
-            
+            */
 	    	
 
 	    	self._Facebook = new Facebook()

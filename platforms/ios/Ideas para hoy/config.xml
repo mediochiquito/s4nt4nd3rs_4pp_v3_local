@@ -55,14 +55,6 @@
         <param name="ios-package" value="CDVSplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <access origin="https://m.facebook.com" />
-    <access origin="https://graph.facebook.com" />
-    <access origin="https://api.facebook.com" />
-    <access origin="https://*.fbcdn.net" />
-    <access origin="https://*.akamaihd.net" />
-    <feature name="org.apache.cordova.facebook.Connect">
-        <param name="ios-package" value="FacebookConnectPlugin" />
-    </feature>
     <gap:splash src="www/splash.png" />
     <icon height="60" src="res/ios/icon-60.png" width="60" />
     <icon height="120" src="res/ios/icon-60@2x.png" width="120" />
@@ -80,7 +72,7 @@
     <icon height="100" src="res/ios/icon-50@2x.png" width="100" />
     <gap:splash gap:platform="ios" src="img/res/screens/Default-568h@2x~iphone.png" />
     <name>Ideas para hoy</name>
-    <description> s
+    <description>
         Santander Uruguay Ideas para Hoy permite a los usuarios acceder a información sobre eventos de verano y descuentos para usuarios de tarjetas Santander en Punta del Este, Uruguay.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
@@ -101,4 +93,14 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="android-minSdkVersion" value="11" />
     <preference name="android-targetSdkVersion" value="14" />
+    <feature name="FacebookConnectPlugin">
+        <param name="ios-package" value="FacebookConnectPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
 </widget>

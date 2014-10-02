@@ -20,11 +20,11 @@ function App(){
 
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
-	this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/';
+	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/';
-	//this.server = 'http://dev.santander.crudo.com.uy/';
+	this.server = 'http://dev.santander.crudo.com.uy/';
 
 	this.json_db_tipo_ofertas = '[{"ofertas_tipo_id": 1,"ofertas_tipo_nombre": "Alquiler de autos"}, {"ofertas_tipo_id": 11,"ofertas_tipo_nombre": "Audio y video"}, {"ofertas_tipo_id": 12,"ofertas_tipo_nombre": "Automóvil"}, {"ofertas_tipo_id": 13,"ofertas_tipo_nombre": "Camping"}, {"ofertas_tipo_id": 14,"ofertas_tipo_nombre": "Confitería"}, {"ofertas_tipo_id": 15,"ofertas_tipo_nombre": "Deportes"}, {"ofertas_tipo_id": 16,"ofertas_tipo_nombre": "Entretenimiento"}, {"ofertas_tipo_id": 2,"ofertas_tipo_nombre": "Farmacia"}, {"ofertas_tipo_id": 17,"ofertas_tipo_nombre": "Hogar y decoración"}, {"ofertas_tipo_id": 18,"ofertas_tipo_nombre": "Institutos de enseñanza"}, {"ofertas_tipo_id": 3,"ofertas_tipo_nombre": "Joyería"}, {"ofertas_tipo_id": 4,"ofertas_tipo_nombre": "Librería"}, {"ofertas_tipo_id": 5,"ofertas_tipo_nombre": "Óptica"}, {"ofertas_tipo_id": 19,"ofertas_tipo_nombre": "Piscinas, Saunas y Spas"}, {"ofertas_tipo_id": 6,"ofertas_tipo_nombre": "Repuestos para autos"}, {"ofertas_tipo_id": 7,"ofertas_tipo_nombre": "Restaurantes"}, {"ofertas_tipo_id": 20,"ofertas_tipo_nombre": "Salud"}, {"ofertas_tipo_id": 21,"ofertas_tipo_nombre": "Tecnología e Informática"}, {"ofertas_tipo_id": 8,"ofertas_tipo_nombre": "Turismo"}, {"ofertas_tipo_id": 9,"ofertas_tipo_nombre": "Vestimenta infantil y juguetería"}, {"ofertas_tipo_id": 10,"ofertas_tipo_nombre": "Vestimenta y calzado"}]',
 	this.db = openDatabase('santanders_app_punta', '1.0', 'santanders_app_punta', 2000000);
@@ -221,7 +221,7 @@ function App(){
 			gaPlugin = window.plugins.gaPlugin;
 	  	    gaPlugin.init(function(){}, function(){}, "UA-46773616-2", 10);
 
-			if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
+			/*if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
 			if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
 			if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
 			  
@@ -240,7 +240,7 @@ function App(){
             FB.Event.subscribe('auth.statusChange', function(response) {
                              //  alert('auth.statusChange event');
                                });
-            
+            */
 	    	
 
 	    	self._Facebook = new Facebook()

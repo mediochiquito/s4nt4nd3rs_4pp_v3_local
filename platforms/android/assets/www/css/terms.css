@@ -7,8 +7,9 @@
 	color: #000;
 	top:60px;
 	left: 20px;
-	overflow: scroll;
-	-webkit-overflow-scrolling: touch;
+	overflow-y: auto;
+	overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 
 }
 #SeccionTerms_scroleable{

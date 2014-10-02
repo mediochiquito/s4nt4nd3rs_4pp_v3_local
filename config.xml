@@ -5,7 +5,7 @@
         xmlns="http://www.w3.org/ns/widgets" 
 		xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ideas para hoy</name>
-    <description> s
+    <description>
         Santander Uruguay Ideas para Hoy permite a los usuarios acceder a información sobre eventos de verano y descuentos para usuarios de tarjetas Santander en Punta del Este, Uruguay.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">

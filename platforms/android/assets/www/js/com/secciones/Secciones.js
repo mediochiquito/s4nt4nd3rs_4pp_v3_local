@@ -141,7 +141,6 @@ function Secciones(){
 
 		if($base_seccion==obj_seccion_actual) return;
 		var d = new Date()
-		//document.location.href = '#'  + d.getTime();
 		$(this.main).css({ display: 'block'});
 		
 		try{
@@ -150,8 +149,11 @@ function Secciones(){
 		}catch(e){}
 		
 		if(guardar_historia) historia.push([$base_seccion, $data]);
-
-		$base_seccion.mostrar($time, $data);
+		
+		setTimeout(function(){
+			$base_seccion.mostrar($time, $data);
+		}, 500)
+		
 
 		obj_seccion_actual = $base_seccion
 			

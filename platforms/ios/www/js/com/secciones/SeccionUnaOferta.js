@@ -66,9 +66,6 @@ function SeccionUnaOferta()
 	
 	function doCompartir(){
 
-
-		app._Facebook.conectar(function(){
-
                 var params = {
                     method: 'feed',
                     name:  obj.row.ofertas_nombre,
@@ -78,9 +75,16 @@ function SeccionUnaOferta()
                     description: 'Publicado a través de la APP de Eventos y Descuentos de Banco Santander. Descargala gratis en www.ideasparahoy.com.uy y enterate de las actividades del verano.'
                   };
 
-            FB.ui(params, function(obj) { console.log(obj);});
-		}) 
-     
+
+	        facebookConnectPlugin.showDialog(params,
+                function (result) {
+                    app.alerta("Has compartido esta oferta."); 
+                },
+	            function (e) {
+	               
+	            }
+	        );
+
                 
 	}
 

@@ -135,6 +135,14 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"ios-package\" value=\"FacebookConnectPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<plugin name=\"FacebookConnectPlugin\" value=\"FacebookConnectPlugin\" />",
+                            "count": 1
+                        },
+                        {
                             "xml": "<access origin=\"https://m.facebook.com\" />",
                             "count": 1
                         },
@@ -152,10 +160,6 @@
                         },
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"org.apache.cordova.facebook.Connect\"><param name=\"ios-package\" value=\"FacebookConnectPlugin\" /></feature>",
                             "count": 1
                         }
                     ]

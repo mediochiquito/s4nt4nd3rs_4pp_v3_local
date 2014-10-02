@@ -85,6 +85,7 @@ function SeccionUnEvento()
 		else
 			app.secciones.go(app.secciones.seccionlistaeventos, 300);
 	}
+	
 	function doVerEnMapa(){
 		app.secciones.go(app.secciones.seccionmapa, 300, {desde_donde_viene:'un_evento', row_evento:obj.row});
 	}
@@ -125,6 +126,7 @@ function SeccionUnEvento()
 				if($bool) {
 
 					app.alerta('Ya estás participando de este evento.')
+					btn_participar.habil(false);
 					return;
 
 				}else{
@@ -202,24 +204,26 @@ function SeccionUnEvento()
 
 	function doCompartir(){
 		
-		
-		app._Facebook.conectar(function(){
-
 	  		var params = {
 	            method: 'feed',
 	            name: obj.row.eventos_nombre,
 	            link: 'http://www.ideasparahoy.com.uy',
                 picture: 'http://santander.crudo.com.uy/icon.png',
 	            caption: obj.row.eventos_lugar,
-	           description: 'Publicado a través de la APP de Eventos y Descuentos de Banco Santander. Descargala gratis en www.ideasparahoy.com.uy y enterate de las actividades del verano.'
+	            description: 'Publicado a través de la APP de Eventos y Descuentos de Banco Santander. Descargala gratis en www.ideasparahoy.com.uy y enterate de las actividades del verano.'
                   
 	        };
 
+	        facebookConnectPlugin.showDialog(params,
+                function (result) {
+                    app.alerta("Has compartido este evento."); 
+                },
+	            function (e) {
+	               
+	            }
+	        );
 
-	       FB.ui(params, function(obj) { console.log(obj);});
-
-		}) 
-     
+	
                 
 	}
 
