@@ -85,6 +85,7 @@ function SeccionUnEvento()
 		else
 			app.secciones.go(app.secciones.seccionlistaeventos, 300);
 	}
+	
 	function doVerEnMapa(){
 		app.secciones.go(app.secciones.seccionmapa, 300, {desde_donde_viene:'un_evento', row_evento:obj.row});
 	}

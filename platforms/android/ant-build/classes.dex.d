@@ -1,5 +1,15 @@
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes.dex : \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/adobe/plugins/GAPlugin.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$attr.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$color.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$dimen.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$drawable.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$id.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$layout.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$string.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$style.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$styleable.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R.class \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/pimod/santanderapp/BuildConfig.class \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/pimod/santanderapp/Ideasparahoy.class \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/pimod/santanderapp/Manifest$permission.class \

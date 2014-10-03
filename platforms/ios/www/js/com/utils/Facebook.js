@@ -14,6 +14,7 @@ function Facebook(){
 
 
 	this.conectar = function($callback){
+
 		 app.cargando(true, 'Conectando con Facebook...');
 
 		 setTimeout(function (){
@@ -22,7 +23,7 @@ function Facebook(){
 
 		
 		facebookConnectPlugin.logout(function (){
-
+ 
 			facebookConnectPlugin.login(["public_profile"],
 		    	
 		    	function (userData) {
@@ -39,7 +40,7 @@ function Facebook(){
 
 		    	function (error) { app.alerta("" + error) }
 
-			);
+			); 
 	    
 		}, function (){})
 

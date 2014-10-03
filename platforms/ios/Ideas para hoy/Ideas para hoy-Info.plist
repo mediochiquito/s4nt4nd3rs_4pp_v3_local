@@ -58,66 +58,6 @@
     <string>APPL</string>
     <key>CFBundleSignature</key>
     <string>????</string>
-<<<<<<< HEAD
-=======
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb381248932009498</string>
-        </array>
-      </dict>
-    </array>
->>>>>>> ef8aed4253c5a21b22b1b0c70c302c973bb9ac07
     <key>CFBundleVersion</key>
     <string>3.0.0</string>
     <key>LSRequiresIPhoneOS</key>

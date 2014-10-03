@@ -148,6 +148,7 @@
 		93BE2AB3E19D4E0ABDC20BE0 /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Toast.h; path = "nl.x-services.plugins.toast/Toast.h"; sourceTree = "<group>"; };
 		940120D5F0474B629D87F87B /* CDVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = com.phonegap.plugin.statusbar/CDVStatusBar.m; sourceTree = "<group>"; };
 		9E5A780886684B3EAEC1CE98 /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Toast+UIView.m"; path = "nl.x-services.plugins.toast/Toast+UIView.m"; sourceTree = "<group>"; };
+		A2A48AE719DD0D970080D4C7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Ideas para hoy/Plugins/com.phonegap.plugins.facebookconnect/FacebookSDK.framework"; sourceTree = "<group>"; };
 		A52D6235F35B4AC38618D583 /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = org.apache.cordova.geolocation/CDVLocation.h; sourceTree = "<group>"; };
 		A57946F564DA401592B6B089 /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Toast+UIView.h"; path = "nl.x-services.plugins.toast/Toast+UIView.h"; sourceTree = "<group>"; };
 		A9AB8C34C5E549F1B7FB862D /* Accounts.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -279,6 +280,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2A48AE719DD0D970080D4C7 /* FacebookSDK.framework */,
 				5AEE5B34173C68D80009041E /* CoreLocation.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -612,7 +614,18 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"Ideas para hoy/Plugins/com.phonegap.plugins.facebookconnect\"",
+					Ideas,
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"$(PROJECT_DIR)/Ideas",
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"$(PROJECT_DIR)/Ideas",
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"$(PROJECT_DIR)/Ideas",
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -656,7 +669,18 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"Ideas para hoy/Plugins/com.phonegap.plugins.facebookconnect\"",
+					Ideas,
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"$(PROJECT_DIR)/Ideas",
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"$(PROJECT_DIR)/Ideas",
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"$(PROJECT_DIR)/Ideas",
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ideas para hoy/Ideas para hoy-Prefix.pch";
