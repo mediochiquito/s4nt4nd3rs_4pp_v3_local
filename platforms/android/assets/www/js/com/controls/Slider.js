@@ -3,7 +3,7 @@ function Slider(){
 	var self = this
 	this.main = document.createElement('div');
 	this.main.className = 'rangeslider'
-	$(this.main).css({	width: app.ancho-85})
+	$(this.main).css({	width: app.ancho-65})
 
 	var titulo =  document.createElement('div');
 	titulo.className = 'rangeslider_tiutlo'

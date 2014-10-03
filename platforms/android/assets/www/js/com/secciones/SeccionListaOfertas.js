@@ -74,14 +74,12 @@ function SeccionListaOfertas()
 
 				if($json!==false) {
 
-					$('#ListaOferta_banner').html('<img width="'+(app.ancho-40)+'" src="'+app.server+$json.banners_ofertas_url+'" /><div id="ListaOfertas_header_banner"><div id="ListaOfertas_header_banner_titulo_txt">Bases y Condiciones</div></div>')
+					$('#ListaOferta_banner').html('<img width="'+(app.ancho-40)+'" src="'+app.server+$json.banners_ofertas_url+'" />')
 						setTimeout(function(){
 							
-							var btn_terms = new Boton2Frames("img/ofertas/btn_terms_banner.svg", 20, 40, function(){
-								app.secciones.go(app.secciones.secciontermsbanner, 300, {id:$json.banners_ofertas_id})
+							$('#ListaOferta_banner').find('img').bind('click', function(){
+								app.secciones.go(app.secciones.secciontermsbanner, 300, {id:$json.banners_ofertas_id, desde:'lista_ofertas'})
 							})
-							btn_terms.main.id = 'ListaOfertas_btn_ver_terms'
-							$('#ListaOfertas_header_banner').append(btn_terms.main)
 
 						}, 0)
 						
@@ -154,7 +152,7 @@ $(combo_deptos).attr('disabled', false)
 		    	if(cant_ofertas == 0){
 
 		    		//btn_ver_en_mapa.habil(false)
-		    		$(holder).find('#ListaOfertasWrapper').html('<div class="sin_resultados"><div>La busqueda no ha arrojado ningun resultado en descuentos.</div></div>')
+		    		$(holder).find('#ListaOfertasWrapper').html('<div class="sin_resultados"><div>No contamos con descuentos para esta categoría en este departamento. Intentá con otra categoría u otra ubicación.</div></div>')
 		    		
 		    	}else{
 		    		//btn_ver_en_mapa.habil(true)

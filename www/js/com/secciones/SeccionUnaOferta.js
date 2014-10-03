@@ -75,7 +75,7 @@ function SeccionUnaOferta()
 	           		description: 'Encontré este descuento con la app "Ideas para hoy" de Banco Santander. Descargala GRATIS en www.ideasparahoy.com.uy y enterate de todos los beneficios que tenés con tus tarjetas Santander.'
                   };
 
-
+		app._Facebook.conectar(function(){
 	       	 facebookConnectPlugin.showDialog(params,
                 function (result) {
                     app.alerta("Has compartido esta oferta."); 
@@ -84,7 +84,7 @@ function SeccionUnaOferta()
 	               
 	            }
 	        );
-
+		})
                 
 	}
 

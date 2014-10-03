@@ -47,6 +47,8 @@
 		846180B01EB24BCC8084AF22 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC4140F0DD74BDC91C8FC14 /* CDVInAppBrowser.m */; };
 		9247406A2CDB48F58A8898FD /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8CD9DF3FE6484C85AB8444F7 /* CDVNotification.bundle */; };
 		9B9E153154844969A5B60BD5 /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF8CCD9ED2A43BD9515F6A9 /* CDVReachability.m */; };
+		A2566BC219DE63AC00565EAE /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D9279F96DD4AFDB79640F6 /* FacebookConnectPlugin.m */; };
+		A2566BC419DE63DD00565EAE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2566BC319DE63DD00565EAE /* FacebookSDK.framework */; };
 		A8F17D8ED31341469ABDAAA1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FD12256FD94E7D9DD26361 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B6FD3F0EA67044538BD9753D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CFE43DC3B546E88995952A /* SystemConfiguration.framework */; };
 		BB6AC8B9A15543E9A6F9DCEF /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2B76E6BC44FA9AFF53B03 /* AppDelegate+notification.m */; };
@@ -148,6 +150,7 @@
 		93BE2AB3E19D4E0ABDC20BE0 /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Toast.h; path = "nl.x-services.plugins.toast/Toast.h"; sourceTree = "<group>"; };
 		940120D5F0474B629D87F87B /* CDVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = com.phonegap.plugin.statusbar/CDVStatusBar.m; sourceTree = "<group>"; };
 		9E5A780886684B3EAEC1CE98 /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Toast+UIView.m"; path = "nl.x-services.plugins.toast/Toast+UIView.m"; sourceTree = "<group>"; };
+		A2566BC319DE63DD00565EAE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../../../../../Users/mateo/developer/pluginsCordova/phonegap-facebook-plugin/platforms/ios/FacebookSDK.framework"; sourceTree = "<group>"; };
 		A2A48AE719DD0D970080D4C7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Ideas para hoy/Plugins/com.phonegap.plugins.facebookconnect/FacebookSDK.framework"; sourceTree = "<group>"; };
 		A52D6235F35B4AC38618D583 /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = org.apache.cordova.geolocation/CDVLocation.h; sourceTree = "<group>"; };
 		A57946F564DA401592B6B089 /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Toast+UIView.h"; path = "nl.x-services.plugins.toast/Toast+UIView.h"; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
 				C63DED3A420945A6847467AE /* GoogleAnalytics.a in Frameworks */,
 				C3EAFB38F3014E5B85325192 /* CoreData.framework in Frameworks */,
+				A2566BC419DE63DD00565EAE /* FacebookSDK.framework in Frameworks */,
 				B6FD3F0EA67044538BD9753D /* SystemConfiguration.framework in Frameworks */,
 				48CD0018DF5846D5BB984494 /* QuartzCore.framework in Frameworks */,
 				A8F17D8ED31341469ABDAAA1 /* AudioToolbox.framework in Frameworks */,
@@ -280,6 +284,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2566BC319DE63DD00565EAE /* FacebookSDK.framework */,
 				A2A48AE719DD0D970080D4C7 /* FacebookSDK.framework */,
 				5AEE5B34173C68D80009041E /* CoreLocation.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
@@ -539,6 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2566BC219DE63AC00565EAE /* FacebookConnectPlugin.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
@@ -610,7 +616,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pablo Buela (7YV37643V7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: PIMOD SRL (C6X8LD6G28)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -626,6 +632,10 @@
 					"$(PROJECT_DIR)/Ideas",
 					para,
 					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"$(PROJECT_DIR)/Ideas",
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"/Users/mateo/developer/pluginsCordova/phonegap-facebook-plugin/platforms/ios",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -654,7 +664,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "1cb1e75a-c964-4ab8-82fc-f5a00686db5b";
+				PROVISIONING_PROFILE = "55d0d519-6507-4843-9690-30228d0ab915";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
 			};
@@ -665,7 +675,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pablo Buela (7YV37643V7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: PIMOD SRL (C6X8LD6G28)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -681,6 +691,10 @@
 					"$(PROJECT_DIR)/Ideas",
 					para,
 					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"$(PROJECT_DIR)/Ideas",
+					para,
+					hoy/Plugins/com.phonegap.plugins.facebookconnect,
+					"/Users/mateo/developer/pluginsCordova/phonegap-facebook-plugin/platforms/ios",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ideas para hoy/Ideas para hoy-Prefix.pch";
@@ -707,7 +721,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "1cb1e75a-c964-4ab8-82fc-f5a00686db5b";
+				PROVISIONING_PROFILE = "55d0d519-6507-4843-9690-30228d0ab915";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
 			};

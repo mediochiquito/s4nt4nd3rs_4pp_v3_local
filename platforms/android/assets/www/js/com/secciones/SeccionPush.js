@@ -73,9 +73,11 @@ function SeccionPush()
 						 app.db.transaction(function (tx) {
 							 tx.executeSql('UPDATE app SET push=?', ['2']);
 						 });
-						 	btn_guardar.habil(false)
+						btn_guardar.habil(false)
 					  	btn_cancelar.habil(false)
-						 app.cargando(false);
+						app.cargando(false);
+						app.secciones.go(app.secciones.seccionhome, 300)
+						setTimeout(function (){ app.alerta("Cambios guardados")}, 1000)
 					},
 					error:function (){
 
@@ -99,7 +101,7 @@ function SeccionPush()
 
 	function cancelar(){
 
-		app.secciones.seccionpush._set()
+		app.secciones.seccionpush._set('go_home')
 
 	}
 	
@@ -143,6 +145,14 @@ function SeccionPush()
 						 }
 
 						 app.cargando(false);
+
+
+						 if(obj=='go_home'){
+
+						 	app.secciones.go(app.secciones.seccionhome, 300)
+							setTimeout(function (){ app.alerta("Cambios cancelados")}, 1000)
+
+						 }
 
 					},
 

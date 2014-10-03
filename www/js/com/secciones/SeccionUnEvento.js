@@ -235,7 +235,8 @@ function SeccionUnEvento()
 	            description: 'Encontré este evento con la app "Ideas para hoy" de Banco Santander. Descargala GRATIS en www.ideasparahoy.com.uy y enterate de todos los recitales, fiestas, eventos culturales y mucho más.'
                   
 	        };
-
+	        
+		app._Facebook.conectar(function(){
 	        facebookConnectPlugin.showDialog(params,
                 function (result) {
                     app.alerta("Has compartido este evento."); 
@@ -244,7 +245,7 @@ function SeccionUnEvento()
 	               
 	            }
 	        );
-
+		})
 	
                 
 	}

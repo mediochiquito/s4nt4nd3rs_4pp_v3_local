@@ -31,13 +31,12 @@
 #SeccionTermsBanner_holder{
 	position: absolute;
 	color: #000;
-	top:60px;
+	top: 86px;
 	left: 20px;
-	overflow: scroll;
+	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	font-family: 'GothamBook';
 	font-size: 13px;
-	border-bottom: solid 1px #e5e5e5;
 }
 
 
@@ -59,13 +58,7 @@
 #SeccionTermsBanner_btn_volver{
 
 	position: absolute;
-	
-	
-
 	left: 23px;
-	
-	
-
 	bottom: 29px;
 
 }

@@ -12,14 +12,14 @@ function SeccionTermsBanner()
 	var holder = document.createElement('div')
 	holder.id = 'SeccionTermsBanner_holder'
 	$(this.main).append(holder);
-	$(holder).css({	width: app.ancho-40, height: app.alto-130})
+	$(holder).css({	width: app.ancho-40, height: app.alto-110})
 	
 	var cargada = false;
 	$(holder).html('<div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>');
 	
-	var btn_volver = new Boton2Frames("img/btn_volver_gris.svg", 25, 50, doVolver)
-	btn_volver.main.id = 'SeccionTermsBanner_btn_volver'
-	$(this.main).append(btn_volver.main)
+	var btn_volver = new Boton2Frames("img/btn_volver_rojo.svg", 25, 50, doVolver)
+	btn_volver.main.id = 'UnaOferta_btn_volver'
+	$(holder_blanco_secciones).append(btn_volver.main)
 
 	var obj;
 
@@ -34,6 +34,7 @@ function SeccionTermsBanner()
 		
 	}
 	this._set  = function ($obj){
+		
 		obj = $obj
 		if(!cargada){
 		

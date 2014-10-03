@@ -4,7 +4,8 @@
 }
 
 #SeccionMapa .holder_blanco_secciones{
-	-webkit-mask-image: url('../img/mapa/mask.png');
+	/*-webkit-mask-image: url('../img/mapa/mask.png');*/
+	
 }
 #MapaHolderSlider{
 	position: absolute;
@@ -134,8 +135,10 @@
 
 #SeccionMapa_holdermap_canvas{
 
-	top: 0px;
-	left: 0px;
+	top: 35px;
+	
+
+	left: 1px;
 	
 }
 

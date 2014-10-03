@@ -14,7 +14,6 @@ cordova -d plugin add https://github.com/phonegap-build/FacebookConnect.git --va
 
 
 
-cordova -d plugin add https://github.com/phonegap/phonegap-facebook-plugin.git --variable APP_ID="381248932009498" --variable APP_NAME="Ideas para hoy"
 
 cordova -d plugin add https://github.com/Wizcorp/phonegap-facebook-plugin.git --variable APP_ID="381248932009498" --variable APP_NAME="Ideas para hoy"
 

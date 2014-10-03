@@ -14,12 +14,10 @@ function SeccionTerms()
 	$(this.main).append(holder);
 	$(holder).css({	width: app.ancho-40, height: app.alto-90})
 	
-
 	var cargada = false;
 
 	this._set  = function (obj){
 		
-
 
 		if(!cargada){
 			

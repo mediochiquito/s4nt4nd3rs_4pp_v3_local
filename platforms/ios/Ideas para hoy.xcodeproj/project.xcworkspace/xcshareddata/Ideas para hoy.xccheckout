@@ -10,6 +10,8 @@
 	<string>Ideas para hoy</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>1CC0658EDB535161AE2B45DD2F84FA0782FDABBE</key>
+		<string>https://github.com/Wizcorp/phonegap-facebook-plugin.git</string>
 		<key>25C55F89F24A3E2148B66FBD039FDE3E949A6364</key>
 		<string>https://github.com/mediochiquito/s4nt4nd3rs_4pp_v3_local.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>platforms/ios/Ideas para hoy.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>1CC0658EDB535161AE2B45DD2F84FA0782FDABBE</key>
+		<string>../../../../../../../../Users/mateo/developer/pluginsCordova/phonegap-facebook-plugin</string>
 		<key>25C55F89F24A3E2148B66FBD039FDE3E949A6364</key>
 		<string>../../../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>25C55F89F24A3E2148B66FBD039FDE3E949A6364</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1CC0658EDB535161AE2B45DD2F84FA0782FDABBE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>phonegap-facebook-plugin</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
