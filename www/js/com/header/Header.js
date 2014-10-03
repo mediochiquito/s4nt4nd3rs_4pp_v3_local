@@ -40,6 +40,12 @@ function Header(){
 	var intervalo_tipeo;
 	var ultima_busqeuda = ''
 
+	this.reset = function (){
+
+		$(search).val(wm);
+		$(btn_close.main).hide()
+	}
+
 	function do_blur(){
 		if($(search).val() == '') $(search).val(wm);
 	}

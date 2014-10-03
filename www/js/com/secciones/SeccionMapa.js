@@ -23,7 +23,7 @@ function SeccionMapa()
 
 	if (!navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
 	
-		var esquina_si = new Image()
+/*		var esquina_si = new Image()
 		esquina_si.src = 'img/mapa/esquina_izq.png';
 		esquina_si.id = 'SeccionMapa_esquina_si';
 		$(this.main).append(esquina_si);
@@ -32,7 +32,7 @@ function SeccionMapa()
 		esquina_der.src = 'img/mapa/esquina_der.png';
 		esquina_der.id = 'SeccionMapa_esquina_der';
 		$(this.main).append(esquina_der);
-		$(esquina_der).css('left',app.ancho-24);
+		$(esquina_der).css('left',app.ancho-24);*/
 	}
 
 	var my_marker;
@@ -60,20 +60,21 @@ function SeccionMapa()
 	var ya_me_localizo_una_vez = false;
 	var ultimo_obj = '';
 	var solo_ver = '';
-var map_circle;
+	var map_circle;
 
 	var lat = "";
 	var lon = "";
 	var ya_creado = false;
 
 	var btn_volver = new Boton2Frames("img/btn_volver_rojo.svg", 25, 50, doVolver)
-	btn_volver.main.id = 'Mapa_btn_volver'
+	btn_volver.main.id = 'UnaOferta_btn_volver'
 	$(holder_blanco_secciones).append(btn_volver.main)
 	
 	var desde_donde_viene = '';
 	var distancia=0;
 
 	var _slider
+	var slider_creado = false;
 
 	function doVolver(){
 
@@ -167,7 +168,8 @@ var map_circle;
 
 			 my_marker = new google.maps.Marker(
 			           				{ 
-									  icon: {url:'img/mapa/mypoint.png', 
+									  icon: {
+									  		 url:'img/mapa/mypoint.png', 
 									  		 scaledSize: new google.maps.Size(20, 20),
 									  		 anchor: new google.maps.Point(10,10)
 									  		}
@@ -180,7 +182,7 @@ var map_circle;
 		}
 		 	
 	}
-	var slider_creado = false
+	
 	this._set = function (obj){
 
 		$(map_canvas).show()
@@ -191,7 +193,7 @@ var map_circle;
 
 				if(desde_donde_viene=='home_ofertas'){
 					
-					$(holdermap_canvas).css({	width: app.ancho-20, height: app.alto-150})
+					$(holdermap_canvas).css({	width: app.ancho-22, height: app.alto-190})
 					$(btn_volver.main).css({	bottom: 33})
 
 
@@ -206,7 +208,7 @@ var map_circle;
 
 				}else{
 					if(slider_creado) _slider.ocultar();
-					$(holdermap_canvas).css({	width: app.ancho-20, height: app.alto-120})
+					$(holdermap_canvas).css({	width: app.ancho-22, height: app.alto-125})
 					$(btn_volver.main).css({	bottom: 18})
 				}
 

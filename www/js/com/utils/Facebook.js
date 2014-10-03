@@ -28,28 +28,28 @@ function Facebook(){
 		    	
 		    	function (userData) {
 
-				     alert("1 UserInfo: " + JSON.stringify(userData));
+				    // alert("1 UserInfo: " + JSON.stringify(userData));
 				 	app.usuario.uid = userData.authResponse.userID;
 				    facebookConnectPlugin.getAccessToken(function(token) {
 				        app.usuario.access_token = token;
 				        $callback();
 				    }, function(err) {
-				        app.alerta("No se pudo obtener el toke de usuario");
+				        //app.alerta("No se pudo obtener el toke de usuario");
 				    });
 				},
 
-		    	function (error) { app.alerta("" + error) }
+		    	function (error) { app.alerta("No se pudo conectar tu cuenta de Facebook. Por favor intentalo nuevamente.") }
 
 			); 
 	    
 		}, function (error) { 
 
-			app.alerta("" + error) 
+			//app.alerta("" + error) 
 			facebookConnectPlugin.login(["public_profile"],
 		    	
 		    	function (userData) {
 
-				    alert("2 UserInfo: " + JSON.stringify(userData));
+				    //alert("2 UserInfo: " + JSON.stringify(userData));
 				 	app.usuario.uid = userData.authResponse.userID;
 				    facebookConnectPlugin.getAccessToken(function(token) {
 				        app.usuario.access_token = token;
@@ -59,7 +59,7 @@ function Facebook(){
 				    });
 				},
 
-		    	function (error) { app.alerta("" + error) }
+		    	function (error) { app.alerta("No se pudo conectar tu cuenta de Facebook. Por favor intentalo nuevamente.") }
 
 			); 
 	    

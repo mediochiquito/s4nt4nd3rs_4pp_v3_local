@@ -66,17 +66,17 @@ function SeccionUnaOferta()
 	
 	function doCompartir(){
 
-                var params = {
+              var params = {
                     method: 'feed',
                     name:  obj.row.ofertas_nombre,
                     link: 'http://www.ideasparahoy.com.uy',
                     picture: 'http://santander.crudo.com.uy/icon.png',
                     caption: 'http://www.ideasparahoy.com.uy/',
-                    description: 'Publicado a través de la APP de Eventos y Descuentos de Banco Santander. Descargala gratis en www.ideasparahoy.com.uy y enterate de las actividades del verano.'
+	           		description: 'Encontré este descuento con la app "Ideas para hoy" de Banco Santander. Descargala GRATIS en www.ideasparahoy.com.uy y enterate de todos los beneficios que tenés con tus tarjetas Santander.'
                   };
 
 
-	        facebookConnectPlugin.showDialog(params,
+	       	 facebookConnectPlugin.showDialog(params,
                 function (result) {
                     app.alerta("Has compartido esta oferta."); 
                 },

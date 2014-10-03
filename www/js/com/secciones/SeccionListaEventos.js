@@ -110,24 +110,21 @@ function SeccionListaEventos()
 			// buscando solo categoria
 			if(typeof($data.id_categoria ) != 'undefined'){
 			
-				fecha_a_buscar = -1
+				fecha_a_buscar = -1;
 				categoria_seleccionada = $data.id_categoria
 				var nombre_cate = ''
 				var tipos = (eval(app.json_db_tipo_categorias))
 				for(var i=0; i<tipos.length; i++){
-
-					 if(tipos[i].categorias_id == categoria_seleccionada){
-
+					if(tipos[i].categorias_id == categoria_seleccionada){
 					 	nombre_cate = tipos[i].categorias_nombre
-
-					 }
+					}
 				}
 
 				$(titulo_seccion).html('Eventos / ' + nombre_cate)
 				$(btn_ver_en_mapa.main).hide()
 				$(holder).css({width: app.ancho-40, height: app.alto-105});
 			}
-
+			
 			// buscando solo fecha
 			if(typeof($data.fecha ) != 'undefined'){
 				$(holder).css({width: app.ancho-40, height: app.alto-175});
@@ -135,13 +132,14 @@ function SeccionListaEventos()
 				fecha_a_buscar = $data.fecha
 				
 				$(btn_ver_en_mapa.main).show()
-
+				
 			}
 			this.listar()
 
 		}else{
 
 			$(titulo_seccion).html('Eventos');
+
 		}
 		
 
@@ -183,9 +181,12 @@ function SeccionListaEventos()
 			cat += ' eventos_categoria_id='+categoria_seleccionada+' AND ';
 		}
 		
+
+		
 		var fech_buscar = '';
 		if(fecha_a_buscar!=-1){
 			$(titulo_seccion).html('Eventos');
+
 			fech_buscar += ' DATE(datetime_eventos_fecha_hora)="'+fecha_a_buscar+'" AND ';
 		}
 
@@ -213,15 +214,37 @@ function SeccionListaEventos()
 
 			    	if(cant_eventos == 0){
 
-			    		//btn_ver_en_mapa.habil(false)
+			    		if(busqueda != '' && busqueda != 'Buscar...'){
+			    			
+			    			$(holder).find('#ListaEventosWrapper').append('<div class="sin_resultados"><div>La busqueda no ha arrojado ningun resultado. Intentá con otra ubicación.</div></div>');
+		
 
-			    		if(busqueda != '' && busqueda != 'Buscar...')
-			    			$(holder).find('#ListaEventosWrapper').append('<div class="sin_resultados"><div>La busqueda no ha arrojado ningun resultado en eventos.</div></div>');
-			    		else 
-			    			$(holder).find('#ListaEventosWrapper').append('<div class="sin_resultados"><div>No hay eventos publicados por el momento.<br /><br />Te invitamos a que consultes la sección Descuentos.</div></div>');
+								
+			    		} else if(fech_buscar !=''){
+								
+			    			tx.executeSql('SELECT  MIN(datetime_eventos_fecha_hora) as fecha_menor, COUNT(*) as cantidad FROM eventos  INNER JOIN datetime_eventos ON datetime_eventos_eventos_id = eventos_id  WHERE datetime_eventos_fecha_hora>="'+fecha_hasta_hoy+'" AND eventos_estado=1 AND datetime_eventos_estado=1 AND eventos_departamentos_id="'+app.depto_que_me_encuentro + '"  GROUP BY eventos_id ORDER BY fecha_menor ASC, eventos_nombre ASC LIMIT 1' , [], function (tx, resultado3) {
+			    				
+			    				if(resultado3.rows.length == 0) $(holder).find('#ListaEventosWrapper').append('<div class="sin_resultados"><div>No hay eventos publicados para este día por el momento.</div></div>');
+			    				else{
+			    					var fecha_hora_array = resultado3.rows.item(0).fecha_menor.split(' ')
+			    					$(holder).find('#ListaEventosWrapper').append('<div class="sin_resultados"><div>No hay eventos publicados para este día por el momento. El próximo evento es: <a class="fecha_clic_evento" href="#">' + getDateUruguayStringSinHora(fecha_hora_array[0]) + '</a></div></div>');
+				    				setTimeout(function (){
+				    					$('.fecha_clic_evento').bind('click', function(){
+				    						app.header.reset()
+				    						app.secciones.seccionlistaeventos._set({'fecha' : fecha_hora_array[0] })
+				    					})
+				    				}, 0);
+
+			    				}
+			    			});		
+
+
+							
+			    		}else 
+			    			$(holder).find('#ListaEventosWrapper').append('<div class="sin_resultados"><div>No hay eventos publicados para esta categoría por el momento en este departamento. Intentá con otra categoría u otra ubicación.</div></div>');
 
 			    	}else{
-			    		//	btn_ver_en_mapa.habil(true)
+		
 			    		
 			    	}
 			    	
