@@ -272,6 +272,7 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment=0x7f03000e;
     }
     public static final class string {
+        public static final int activity_name=0x7f08001e;
         public static final int app_name=0x7f08001c;
         public static final int com_facebook_choose_friends=0x7f08000f;
         public static final int com_facebook_dialogloginactivity_ok_button=0x7f080000;
@@ -301,6 +302,7 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_not_logged_in=0x7f08000a;
         public static final int fb_app_id=0x7f08001a;
         public static final int fb_app_name=0x7f08001b;
+        public static final int launcher_name=0x7f08001d;
     }
     public static final class style {
         public static final int com_facebook_loginview_default_style=0x7f090000;

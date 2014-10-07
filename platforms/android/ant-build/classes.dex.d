@@ -1,5 +1,5 @@
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes.dex : \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/adobe/plugins/GAPlugin.class \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/danielcwilson/plugins/analytics/UniversalAnalyticsPlugin.class \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$attr.class \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$color.class \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/classes/com/facebook/android/R$dimen.class \
@@ -94,6 +94,6 @@
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/dexedLibs/classes-89fcccba9f9b4bde3b7a64eacd11a334.jar \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/dexedLibs/classes-ce03b27a6e1281f36280e41b68735a60.jar \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/dexedLibs/bolts-6fbadb35e87545df178bd3502bf0326a.jar \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/dexedLibs/libGoogleAnalyticsV2-66b4ed13763240b2b742d3ead9d6ef04.jar \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/dexedLibs/gcm-7c29413b1d22d4b109936541563b7bc5.jar \
+/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/dexedLibs/libGoogleAnalyticsServices-92925feb10dba6c344377d51b686f95d.jar \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/dexedLibs/android-support-v13-48aadee4ed0a2b65f1ee16114e573d50.jar \

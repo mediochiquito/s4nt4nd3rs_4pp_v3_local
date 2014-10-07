@@ -155,6 +155,11 @@ function Secciones(){
 		}, 500)
 		
 
+		try{
+
+			analytics.trackView($base_seccion.main.id)
+		}catch(e){}
+
 		obj_seccion_actual = $base_seccion
 			
 		

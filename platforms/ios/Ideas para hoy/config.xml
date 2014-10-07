@@ -19,8 +19,8 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
-    <feature name="GAPlugin">
-        <param name="ios-package" value="GAPlugin" />
+    <feature name="UniversalAnalytics">
+        <param name="ios-package" value="UniversalAnalyticsPlugin" />
     </feature>
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
@@ -35,6 +35,9 @@
     </feature>
     <feature name="Toast">
         <param name="ios-package" value="Toast" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
     </feature>
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
@@ -65,22 +68,25 @@
     <access origin="https://api.facebook.com" />
     <access origin="https://*.fbcdn.net" />
     <access origin="https://*.akamaihd.net" />
-    <gap:splash src="www/splash.png" />
-    <icon height="60" src="res/ios/icon-60.png" width="60" />
-    <icon height="120" src="res/ios/icon-60@2x.png" width="120" />
-    <icon height="76" src="res/ios/icon-76.png" width="76" />
-    <icon height="152" src="res/ios/icon-76@2x.png" width="152" />
-    <icon height="40" src="res/ios/icon-40.png" width="40" />
-    <icon height="80" src="res/ios/icon-40@2x.png" width="80" />
-    <icon height="57" src="res/ios/icon.png" width="57" />
-    <icon height="114" src="res/ios/icon@2x.png" width="114" />
-    <icon height="72" src="res/ios/icon-72.png" width="72" />
-    <icon height="144" src="res/ios/icon-72@2x.png" width="144" />
-    <icon height="29" src="res/ios/icon-small.png" width="29" />
-    <icon height="58" src="res/ios/icon-small@2x.png" width="58" />
-    <icon height="50" src="res/ios/icon-50.png" width="50" />
-    <icon height="100" src="res/ios/icon-50@2x.png" width="100" />
-    <gap:splash gap:platform="ios" src="img/res/screens/Default-568h@2x~iphone.png" />
+    <icon height="60" src="res/icon/ios/icon-60.png" width="60" />
+    <icon height="120" src="res/icon/ios/icon-60@2x.png" width="120" />
+    <icon height="76" src="res/icon/ios/icon-76.png" width="76" />
+    <icon height="152" src="res/icon/ios/icon-76@2x.png" width="152" />
+    <icon height="40" src="res/icon/ios/icon-40.png" width="40" />
+    <icon height="80" src="res/icon/ios/icon-40@2x.png" width="80" />
+    <icon height="57" src="res/icon/ios/icon.png" width="57" />
+    <icon height="114" src="res/icon/ios/icon@2x.png" width="114" />
+    <icon height="72" src="res/icon/ios/icon-72.png" width="72" />
+    <icon height="144" src="res/icon/ios/icon-72@2x.png" width="144" />
+    <icon height="29" src="res/icon/ios/icon-small.png" width="29" />
+    <icon height="58" src="res/icon/ios/icon-small@2x.png" width="58" />
+    <icon height="50" src="res/icon/ios/icon-50.png" width="50" />
+    <icon height="100" src="res/icon/ios/icon-50@2x.png" width="100" />
+    <splash height="480" src="res/screen/ios/Default~iphone.png" width="320" />
+    <splash height="960" src="res/screen/ios/Default@2x~iphone.png" width="640" />
+    <splash height="1024" src="res/screen/ios/Default-Portrait~ipad.png" width="768" />
+    <splash height="2048" src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" />
+    <splash height="1136" src="res/screen/ios/Default-568h@2x~iphone.png" width="640" />
     <name>Ideas para hoy</name>
     <description>
         Santander Uruguay Ideas para Hoy permite a los usuarios acceder a información sobre eventos de verano y descuentos para usuarios de tarjetas Santander en Punta del Este, Uruguay.
@@ -94,10 +100,9 @@
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="SplashScreen" value="splash" />
-    <preference name="splash-screen-duration" value="10000" />
-    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="10000" />
+    <preference name="AutoHideSplashScreen" value="false" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="auto-hide-splash-screen" value="false" />
     <preference name="StatusBarOverlaysWebView" value="true" />

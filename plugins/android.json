@@ -9,7 +9,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"GAPlugin\"><param name=\"android-package\" value=\"com.adobe.plugins.GAPlugin\" /></feature>",
+                            "xml": "<feature name=\"UniversalAnalytics\"><param name=\"android-package\" value=\"com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin\" /></feature>",
                             "count": 1
                         },
                         {
@@ -73,6 +73,24 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 1
+                        }
+                    ],
                     "/manifest": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
@@ -117,20 +135,6 @@
                             "count": 1
                         }
                     ],
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 1
-                        }
-                    ],
                     "application": [
                         {
                             "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
@@ -160,7 +164,7 @@
         }
     },
     "installed_plugins": {
-        "com.adobe.plugins.GAPlugin": {
+        "com.danielcwilson.plugins.googleanalytics": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "com.phonegap.plugin.statusbar": {
@@ -173,6 +177,9 @@
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "com.pimod.santanderapp"
+        },
+        "org.apache.cordova.console": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "org.apache.cordova.device": {

@@ -183,10 +183,6 @@
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-hdpi/ic_action_previous_item.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-hdpi/ic_action_remove.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-hdpi/icon.png \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-land-hdpi/screen.png \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-land-ldpi/screen.png \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-land-mdpi/screen.png \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-land-xhdpi/screen.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-ldpi/icon.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-mdpi/ic_action_next_item.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/res/drawable-mdpi/ic_action_previous_item.png \
@@ -211,10 +207,6 @@
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-hdpi/ic_action_previous_item.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-hdpi/ic_action_remove.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-hdpi/icon.png \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-land-hdpi/screen.png \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-land-ldpi/screen.png \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-land-mdpi/screen.png \
-/Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-land-xhdpi/screen.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-ldpi/icon.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-mdpi/ic_action_next_item.png \
 /Applications/MAMP/htdocs/s4nt4nd3rs_4pp_v3_local/platforms/android/ant-build/res/drawable-mdpi/ic_action_previous_item.png \

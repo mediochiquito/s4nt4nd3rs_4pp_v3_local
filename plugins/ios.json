@@ -7,12 +7,6 @@
         "files": {
             "framework": {
                 "parents": {
-                    "CoreData.framework": [
-                        {
-                            "xml": "false",
-                            "count": 1
-                        }
-                    ],
                     "SystemConfiguration.framework": [
                         {
                             "xml": "false",
@@ -20,6 +14,24 @@
                         },
                         {
                             "xml": "true",
+                            "count": 1
+                        }
+                    ],
+                    "CoreData.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "libz.dylib": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "libsqlite3.0.dylib": [
+                        {
+                            "xml": "false",
                             "count": 1
                         }
                     ],
@@ -83,7 +95,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"GAPlugin\"><param name=\"ios-package\" value=\"GAPlugin\" /></feature>",
+                            "xml": "<feature name=\"UniversalAnalytics\"><param name=\"ios-package\" value=\"UniversalAnalyticsPlugin\" /></feature>",
                             "count": 1
                         },
                         {
@@ -108,6 +120,10 @@
                         },
                         {
                             "xml": "<feature name=\"Toast\"><param name=\"ios-package\" value=\"Toast\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
                         },
                         {
@@ -196,7 +212,7 @@
         }
     },
     "installed_plugins": {
-        "com.adobe.plugins.GAPlugin": {
+        "com.danielcwilson.plugins.googleanalytics": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "com.phonegap.plugin.statusbar": {
@@ -209,6 +225,9 @@
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "com.pimod.santanderapp"
+        },
+        "org.apache.cordova.console": {
             "PACKAGE_NAME": "com.pimod.santanderapp"
         },
         "org.apache.cordova.device": {

@@ -1,10 +1,10 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/com.adobe.plugins.GAPlugin/www/GAPlugin.js",
-        "id": "com.adobe.plugins.GAPlugin.GAPlugin",
+        "file": "plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js",
+        "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
         "clobbers": [
-            "GAPlugin"
+            "analytics"
         ]
     },
     {
@@ -93,11 +93,12 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.adobe.plugins.GAPlugin": "2.3.1",
+    "com.danielcwilson.plugins.googleanalytics": "0.6.0",
     "com.phonegap.plugin.statusbar": "1.1.0",
     "com.phonegap.plugins.PushPlugin": "2.3.1",
     "com.plugin.datepicker": "0.4.0",
     "nl.x-services.plugins.toast": "2.0.1",
+    "org.apache.cordova.console": "0.2.11",
     "org.apache.cordova.device": "0.2.12",
     "org.apache.cordova.dialogs": "0.2.10",
     "org.apache.cordova.geolocation": "0.3.11-dev",

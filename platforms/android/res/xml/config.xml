@@ -1,12 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.pimod.santanderapp" version="3.0.0" versionCode="16" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
-    <preference name="AndroidLaunchMode" value="singleTop" />
-    <feature name="App">
-        <param name="android-package" value="org.apache.cordova.App" />
-    </feature>
-    <feature name="GAPlugin">
-        <param name="android-package" value="com.adobe.plugins.GAPlugin" />
+    <feature name="UniversalAnalytics">
+        <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
     </feature>
     <feature name="PushPlugin">
         <param name="android-package" value="com.plugin.gcm.PushPlugin" />
@@ -40,10 +36,14 @@
     <access origin="https://api.facebook.com" />
     <access origin="https://*.fbcdn.net" />
     <access origin="https://*.akamaihd.net" />
-    <icon density="ldpi" src="res/android/ldpi.png" />
-    <icon density="mdpi" src="res/android/mdpi.png" />
-    <icon density="hdpi" src="res/android/hdpi.png" />
-    <icon density="xhdpi" src="res/android/xhdpi.png" />
+    <icon density="ldpi" src="res/icon/android/ldpi.png" />
+    <icon density="mdpi" src="res/icon/android/mdpi.png" />
+    <icon density="hdpi" src="res/icon/android/hdpi.png" />
+    <icon density="xhdpi" src="res/icon/android/xhdpi.png" />
+    <splash density="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
+    <splash density="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" />
+    <splash density="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
+    <splash density="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
     <name>Ideas para hoy</name>
     <description>
         Santander Uruguay Ideas para Hoy permite a los usuarios acceder a información sobre eventos de verano y descuentos para usuarios de tarjetas Santander en Punta del Este, Uruguay.
@@ -57,10 +57,9 @@
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="SplashScreen" value="splash" />
-    <preference name="splash-screen-duration" value="10000" />
-    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="10000" />
+    <preference name="AutoHideSplashScreen" value="false" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="auto-hide-splash-screen" value="false" />
     <preference name="StatusBarOverlaysWebView" value="true" />
