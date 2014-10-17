@@ -74,7 +74,7 @@ function SeccionListaOfertas()
 
 				if($json!==false) {
 
-					$('#ListaOferta_banner').html('<img width="'+(app.ancho-40)+'" src="'+app.server+$json.banners_ofertas_url+'" />')
+					$('#ListaOferta_banner').html('<img width="'+(app.ancho-40)+'" src="http://santander.crudo.com.uy/'+$json.banners_ofertas_url+'" />')
 						setTimeout(function(){
 							
 							$('#ListaOferta_banner').find('img').bind('click', function(){

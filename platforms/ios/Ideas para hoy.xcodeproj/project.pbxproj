@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		07458885FC2245EABE93F861 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E8FEAFDB4B4695B02AF3AA /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		14D9779F68AB4544A28C91C3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BFF5DF44484563948B4B55 /* libsqlite3.dylib */; };
@@ -638,7 +639,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: PIMOD SRL (C6X8LD6G28)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pablo Buela (7YV37643V7)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -671,7 +672,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "3768C820-06A3-492A-B33E-B4C8F13A8031";
+				PROVISIONING_PROFILE = "1cb1e75a-c964-4ab8-82fc-f5a00686db5b";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -681,7 +682,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: PIMOD SRL (C6X8LD6G28)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pablo Buela (7YV37643V7)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -712,7 +713,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "3768C820-06A3-492A-B33E-B4C8F13A8031";
+				PROVISIONING_PROFILE = "1cb1e75a-c964-4ab8-82fc-f5a00686db5b";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

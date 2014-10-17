@@ -46,7 +46,9 @@
     <splash density="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
     <name>Ideas para hoy</name>
     <description>
-        Santander Uruguay Ideas para Hoy permite a los usuarios acceder a información sobre eventos de verano y descuentos para usuarios de tarjetas Santander en Punta del Este, Uruguay.
+        Santander Uruguay te acerca una aplicación para que te enteres de todos los eventos que están cerca de vos: ¡fiestas, recitales, eventos culturales y mucho más! Además, encontrá todos los descuentos y promociones que podés disfrutar con tus tarjetas Santander, clasificándolos por cercanía en base a geolocalización.
+        
+        Es una aplicación absolutamente gratuita y de libre acceso para clientes y no clientes de Banco Santander Uruguay, ¡aprovechala!
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
