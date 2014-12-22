@@ -21,14 +21,14 @@
 #SeccionHome_btn_descuentos{
 	bottom: 0px;
 	left: 50%;
-	margin-left: -90px;
+	margin-left: -130px;
 
 }
 
 #SeccionHome_btn_eventos{
 	bottom: 0px;
 	left: 50%;
-	margin-left: 3px;
+	margin-left: -45px;
 }
 
 #SeccionHome_promo{
@@ -38,4 +38,29 @@
 	margin-top: -176px;
 	width: 200px;
 	-webkit-backface-visibility: hidden;
+}
+
+#SeccionHome_btn_promos{
+
+	bottom: 0px;
+	left: 50%;
+	
+
+	margin-left: 38px;
+
+
+}
+#SeccionHome .spinner{
+	
+bottom: 0px;
+	left: 50%;
+	
+
+	
+margin-left: 68px;
+
+margin-top: auto;
+top: auto;
+margin-bottom: 48px;
+-webkit-transform: scale(0.6);
 }

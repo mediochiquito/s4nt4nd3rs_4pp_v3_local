@@ -20,7 +20,9 @@ function SeccionPush()
 	
 	$(header_titulo).html('<div class="Push_col1">Departamento</div>'+
 							'<div class="Push_col2"><img src="img/push/event.svg" height="30" /></div>'+
-							'<div class="Push_col3"><img src="img/push/porc.svg" height="30" /></div>')
+							'<div class="Push_col3"><img src="img/push/porc.svg" height="30" /></div>'+
+							'<div class="Push_col4"><img src="img/push/promo.svg" height="30" /></div>'
+							)
 
 	var holder = document.createElement('div')
 	holder.id = 'Push_holder'
@@ -70,9 +72,10 @@ function SeccionPush()
 					data:{o: array_seleccionados, token:app._ManagePush.token, plataform: app._ManagePush.plataform}, 
 					success:function(){
 						 
-						 app.db.transaction(function (tx) {
-							 tx.executeSql('UPDATE app SET push=?', ['2']);
-						 });
+						app.db.transaction(function (tx) {
+							 tx.executeSql('UPDATE app SET push=?', ['3']);
+						});
+
 						btn_guardar.habil(false)
 					  	btn_cancelar.habil(false)
 						app.cargando(false);
@@ -126,15 +129,13 @@ function SeccionPush()
 					url: app.server + "json.get_push_deptos.php",
 					dataType: 'json',
 					cache: false, 
-					data:{token:app._ManagePush.token, plataform: app._ManagePush.plataform}, 
+					data: {token:app._ManagePush.token, plataform: app._ManagePush.plataform}, 
 					
 					success:function($json){
 						 
 						 for(var depto0 in dict_deptos){
 						 	dict_deptos[depto0]._clear()
 						 }
-
-
 
 						 app.db.transaction(function (tx) {
 							 tx.executeSql('UPDATE app SET push=?', ['2']);
@@ -145,7 +146,6 @@ function SeccionPush()
 						 }
 
 						 app.cargando(false);
-
 
 						 if(obj=='go_home'){
 

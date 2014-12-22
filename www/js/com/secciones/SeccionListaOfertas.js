@@ -142,6 +142,7 @@ $(combo_deptos).attr('disabled', false)
 		$(combo_deptos).find('option[value="'+app.depto_que_me_encuentro+'"]').prop('selected', true)
 		
 		app.db.transaction(function (tx) {
+			
 			//alert("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE "+where+"  locales_departamentos_id="+app.depto_que_me_encuentro+" AND ofertas_estado=1  GROUP BY locales_ofertas_id ");
 			tx.executeSql("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE "+where+"  locales_departamentos_id="+app.depto_que_me_encuentro+" AND ofertas_estado=1  GROUP BY locales_ofertas_id " , [], function (tx, resultado) {
 		    	

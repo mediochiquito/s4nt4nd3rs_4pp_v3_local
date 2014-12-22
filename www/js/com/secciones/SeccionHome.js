@@ -18,15 +18,34 @@ function SeccionHome()
 	btn_eventos.main.id = 'SeccionHome_btn_eventos'
 	$(this.main).append(btn_eventos.main)
 
+
+	var btn_promos = new BotonDashboard('promos/promo', 'Promociones', doVerPromos)
+
+	btn_promos.main.id = 'SeccionHome_btn_promos'
+	$(this.main).append(btn_promos.main)
+	btn_promos.habil(false)
+
+
+
+
+	$(this.main).append('<div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>');
+		
+
+
+	function doVerPromos(){
+
+		app.secciones.go(app.secciones.seccionhomepromos, 300);
+
+	}
+
 	function doVerDescuentos(){
 
-		//app.secciones.go(app.secciones.seccioneventosofertas, 300, {solapa: 'ofertas'});
 		app.secciones.go(app.secciones.seccionhomeofertas, 300);
 
 	}
 
 	function doVerEventos(){
-		//app.secciones.go(app.secciones.seccioneventosofertas, 300, {solapa: 'eventos'});
+
 		app.secciones.go(app.secciones.seccionhomeeventos, 300);
 	}
 
@@ -36,6 +55,9 @@ function SeccionHome()
 		app.secciones.go(app.secciones.seccionmapa);
 
 	}
+
+
+
 
 }
 SeccionHome.prototype = new Base_Seccion();

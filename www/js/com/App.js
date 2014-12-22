@@ -1,7 +1,7 @@
 function App(){
 	//
 
-	var version = '3.1';
+	var version = '4.0.0';
 	this.main = document.createElement('div');
 	this.main.id = 'app'
 	this.ancho = 320;
@@ -21,8 +21,8 @@ function App(){
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/';
-	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/';
-	this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
+	this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/v3/';
 	//this.server = 'http://dev.santander.crudo.com.uy/';
 	
@@ -384,10 +384,37 @@ function App(){
 		
 	}
 
+
+	function guardar_push_promociones_solo_en_mi_depto_encontrado(){
+
+
+			$.ajax({
+
+					type: "POST",
+					url: app.server + "void.set_push_deptos.php",
+					dataType: 'text',
+					cache: false, 
+					data:{depto: self.depto_que_me_encuentro, action: 'update_promo', token:app._ManagePush.token, plataform: app._ManagePush.plataform}, 
+					success:function(){
+										 
+						 app.db.transaction(function (tx) {
+							 tx.executeSql('UPDATE app SET push=?', ['3']);
+						 });
+						 
+					},
+					error:function (){
+
+						app.alerta('Ocurrio un error 407.');
+
+					}
+				});
+
+	}
+
 	function guardar_push_solo_en_mi_depto_encontrado (){
 		
 		var _o = new Object();
-			_o[self.depto_que_me_encuentro-1] =  {'e':'true', 'o':'true'}
+			_o[self.depto_que_me_encuentro-1] =  {'e':'true', 'o':'true', 'p':'true'}
 
 		$.ajax({
 
@@ -399,7 +426,7 @@ function App(){
 					success:function(){
 						 
 						 app.db.transaction(function (tx) {
-							 tx.executeSql('UPDATE app SET push=?', ['2']);
+							 tx.executeSql('UPDATE app SET push=?', ['3']);
 						 });
 						 
 					},
@@ -411,16 +438,66 @@ function App(){
 				});
 
 	}
-	function errorLocation(error) {
 
+
+	function errorLocation(error) {
+		
 		//console.log('errorLocation error.code: ' + error.code + ', error.message: ' + error.message);
-		if(primer_registro_push) guardar_push_solo_en_mi_depto_encontrado()
+		//if(primer_registro_push) guardar_push_solo_en_mi_depto_encontrado()
+
+
+		app.db.transaction(function (tx) {
+				tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+						
+						if(Number(resultado.rows.item(0).push) < 2 ) {
+						
+		    				self._ManagePush.registrar(function(){
+		    						
+			    						guardar_push_solo_en_mi_depto_encontrado()
+			    						primer_registro_push = true
+									
+		    				});
+
+	    				}else if(Number(resultado.rows.item(0).push) == 2 ){
+
+	    						guardar_push_promociones_solo_en_mi_depto_encontrado()
+	    				}
+
+
+				})
+		});
+
+
 	}
 
 	function comprobacion_total_tablas_creadas(e){
 
     	tablas_creadas++;
     	if(tablas_creadas == array_tablas_a_crear.length) start();
+
+    }
+    
+    function  obtener_promos(){
+
+
+    		$.ajax({
+				type: "GET",
+				url: app.server + "sync_value.php",
+				data:{method:'get_list_promos'},
+				dataType: 'json',
+				cache:false, 
+				success: function($json) {
+					
+
+
+
+
+				},
+				error: function() {
+					
+				}
+			});
+
 
     }
 
@@ -430,21 +507,30 @@ function App(){
 			if(app.secciones.get_obj_seccion_actual()==null)
 				app.secciones.go(app.secciones.seccionhome);
 	
+			 obtener_promos()
+
 		   	 app.db.transaction(function (tx) {
 
 					tx.executeSql("SELECT sync_value,push FROM app" , [], function (tx, resultado) {
 		    				
 		    				sync_value = resultado.rows.item(0).sync_value
+		    				if(Number(resultado.rows.item(0).push) < 2 ) {
+		    					
+		    					self._ManagePush.registrar(function(){
+		    						
+			    					if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado()
+			    						primer_registro_push = true
+									
+		    					});
 
-	    					self._ManagePush.registrar(function(){
-	    						if(String(resultado.rows.item(0).push) != '2' ) {
+			    			}else if(Number(resultado.rows.item(0).push)  ==  2 ) {
+		    					
+			    				guardar_push_promociones_solo_en_mi_depto_encontrado()
 
-		    						if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado()
-		    							primer_registro_push = true
+		    				}
 
-								}
-	    					});
-			    				
+
+
 		    				if(app.hay_internet()) verfificar_sync();
 							else $(document).trigger('CARGAR_LISTAS');
 
@@ -455,11 +541,6 @@ function App(){
 									
 								}catch(e){}
 							}, 1000);
-
-		    				
-
-							
-
 
 					})
 
@@ -768,7 +849,7 @@ function App(){
 
     function crearTabla_App($tx){
 
-    	
+
 			la_tala_fue_creada($tx, 'app', function($bool){
 				
 				$tx.executeSql('CREATE TABLE IF NOT EXISTS app ("sync_value" INTEGER, "push" INTEGER, "version" VARCHAR)', [], comprobacion_total_tablas_creadas);
@@ -870,7 +951,6 @@ function App(){
 
 			}
     }
-
 
     function crearTabla_Ofertas($tx){
 

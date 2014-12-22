@@ -9,6 +9,7 @@ cordova plugin add https://github.com/apache/cordova-plugin-geolocation.git
 
 
 cordova plugin add  https://github.com/phonegap-build/GAPlugin.git // viejo
+
 cordova plugin add https://github.com/danwilson/google-analytics-plugin
 cordova plugin add /Users/mateo/developer/pluginsCordova/google-analytics-plugin
 
@@ -19,10 +20,9 @@ https://github.com/Wizcorp/phonegap-facebook-plugin.git
 cordova -d plugin add /Users/mateo/developer/pluginsCordova/phonegap-facebook-plugin --variable APP_ID="381248932009498" --variable APP_NAME="Ideas para hoy"
 '' problemas con facebook en IOS agregar el plugin en Build Phases->Compile sources y n library with binaris"
 
-
-
 cordova -d plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
 cordova plugin add https://github.com/VitaliiBlagodir/cordova-plugin-datepicker
+
 cordova plugin add https://github.com/mateomenestrina/PushPlugin
 cordova plugin add https://github.com/sclement41/PushPlugin
 

@@ -1,4 +1,5 @@
-mapa nativo
-cancelar calendario!!!!
+revisar fecha con 0 en eventos
+
+revisar cancel calendario android muestre NaN
 
 
