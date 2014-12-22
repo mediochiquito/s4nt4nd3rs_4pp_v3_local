@@ -9,10 +9,29 @@ switch($metodo){
 
 	case 'get_list_promos':
 	
-			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as depto  FROM promos WHERE promos_vigencia_ini <= DATE(NOW()) AND promos_vigencia_fin >= DATE(NOW()) ORDER BY promos_vigencia_ini ASC');
+			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as depto  FROM promos WHERE 
+									promos_vigencia_fin < DATE(NOW()) ORDER BY promos_vigencia_ini ASC');
+
 			while($row_pomos =  mysql_fetch_object($rs_pomos)){
+				$row_pomos->type= -1;
 				$r[] = $row_pomos;
 			}
+
+			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as depto  FROM promos WHERE promos_vigencia_ini <= DATE(NOW()) AND promos_vigencia_fin >= DATE(NOW()) ORDER BY promos_vigencia_ini ASC');
+			while($row_pomos =  mysql_fetch_object($rs_pomos)){
+				$row_pomos->type= 0;
+				$r[] = $row_pomos;
+			}
+
+			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as depto  FROM promos WHERE 
+									promos_vigencia_ini > DATE(NOW()) ORDER BY promos_vigencia_ini ASC');
+			while($row_pomos =  mysql_fetch_object($rs_pomos)){
+				$row_pomos->type= 1;
+				$r[] = $row_pomos;
+			}
+
+
+
 			echo json_encode($r);
 
 

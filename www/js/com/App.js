@@ -20,8 +20,8 @@ function App(){
 
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
-	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/';
-	this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
 	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/v3/';
 	//this.server = 'http://dev.santander.crudo.com.uy/';
@@ -41,7 +41,7 @@ function App(){
 	var btn_connect;
 	var buscando_depto = true;
 
-
+	this.json_promos = null
 
 	this.depto_que_me_encuentro = 9;
 
@@ -482,19 +482,18 @@ function App(){
 
     		$.ajax({
 				type: "GET",
-				url: app.server + "sync_value.php",
+				url: app.server + "promos.php",
 				data:{method:'get_list_promos'},
 				dataType: 'json',
 				cache:false, 
 				success: function($json) {
 					
-
-
-
+					app.json_promos = $json;
+					$(document).trigger('on_cargo_pommos');
 
 				},
 				error: function() {
-					
+					app.alert('Ocurrio un error al cargar las promociones.')
 				}
 			});
 

@@ -26,15 +26,21 @@ function SeccionHome()
 	btn_promos.habil(false)
 
 
-
+	$(document).bind('on_cargo_pommos', on_cargo_pommos);
 
 	$(this.main).append('<div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>');
 		
+	function on_cargo_pommos(){
 
+		$('#SeccionHome .spinner').hide()
+		if(app.json_promos != null){
+			btn_promos.habil(true)
+		}
+	}
 
 	function doVerPromos(){
 
-		app.secciones.go(app.secciones.seccionhomepromos, 300);
+		app.secciones.go(app.secciones.seccionlistapromos, 300);
 
 	}
 
