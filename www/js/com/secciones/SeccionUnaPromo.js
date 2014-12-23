@@ -1,6 +1,6 @@
 function SeccionUnaPromo()
 {
-	this.main.id = 'UnaOferta';
+	this.main.id = 'UnaPromo';
 	
 	var holder_blanco_secciones = document.createElement('div')
 	holder_blanco_secciones.className = 'holder_blanco_secciones'
@@ -12,7 +12,7 @@ function SeccionUnaPromo()
 	$(holder_blanco_secciones).append(titulo_seccion)
 
 	var holder = document.createElement('div')
-	holder.id = 'UnaOferta_holder'
+	holder.id = 'UnaPromo_holder'
 	holder.className = 'Tabs_holder'
 	$(holder).append('<div></div>')
 	$(this.main).append(holder)
@@ -20,49 +20,106 @@ function SeccionUnaPromo()
 	$(holder).css({width: app.ancho-40, height: app.alto-120});
 
 	var img = new Image()
-	img.id = 'SeccionUnaOferta_img'
+	img.id = 'SeccionUnaPromo_img'
 	$(holder).find('>div').append(img)
 
 	var hoy = new Image();
-	hoy.id =  'UnaOferta_hoy';
+	hoy.id =  'UnaPromo_hoy';
 	hoy.src = 'img/hoy.svg';
 	$(holder).find('>div').append(hoy);
 
 	var header_titulo =  document.createElement('div')
-	header_titulo.id = 'UnaOferta_header_titulo'
+	header_titulo.id = 'UnaPromo_header_titulo'
+
 	$(holder).find('>div').append(header_titulo)
-	
+
 	var titulo_txt =  document.createElement('div')
-	titulo_txt.id = 'UnaOferta_titulo_txt'
+	titulo_txt.id = 'UnaPromo_titulo_txt'
 	$(header_titulo).append(titulo_txt)
 
+
+	var desc_txt =  document.createElement('div')
+	desc_txt.id = 'UnaPromo_desc_txt'
+	$(holder).find('>div').append(desc_txt)
+
+	
+	$(desc_txt).html('Bbbbb Bbbb Bbbbb Bbbb Bbbbb Bbbb Bbbbb Bbbb')
+
+	var titulo_vigencia =  document.createElement('div')
+	titulo_vigencia.className = 'box label_negrira'
+	$(titulo_vigencia).html('Vigencia')
+	$(holder).find('>div').append(titulo_vigencia)
+
+	var txt_vigencia =  document.createElement('div')
+	txt_vigencia.className = 'box label_normal'
+	$(holder).find('>div').append(txt_vigencia);
+	$(txt_vigencia).html('12321321 12312- 123213123')
+
+	var titulo_condiciones =  document.createElement('div')
+	titulo_condiciones.className = 'box label_negrira'
+	$(titulo_condiciones).html('Condiciones')
+	$(holder).find('>div').append(titulo_condiciones)
+
+	var txt_condiciones =  document.createElement('div')
+	txt_condiciones.className = 'UnaPromo_condiciones_cerrada box label_normal'
+	
+	$(holder).find('>div').append(txt_condiciones);
+	$(txt_condiciones).html('LOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsum')
+
+	var condiciones_abiertas = false
+
+	var holder_btn_mas_condiciones =  document.createElement('div');
+	holder_btn_mas_condiciones.id = 'UnaPromo_holder_btn_mas_condiciones';
+	$(holder).find('>div').append(holder_btn_mas_condiciones);
+	
+	$(holder_btn_mas_condiciones).bind('click', doOpenCloseCondiciones)
+
 	var holder_data =  document.createElement('div')
-	holder_data.id = 'UnaOferta_holder_data'
+	holder_data.id = 'UnaPromo_holder_data'
 	$(holder).find('>div').append(holder_data)
 
 	var holder_footer =  document.createElement('div')
-	holder_footer.id = 'UnaOferta_holder_footer'
+	holder_footer.id = 'UnaPromo_holder_footer'
 	$(holder).find('>div').append(holder_footer)
 
 	var btn_compartir = new Boton("<img src='img/fb.svg' width='20' />&nbsp;&nbsp;COMPARTIR", doCompartir, 'BotonAzul')
-	btn_compartir.main.id = 'UnaOferta_btn_compartir'
+	btn_compartir.main.id = 'UnaPromo_btn_compartir'
 	$(holder_footer).append(btn_compartir.main)
 
 	var btn_volver = new Boton2Frames("img/btn_volver_rojo.svg", 25, 50, doVolver)
-	btn_volver.main.id = 'UnaOferta_btn_volver'
+	btn_volver.main.id = 'UnaPromo_btn_volver'
 	$(holder_blanco_secciones).append(btn_volver.main)
 
+	$(titulo_seccion).html('Promociones');
 
 	var obj;
 
 	function doVolver(){
+
 		/*if(obj.viene_de_push)
-			app.secciones.go(app.secciones.seccionhome, 300);
+		 app.secciones.go(app.secciones.seccionhome, 300);
 		else
-		app.secciones.go(app.secciones.seccionlistaofertas, 300)*/
+		app.secciones.go(app.secciones.seccionlistaofertas, 300)
+		*/
+
 	}
 	
-	
+	function doOpenCloseCondiciones(){
+
+		if(condiciones_abiertas){
+			$(txt_condiciones).removeClass('UnaPromo_condiciones_abierta')
+			$(txt_condiciones).addClass('UnaPromo_condiciones_cerrada')
+			$(holder_btn_mas_condiciones).css('margin-top', -31)
+			condiciones_abiertas=false
+		}else{
+			$(txt_condiciones).removeClass('UnaPromo_condiciones_cerrada')
+			$(txt_condiciones).addClass('UnaPromo_condiciones_abierta')
+			$(holder_btn_mas_condiciones).css('margin-top', 0)
+			condiciones_abiertas=true
+		}
+
+	}
+
 	function doCompartir(){
 
         /* var params = {
@@ -88,6 +145,34 @@ function SeccionUnaPromo()
 	}
 
 	this._set = function ($obj){
+
+		$(holder_data).empty();
+		$(titulo_txt).html($obj.row.lugar);
+		
+		app.loading.mostrar()
+
+		$.ajax({
+				type: "GET",
+				url: app.server + "promos.php",
+				data:{method:'get_una_promos', id:$obj.row.id},
+				dataType: 'json',
+				cache:false, 
+				success: function($json) {
+						
+
+
+
+
+
+
+					app.loading.ocultar()
+
+				},
+				error: function() {
+					app.alert('Ocurrio un error al cargar la promocion.')
+				}
+			});
+
 
 		/*if(typeof($obj)== 'undefined') return;
 		obj = $obj;

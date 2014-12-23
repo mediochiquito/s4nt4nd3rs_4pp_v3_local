@@ -86,6 +86,7 @@ function SeccionListaPromos()
 		for(var promo in app.json_promos){
 			
 			if(app.json_promos[promo].depto == app.depto_que_me_encuentro){
+				
 				//for(var i=0; i<5;i++){
 					var _ItemListaPromos = new ItemListaPromos(app.json_promos[promo]);
 					$(holder).find('#ListaPromosWrapper').append(_ItemListaPromos.main)
@@ -94,37 +95,7 @@ function SeccionListaPromos()
 				
 		          
 		}
-
-
-		/*app.db.transaction(function (tx) {
-			
-			//alert("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE "+where+"  locales_departamentos_id="+app.depto_que_me_encuentro+" AND ofertas_estado=1  GROUP BY locales_ofertas_id ");
-			tx.executeSql("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE "+where+"  locales_departamentos_id="+app.depto_que_me_encuentro+" AND ofertas_estado=1  GROUP BY locales_ofertas_id " , [], function (tx, resultado) {
-		    	
-		    	var cant_ofertas = resultado.rows.length;
-
-		    	$(holder).find('#ListaPromosWrapper').empty()
-		    	
-		    	if(cant_ofertas == 0){
-
-		    		//btn_ver_en_mapa.habil(false)
-		    		$(holder).find('#ListaPromosWrapper').html('<div class="sin_resultados"><div>No contamos con descuentos para esta categoría en este departamento. Intentá con otra categoría u otra ubicación.</div></div>')
-		    		
-		    	}else{
-		    		//btn_ver_en_mapa.habil(true)
-		    	}
-
-		        array_ids_encontrados = new Array();
-		        for(var i=0; i<cant_ofertas; i++){
-					var _ItemListaOferta = new ItemListaOferta(resultado.rows.item(i));
-					$(holder).find('#ListaPromosWrapper').append(_ItemListaOferta.main)
-		          
-		        }
-
-				if(typeof($callback)!='undefined') $callback(cant_ofertas);
-
-		    })
-		});*/
+		
 
 	}
 
