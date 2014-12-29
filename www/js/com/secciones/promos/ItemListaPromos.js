@@ -63,7 +63,7 @@ function ItemListaPromos($row)
 	function doClick(e){
 		pintar()
 		setTimeout(function(){
-			app.secciones.go(app.secciones.seccionunapromo, 300, {row: $row})
+			app.secciones.go(app.secciones.seccionunapromo, 300, {row: $row, type: $row.type})
 
 		}, 200)
 		setTimeout(despintar, 800)

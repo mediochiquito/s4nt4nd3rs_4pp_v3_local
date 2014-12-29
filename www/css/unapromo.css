@@ -4,7 +4,7 @@
  
 }
 	
-#ItemLocal{
+#ItemLocalPromo{
 	position: relative;
 
 
@@ -30,7 +30,7 @@
 
 }
 
-.ItemLocal_disancia{
+.ItemLocalPromo_disancia{
 	font-family: 'GothamBook';
 	font-size: 10px;
 	color: #8D8C8C;
@@ -40,13 +40,13 @@
 	width: 60px;
 	text-align: right;
 }
-#ItemLocal_header_titulo{
+#ItemLocalPromo_header_titulo{
 	position: relative;
 	width: 100%;
 	background-color: #dedcdc;
 	border-bottom: solid 1px #fff;
 }
-#ItemLocal_titulo_txt{
+#ItemLocalPromo_titulo_txt{
 	position: relative;
 	width: 80%;
 	color: #000;
@@ -64,7 +64,14 @@
 
 	top: 10px;
 }
+#UnaPromo_open_close_condiciones{
 
+	width: 150px;
+position: absolute;
+left: 50%;
+margin-left: -75px;
+top: 29px;
+}
 #UnaPromo_holder{
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
@@ -76,8 +83,6 @@
 
 #SeccionUnaPromo_img{
 	position: relative;
-	
-
 	min-height: 85px;
 }
 #UnaPromo_btn_volver{

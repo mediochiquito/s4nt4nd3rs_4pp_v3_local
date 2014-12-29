@@ -31,13 +31,52 @@ switch($metodo){
 			}
 
 
-
 			echo json_encode($r);
 
 
 	break;
 
 
+
+	case 'get_una_promos':
+
+			$id =  mysql_real_escape_string($_GET['id']);
+			$rs_pomos = mysql_query('SELECT *  FROM promos WHERE promos_id = "'. $id .'" ;');
+			$row_pomos =  mysql_fetch_object($rs_pomos);
+
+			
+			$rs_locales = mysql_query('SELECT * FROM  promos_locales WHERE promos_locales_promos_id=' . $id);
+			while($row_locales =  mysql_fetch_object($rs_locales)){
+				$l[] = $row_locales;
+			}
+			$row_pomos->array_locales = $l;
+
+
+			echo json_encode($row_pomos);
+
+
+		break;
+
+
+	case 'crear_codigo':
+
+			$uid =  mysql_real_escape_string($_GET['uid']);
+			$at =  mysql_real_escape_string($_GET['at']);
+			$post_id =  mysql_real_escape_string($_GET['post_id']);
+			$promo_id =  mysql_real_escape_string($_GET['promo_id']);
+
+			mysql_query('INSERT INTO promos_code SET 		promos_code_uid = "'. $uid .'", 
+															promos_code_post_id = "'. $post_id .'",
+															promos_code_promos_id = "'. $promo_id .'",
+															promos_code_fecha_creado=NOW()
+
+													  ;');
+
+
+			$id_insert = mysql_insert_id();
+			$codigo = generar
+
+		break;
 
 
 }

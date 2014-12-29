@@ -89,6 +89,9 @@ function SeccionMapa()
 
 		if(desde_donde_viene == 'un_evento')
 			app.secciones.go(app.secciones.seccionunevento, 300)
+		
+		if(desde_donde_viene == 'una_promo')
+			app.secciones.go(app.secciones.seccionunapromo, 300)
 
 	}
 
@@ -249,7 +252,34 @@ function SeccionMapa()
 					case  'un_evento':
 						listar_unevento();
 						break;
+					case  'una_promo':
+						listar_unapromo();
+						break;
 				}
+		
+	}
+
+	function listar_unapromo(){
+
+		          var marker = new google.maps.Marker({
+
+																position: new google.maps.LatLng(ultimo_obj.row_local.promos_locales_lat, ultimo_obj.row_local.promos_locales_lon),
+																title:ultimo_obj.row_local.promos_locales_localidad,
+																	  
+																	  icon: {url:'img/markers/promo.png', scaledSize: new google.maps.Size(19, 30)},
+																	  row: ultimo_obj.row_local
+																	});
+					marker.setMap(map);
+
+					google.maps.event.addListener(marker, 'click', function() {
+					  app.secciones.go(app.secciones.seccionunapromo, 300)
+					});
+					map.setZoom(16)
+		       		map.setCenter(marker.getPosition());
+
+					setTimeout(function(){
+						 google.maps.event.trigger(map, 'resize')
+					}, 200)		
 		
 	}
 

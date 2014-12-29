@@ -43,17 +43,16 @@ function SeccionUnaPromo()
 	$(holder).find('>div').append(desc_txt)
 
 	
-	$(desc_txt).html('Bbbbb Bbbb Bbbbb Bbbb Bbbbb Bbbb Bbbbb Bbbb')
-
+	
 	var titulo_vigencia =  document.createElement('div')
-	titulo_vigencia.className = 'box label_negrira'
+	titulo_vigencia.className = 'box label_negrira';
 	$(titulo_vigencia).html('Vigencia')
 	$(holder).find('>div').append(titulo_vigencia)
 
 	var txt_vigencia =  document.createElement('div')
 	txt_vigencia.className = 'box label_normal'
 	$(holder).find('>div').append(txt_vigencia);
-	$(txt_vigencia).html('12321321 12312- 123213123')
+	
 
 	var titulo_condiciones =  document.createElement('div')
 	titulo_condiciones.className = 'box label_negrira'
@@ -64,13 +63,19 @@ function SeccionUnaPromo()
 	txt_condiciones.className = 'UnaPromo_condiciones_cerrada box label_normal'
 	
 	$(holder).find('>div').append(txt_condiciones);
-	$(txt_condiciones).html('LOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsumLOren ipsum Loren ipsum')
-
+	
 	var condiciones_abiertas = false
 
 	var holder_btn_mas_condiciones =  document.createElement('div');
 	holder_btn_mas_condiciones.id = 'UnaPromo_holder_btn_mas_condiciones';
 	$(holder).find('>div').append(holder_btn_mas_condiciones);
+
+
+	var open_close_condiciones = new Image();
+	open_close_condiciones.id =  'UnaPromo_open_close_condiciones';
+	open_close_condiciones.src = 'img/promos/open_close_condiciones.png';
+	$(holder_btn_mas_condiciones).append(open_close_condiciones);
+
 	
 	$(holder_btn_mas_condiciones).bind('click', doOpenCloseCondiciones)
 
@@ -101,7 +106,7 @@ function SeccionUnaPromo()
 		else
 		app.secciones.go(app.secciones.seccionlistaofertas, 300)
 		*/
-
+		app.secciones.go(app.secciones.seccionlistapromos, 300)
 	}
 	
 	function doOpenCloseCondiciones(){
@@ -111,11 +116,14 @@ function SeccionUnaPromo()
 			$(txt_condiciones).addClass('UnaPromo_condiciones_cerrada')
 			$(holder_btn_mas_condiciones).css('margin-top', -31)
 			condiciones_abiertas=false
+			$(open_close_condiciones).transition({rotate:0})
+
 		}else{
 			$(txt_condiciones).removeClass('UnaPromo_condiciones_cerrada')
 			$(txt_condiciones).addClass('UnaPromo_condiciones_abierta')
 			$(holder_btn_mas_condiciones).css('margin-top', 0)
 			condiciones_abiertas=true
+			$(open_close_condiciones).transition({rotate:180})			
 		}
 
 	}
@@ -146,26 +154,76 @@ function SeccionUnaPromo()
 
 	this._set = function ($obj){
 
+		if(typeof($obj)== 'undefined') return;
+
 		$(holder_data).empty();
 		$(titulo_txt).html($obj.row.lugar);
+		app.cargando(true);
 		
-		app.loading.mostrar()
-
 		$.ajax({
 				type: "GET",
 				url: app.server + "promos.php",
 				data:{method:'get_una_promos', id:$obj.row.id},
-				dataType: 'json',
+				dataType: 'json', 
 				cache:false, 
 				success: function($json) {
-						
+					
+					if($obj.type == 0) $(hoy).show();
+					else $(hoy).hide();
+
+					if(app.hay_internet() && $json.promos_header_img!='')
+						img.src = $json.promos_header_img;
+					else
+						img.src = 'img/promos/header_default.jpg';
 
 
+					$(img).css('width', app.ancho-40);
+					$(desc_txt).html($json.promos_desctipcion)
+					$(txt_condiciones).html($json.promos_condiciones)
+					$(txt_vigencia).html(formatear_fecha($json.promos_vigencia_ini) + ' - ' + formatear_fecha($json.promos_vigencia_fin))
+
+					$(holder_data).empty();
+
+					if($json.array_locales != null){
+
+						var cant_locales = $json.array_locales.length;
+		    			var array_locales = new Array();
 
 
+				        for(var i=0; i<cant_locales; i++){
+				        	
+				        	if(app.posicion_global != ''){
+				        		
+			        			var d = distance(app.posicion_global.coords.latitude, app.posicion_global.coords.longitude, 
+			        							 $json.array_locales[i].promos_locales_lat,  $json.array_locales[i].promos_locales_lon, 'K')
 
+				        		array_locales.push([parseFloat(d), $json.array_locales[i]]);
 
-					app.loading.ocultar()
+				        	}else{
+								var itemlocal = new ItemLocalPromo($json.array_locales[i], false,i);
+					        	$(holder_data).append(itemlocal.main)
+					        	if(cant_locales==1) itemlocal._click()
+				        	}
+							
+				        }
+				        
+				        if(app.posicion_global!=''){
+				        	
+					        array_locales.sort(function(a,b) { return a[0] - b[0]; });
+
+					        for(var u=0; u<array_locales.length; u++){
+								var itemlocal = new ItemLocalPromo(array_locales[u][1], true, u);
+					        	$(holder_data).append(itemlocal.main)
+
+					        	if(cant_locales==1) itemlocal._click()
+
+					        }   
+				    	}
+
+					}
+					
+
+					app.cargando(false);
 
 				},
 				error: function() {
@@ -174,7 +232,7 @@ function SeccionUnaPromo()
 			});
 
 
-		/*if(typeof($obj)== 'undefined') return;
+		/*if(typeof($obj)== 'undefined') return;	
 		obj = $obj;
 
 			
@@ -240,6 +298,13 @@ function SeccionUnaPromo()
 
 		}, app.db_errorGeneral);*/
 
+	}
+
+
+	function formatear_fecha($mysql){
+
+		var a = $mysql.split('-');
+		return a[2] + '/' + a[1] + '/'+ a[0]
 	}
 
 
