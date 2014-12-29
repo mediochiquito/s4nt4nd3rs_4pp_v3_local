@@ -57,6 +57,12 @@ function Secciones(){
 	$(this.main).append(this.seccionunapromo.main)
 	this.seccionunapromo.ocultar(0);
 
+	this.seccionuncodigo = new SeccionUnCodigo();
+	$(this.main).append(this.seccionuncodigo.main)
+	this.seccionuncodigo.ocultar(0);
+
+
+
 
 	var despazada = false;
 	var historia = new Array()

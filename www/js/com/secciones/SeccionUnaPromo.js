@@ -41,8 +41,6 @@ function SeccionUnaPromo()
 	var desc_txt =  document.createElement('div')
 	desc_txt.id = 'UnaPromo_desc_txt'
 	$(holder).find('>div').append(desc_txt)
-
-	
 	
 	var titulo_vigencia =  document.createElement('div')
 	titulo_vigencia.className = 'box label_negrira';
@@ -128,7 +126,49 @@ function SeccionUnaPromo()
 
 	}
 
+
+	function guardar_promo($post_id){
+
+		app.cargando(true)
+		$.ajax({
+				type: "GET",
+				url: app.server + "promos.php",
+				data:{
+						method:'crear_codigo',
+						uid: app.usuario.uid,
+						at: app.usuario.access_token,
+						post_id:$post_id,
+						promo_id:obj.row.id,
+
+						},
+
+				dataType: 'json',
+				cache:false, 
+				success: function($json) {
+					
+					
+					
+					
+					app.secciones.go(app.secciones.seccionuncodigo, 300, {code: $json.promos_code_code, lugar: $json.promos_lugar});
+					
+
+
+					app.cargando(false)
+				},
+				error: function() {
+					app.alert('Ocurrio un error al enviar el código.');
+					app.cargando(true)
+				}
+		});
+
+		
+	}	
+
+
 	function doCompartir(){
+		
+		guardar_promo('asdasdsa_asdsadsad_1111');
+
 
         /* var params = {
                     method: 'feed',
@@ -156,14 +196,16 @@ function SeccionUnaPromo()
 
 		if(typeof($obj)== 'undefined') return;
 
+		obj = $obj
+
 		$(holder_data).empty();
 		$(titulo_txt).html($obj.row.lugar);
 		app.cargando(true);
 		
 		$.ajax({
-				type: "GET",
-				url: app.server + "promos.php",
-				data:{method:'get_una_promos', id:$obj.row.id},
+				type: "GET", 
+				url: app.server + "promos.php", 
+				data:{method:'get_una_promos', id:$obj.row.id}, 
 				dataType: 'json', 
 				cache:false, 
 				success: function($json) {
@@ -230,73 +272,6 @@ function SeccionUnaPromo()
 					app.alert('Ocurrio un error al cargar la promocion.')
 				}
 			});
-
-
-		/*if(typeof($obj)== 'undefined') return;	
-		obj = $obj;
-
-			
-			var nombre_cate = ''
-			var tipos = (eval(app.json_db_tipo_ofertas))
-			for(var i=0; i<tipos.length; i++){
-
-				 if($obj.row.ofertas_ofertas_tipo_id == tipos[i].ofertas_tipo_id){
-
-				 	nombre_cate = tipos[i].ofertas_tipo_nombre
-
-				 }
-			}
-			$(titulo_seccion).html('Descuentos / ' + nombre_cate)
-
-
-		img.src = 'img/fotos_header_ofertas/' + $obj.row.ofertas_ofertas_tipo_id + '.jpg';
-		$(img).css('width', app.ancho-40);
-
-		$(titulo_txt).html($obj.row.ofertas_nombre);
-		$(holder_data).empty();
-		
-		app.db.transaction(function (tx) {
-
-			tx.executeSql("SELECT * FROM locales WHERE locales_estado=1 AND locales_ofertas_id="+$obj.row.ofertas_id+" AND locales_departamentos_id="+app.depto_que_me_encuentro , [], function (tx, resulato_locales) {
-		    	
-		    	var cant_locales = resulato_locales.rows.length;
-		    	var array_locales = new Array();
-
-		        for(var i=0; i<cant_locales; i++){
-		        	
-		        	if(app.posicion_global!=''){
-		        		
-	        			var d = distance(app.posicion_global.coords.latitude, app.posicion_global.coords.longitude, resulato_locales.rows.item(i).locales_lat, resulato_locales.rows.item(i).locales_lon, 'K')
-		        		array_locales.push([parseFloat(d), resulato_locales.rows.item(i)]);
-
-		        	}else{
-						var itemlocal = new ItemLocal(resulato_locales.rows.item(i), false);
-			        	$(holder_data).append(itemlocal.main)
-			        	if(cant_locales==1) itemlocal._click()
-		        	}
-					
-		        }
-		        
-		        if(app.posicion_global!=''){
-		        	
-			        array_locales.sort(function(a,b) { return a[0] - b[0]; });
-
-			        for(var u=0; u<array_locales.length; u++){
-						var itemlocal = new ItemLocal(array_locales[u][1], true);
-			        	$(holder_data).append(itemlocal.main)
-
-			        	if(cant_locales==1) itemlocal._click()
-
-			        }   
-		    	}
-
-
-
-
-
-		    });
-
-		}, app.db_errorGeneral);*/
 
 	}
 
