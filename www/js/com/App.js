@@ -20,8 +20,8 @@ function App(){
 
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
-	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/v4/';
-	this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
 	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/v3/';
 	//this.server = 'http://dev.santander.crudo.com.uy/';
@@ -116,6 +116,7 @@ function App(){
 		app.db.transaction(function (tx) {
 
 			tx.executeSql('CREATE TABLE IF NOT EXISTS codes ("codes_id" INTEGER, ' +
+								  '"codes_activo" VARCHAR, ' +
 								  '"codes_code" VARCHAR, ' +
 								  '"codes_lugar" VARCHAR, ' +
 								  '"codes_ini" DATE, ' +
@@ -128,12 +129,39 @@ function App(){
 
     }
 
-    this.insertarUnCode = function($obj, $tx){
+    this.updateUnCode = function($obj, $tx){
+   
+    	$tx.executeSql('UPDATE "codes" SET  ' +
+    										' "codes_activo"=?, ' + 
+    										' "codes_code"=?, ' + 
+    										' "codes_lugar"=?, ' + 
+    										' "codes_ini"=?, ' + 
+    										' "codes_fin"=?, ' + 
+    										' "codes_usado"=?,  ' + 
+    										' "codes_promo_id"=?,  ' + 
+    										' "codes_depto"=? WHERE codes_id=? ', 
+													  [
+
+													 
+													  $obj.promos_activa, 
+													  $obj.promos_code_code, 
+													  $obj.promos_lugar, 
+													  $obj.promos_vigencia_ini, 
+													  $obj.promos_vigencia_fin, 
+													  $obj.promos_code_fecha_usado,
+													  $obj.promos_id,
+													  $obj.promos_departamentos_id,
+													  $obj.promos_code_id
+													  ], function(){}, app.db_errorGeneral);
+
+    }
+     this.insertarUnCode = function($obj, $tx){
     
-    	$tx.executeSql('INSERT OR IGNORE INTO "codes" ("codes_id","codes_code","codes_lugar","codes_ini","codes_fin","codes_usado", "codes_promo_id", "codes_depto") VALUES (?,?,?,?,?,?,?,?)', 
+    	$tx.executeSql('INSERT OR IGNORE INTO "codes" ("codes_id","codes_activo","codes_code","codes_lugar","codes_ini","codes_fin","codes_usado", "codes_promo_id", "codes_depto") VALUES (?,?,?,?,?,?,?,?,?)', 
 													  [
 
 													  $obj.promos_code_id, 
+													  $obj.promos_activa, 
 													  $obj.promos_code_code, 
 													  $obj.promos_lugar, 
 													  $obj.promos_vigencia_ini, 
@@ -145,7 +173,6 @@ function App(){
 													  ]);
 
     }
-
 
 
 

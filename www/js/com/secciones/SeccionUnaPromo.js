@@ -1,5 +1,6 @@
 function SeccionUnaPromo()
 {
+	
 	this.main.id = 'UnaPromo';
 	
 	var holder_blanco_secciones = document.createElement('div')

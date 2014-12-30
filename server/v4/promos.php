@@ -56,6 +56,33 @@ switch($metodo){
 		break;
 
 
+	case 'get_todas_mis_promos':
+
+		$ids = ($_GET['ids']);
+
+		$ids_unicos = array_unique($ids );
+		
+		$bucle = 0;
+		$where = '';
+		foreach ($ids_unicos as $id) {
+
+			if($bucle>0) $where .= ' OR promos_code_id='.$id;
+			else $where = ' promos_code_id='.$id;
+
+			$bucle++;
+		}
+		
+	
+		$rs = mysql_query('SELECT promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin, promos.promos_departamentos_id FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id WHERE  (' . $where . ')');
+
+		while($row =  mysql_fetch_object($rs)){
+			$l[] = $row;
+		}
+		echo json_encode($l);
+
+		break;
+
+
 	case 'crear_codigo':
 			
 		$uid =  mysql_real_escape_string($_GET['uid']);
@@ -64,7 +91,7 @@ switch($metodo){
 		$promo_id =  mysql_real_escape_string($_GET['promo_id']);
 
 		// verifico si ya existe el codigo para ese usario:
-		$rs = mysql_query('SELECT promos_code.*, promos.promos_id, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin, promos.promos_departamentos_id FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id WHERE promos_code_uid="' . $uid . '" AND promos_code_promos_id="' . $promo_id . '" LIMIT 1;');
+		$rs = mysql_query('SELECT promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin, promos.promos_departamentos_id FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id WHERE promos_code_uid="' . $uid . '" AND promos_code_promos_id="' . $promo_id . '" LIMIT 1;');
 		if(mysql_num_rows($rs)==1){
 			echo json_encode(mysql_fetch_object($rs));
 			exit;
@@ -75,7 +102,7 @@ switch($metodo){
 		break;
 
 
-}
+	}
 
 
 	function generar_codigo($uid, $post_id, $promo_id){
