@@ -15,8 +15,9 @@ function Menu()
 	$(holder).append(btn_eventos.main)
 
 	var btn_promos = new ItemMenu('Promociones', 'icon_promos.svg', doPromos)
-	$(btn_promos.main).hide()
+	
 	$(holder).append(btn_promos.main)
+btn_promos.habil(false)
 
 	var btn_codigos = new ItemMenu('Mis Códigos de Promoción', 'icon_codigos.svg', doCodigos)
 	$(holder).append(btn_codigos.main)
@@ -35,7 +36,13 @@ function Menu()
 	})
 
 	function on_cargo_pommos(){
-			$(btn_promos.main).show()
+
+		if(app.json_promos != null){
+			btn_promos.habil(true)
+		}else{
+			btn_promos.habil(false)
+		}
+	
 	}
 	
 
@@ -49,6 +56,7 @@ function Menu()
 		app.secciones.go(app.secciones.seccionlistapromos)
 	}
 	function doCodigos(){
+									   
 		app.secciones.go(app.secciones.seccionmiscodigos)
 	}
 	function doTerms(){

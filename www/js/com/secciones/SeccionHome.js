@@ -35,6 +35,8 @@ function SeccionHome()
 		$('#SeccionHome .spinner').hide()
 		if(app.json_promos != null){
 			btn_promos.habil(true)
+		}else{
+			btn_promos.habil(false)
 		}
 	}
 

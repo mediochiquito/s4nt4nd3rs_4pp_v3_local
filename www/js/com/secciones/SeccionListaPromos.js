@@ -29,7 +29,7 @@ function SeccionListaPromos()
 	var holder = document.createElement('div')
 	holder.id = 'ListaPromos_holder'
 	holder.className = 'Tabs_holder'
-	$(holder).append('<div id="ListaPromos_holder_combo_deptos"><div id="ListaPromos_txt_deptos">Departamento:</div></div><div id="ListaPromosWrapper">')
+	$(holder).append('<div id="ListaPromos_holder_combo_deptos"><div id="ListaPromos_txt_deptos">Departamento:</div></div><div id="ListaPromosWrapper"></div>')
 	$(this.main).append(holder)
 
 	var array_ids_encontrados;

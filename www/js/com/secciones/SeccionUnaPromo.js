@@ -145,16 +145,20 @@ function SeccionUnaPromo()
 				dataType: 'json',
 				cache:false, 
 				success: function($json) {
-					
-					
-					
-					
-					app.secciones.go(app.secciones.seccionuncodigo, 300, {code: $json.promos_code_code, lugar: $json.promos_lugar});
-					
+
+					app.crearTabla_Codes(function (tx, resultado){
+
+							app.insertarUnCode($json, tx)
+
+							app.secciones.go(app.secciones.seccionuncodigo, 300, {desde:'una_promo', code: $json.promos_code_code, lugar: $json.promos_lugar});
+
+							app.cargando(false);
 
 
-					app.cargando(false)
+					})
+
 				},
+
 				error: function() {
 					app.alert('Ocurrio un error al enviar el código.');
 					app.cargando(true)
@@ -167,7 +171,14 @@ function SeccionUnaPromo()
 
 	function doCompartir(){
 		
-		guardar_promo('asdasdsa_asdsadsad_1111');
+
+	
+			
+
+			guardar_promo('asdasdsa_asdsadsad_1111');
+
+	
+		
 
 
         /* var params = {
@@ -230,7 +241,6 @@ function SeccionUnaPromo()
 
 						var cant_locales = $json.array_locales.length;
 		    			var array_locales = new Array();
-
 
 				        for(var i=0; i<cant_locales; i++){
 				        	

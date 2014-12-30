@@ -42,36 +42,29 @@ function SeccionUnCodigo()
  	txt_code.className = 'label_negrira'
 	txt_code.id = 'UnaPromo_code'
 	$(holder).find('>div').append(txt_code);
-	
 
 	var txt_copy2 =  document.createElement('div')
 	txt_copy2.className = 'UnaPromo_txt_copy2 box label_negrira'
 	$(holder).find('>div').append(txt_copy2);
-	$(txt_copy2).html('Podrás consultar tus códigos vigentes en el menú de la aplicación.');
-
- 
+	$(txt_copy2).html('Podrás consultar tus códigos vigentes en el menú de la aplicación.'); 
 
 	var obj;
 
 	function doVolver(){
 		
-		/*
-		if(obj.viene_de_push)
-			app.secciones.go(app.secciones.seccionhome, 300);
-		else
-			app.secciones.go(app.secciones.seccionlistaofertas, 300)
-		*/
-
-		app.secciones.go(app.secciones.seccionlistapromos, 300);
+	
+		if(obj.desde == 'una_promo') app.secciones.go(app.secciones.seccionunapromo, 300);
+		if(obj.desde == 'lista_codes') app.secciones.go(app.secciones.seccionmiscodigos, 300);
+	
+		
 
 	}
 		
 
 	this._set = function ($obj){
-
+		obj = $obj;
 		$(titulo_txt).html($obj.lugar);
 		$(txt_code).html($obj.code);
-		
 	}
 
 

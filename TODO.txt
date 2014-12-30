@@ -3,3 +3,4 @@ revisar fecha con 0 en eventos
 revisar cancel calendario android muestre NaN
 
 
+no se puede generrar un codigo de una promo futura

@@ -62,6 +62,10 @@ function Secciones(){
 	this.seccionuncodigo.ocultar(0);
 
 
+	this.seccionmiscodigos = new SeccionMisCodigos();
+	$(this.main).append(this.seccionmiscodigos.main)
+	this.seccionmiscodigos.ocultar(0);
+
 
 
 	var despazada = false;
