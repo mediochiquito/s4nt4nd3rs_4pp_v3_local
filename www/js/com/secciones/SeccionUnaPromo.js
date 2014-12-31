@@ -100,11 +100,7 @@ function SeccionUnaPromo()
 
 	function doVolver(){
 
-		/*if(obj.viene_de_push)
-		 app.secciones.go(app.secciones.seccionhome, 300);
-		else
-		app.secciones.go(app.secciones.seccionlistaofertas, 300)
-		*/
+		
 		app.secciones.go(app.secciones.seccionlistapromos, 300)
 	}
 	
@@ -173,7 +169,7 @@ function SeccionUnaPromo()
 	function doCompartir(){
 		
 
-	
+		
 			
 
 			guardar_promo('asdasdsa_asdsadsad_1111');
@@ -212,8 +208,15 @@ function SeccionUnaPromo()
 
 		$(holder_data).empty();
 		$(titulo_txt).html($obj.row.lugar);
-		app.cargando(true);
-		
+
+		if(!app.hay_internet()){
+			app.alerta('Debes estar conectado a internet para ver esta promoción.');
+			app.secciones.go(app.secciones.seccionhome, 300)
+			return
+		}
+
+		app.cargando(true, 'Cargando promoción...');
+
 		$.ajax({
 				type: "GET", 
 				url: app.server + "promos.php", 
@@ -235,6 +238,20 @@ function SeccionUnaPromo()
 					$(desc_txt).html($json.promos_desctipcion)
 					$(txt_condiciones).html($json.promos_condiciones)
 					$(txt_vigencia).html(formatear_fecha($json.promos_vigencia_ini) + ' - ' + formatear_fecha($json.promos_vigencia_fin))
+
+						var ini = new Date($json.promos_vigencia_ini + ' 00:00:00')
+
+						var now = new Date()
+
+						var ahora = new Date(now.getFullYear() + '-' + (now.getMonth()+1) + '-' + now.getDate() + ' 00:00:00');
+
+
+						if(ini.getTime()>ahora.getTime()){
+							btn_compartir.habil(false)
+						}else{
+								btn_compartir.habil(true)
+						}
+
 
 					$(holder_data).empty();
 

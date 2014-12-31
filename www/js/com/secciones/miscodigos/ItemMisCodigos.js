@@ -31,10 +31,11 @@ function ItemMisCodigos($row)
 
 	var fin = new Date($row.codes_fin + ' 00:00:00')
 	
-	var ahora = new Date();
+	var now = new Date()
+	var ahora = new Date(now.getFullYear() + '-' + (now.getMonth()+1) + '-' + now.getDate() + ' 00:00:00');
 
 
-	if($row.codes_usado == '0000-00-00 00:00:00' && ahora.getTime()<fin.getTime()){
+	if($row.codes_usado == '0000-00-00 00:00:00' && ahora.getTime()<=fin.getTime()){
 		if(app.es_touch()){
 			
 			this.main.addEventListener('touchstart', doTocuhStart);
@@ -66,9 +67,7 @@ function ItemMisCodigos($row)
 	function doTocuhEnd(){
 		if(haciendo_click){
 			setTimeout(function(){
-			
 				app.secciones.go(app.secciones.seccionuncodigo, 300, {desde:'lista_codes', code: $row.codes_code, lugar: $row.codes_lugar});
-
 			}, 200)
 			setTimeout(despintar, 800)
 			haciendo_click = false

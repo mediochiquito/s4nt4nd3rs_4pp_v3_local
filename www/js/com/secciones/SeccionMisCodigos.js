@@ -93,10 +93,13 @@
 
 			     
 			        for(var i=0; i<cant_Codigos; i++){
-						
-						var _ItemMisCodigos = new ItemMisCodigos(resultado.rows.item(i));
-						$(holder).find('#MisCodigosWrapper').append(_ItemMisCodigos.main)
-			          
+						if(resultado.rows.item(i).codes_activo==1){
+
+								var _ItemMisCodigos = new ItemMisCodigos(resultado.rows.item(i));
+								$(holder).find('#MisCodigosWrapper').append(_ItemMisCodigos.main)
+						}
+					
+			          	
 			        }
 			})
 		}
@@ -119,6 +122,7 @@
 							array_ids.push(resultado.rows.item(i).codes_id);
 			       		}
 
+			       		app.cargando(true)
 						$.ajax({
 							type: "GET",
 							url: app.server + "promos.php",
@@ -129,17 +133,16 @@
 								
 								app.crearTabla_Codes(function (tx, resultado){
 
-									//tx.executeSql('DELETE FROM codes', [], function (tx, resultado){
+									tx.executeSql('DELETE FROM codes', [], function (tx, resultado){
 
 										for(var i in $json){
-											app.updateUnCode($json[i], tx);
+											app.insertarUnCode($json[i], tx);
 										}
-
 										
 										listar_local(tx)
-								
+										app.cargando(false)
 
-									//});
+									});
 
 								})
 								

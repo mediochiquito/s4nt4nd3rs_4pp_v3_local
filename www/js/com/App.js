@@ -20,8 +20,8 @@ function App(){
 
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
-	this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/v4/';
-	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
 	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/v3/';
 	//this.server = 'http://dev.santander.crudo.com.uy/';
@@ -116,7 +116,7 @@ function App(){
 		app.db.transaction(function (tx) {
 
 			tx.executeSql('CREATE TABLE IF NOT EXISTS codes ("codes_id" INTEGER, ' +
-								  '"codes_activo" VARCHAR, ' +
+								  '"codes_activo" INTEGER, ' +
 								  '"codes_code" VARCHAR, ' +
 								  '"codes_lugar" VARCHAR, ' +
 								  '"codes_ini" DATE, ' +
@@ -939,10 +939,12 @@ function App(){
 
     function crearTabla_datetime_eventos($tx){
 
+    	if(tipo_de_instalacion==3) $tx.executeSql('DROP TABLE IF EXISTS datetime_eventos');
+
     	$tx.executeSql('CREATE TABLE IF NOT EXISTS datetime_eventos ("datetime_eventos_id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , ' +
-						  '"datetime_eventos_fecha_hora" VARCHAR, ' +
-						  '"datetime_eventos_eventos_id" DATETIME, ' +
-						  '"datetime_eventos_estado" VARCHAR)', [], comprobacion_total_tablas_creadas);
+						  '"datetime_eventos_fecha_hora" DATETIME, ' +
+						  '"datetime_eventos_eventos_id" INTEGER, ' +
+						  '"datetime_eventos_estado" INTEGER)', [], comprobacion_total_tablas_creadas);
 
 
 

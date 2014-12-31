@@ -23,7 +23,7 @@ switch($metodo){
 				$r[] = $row_pomos;
 			}
 
-			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as  FROM promos WHERE depto promos_activa = 1 AND 
+			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as depto FROM promos WHERE  promos_activa = 1 AND  
 									promos_vigencia_ini > DATE(NOW()) ORDER BY promos_vigencia_ini ASC');
 			while($row_pomos =  mysql_fetch_object($rs_pomos)){
 				$row_pomos->type= 1;
@@ -96,6 +96,7 @@ switch($metodo){
 			echo json_encode(mysql_fetch_object($rs));
 			exit;
 		}else{
+			
 			generar_codigo($uid, $post_id, $promo_id);
 		}
 
@@ -108,12 +109,13 @@ switch($metodo){
 	function generar_codigo($uid, $post_id, $promo_id){
 
 		$code = getToken(8);
-
+	
 		$rs = mysql_query('SELECT promos_code_code FROM promos_code WHERE promos_code_code="' . $code . '";');
 		if(mysql_num_rows($rs)==1){
 
 			generar_codigo($uid, $post_id, $promo_id);
 			return;
+
 		}else{
 				
 				$rs = mysql_query('INSERT INTO promos_code SET 	
@@ -127,7 +129,7 @@ switch($metodo){
 
 
 
-				$rs = mysql_query('SELECT  promos_code.*, promos.promos_id, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin , promos.promos_departamentos_id 
+				$rs = mysql_query('SELECT  promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin , promos.promos_departamentos_id 
 
 									 FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id
 									  WHERE 
