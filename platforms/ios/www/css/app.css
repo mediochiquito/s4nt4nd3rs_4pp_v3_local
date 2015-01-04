@@ -43,6 +43,18 @@ body{
   /*  background-image: -webkit-linear-gradient(bottom, #60478b 0%, #cc3333 80%);*/
     /*background-attachment:fixed;*/
 }
+.box {
+	padding: 0px 10px 4px 10px;
+}
+.label_negrira{
+	font-family: 'GothamBold';
+	font-size: 14px;
+	padding-top: 10px;
+}
+.label_normal{
+	font-family: 'GothamBook';
+	font-size: 14px;
+}
 
 .SeccionHomeScrollPane{
 

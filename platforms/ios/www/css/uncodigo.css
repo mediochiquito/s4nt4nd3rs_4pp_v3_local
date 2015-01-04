@@ -1,0 +1,55 @@
+#UnCodigo{
+	position: absolute;
+}
+#UnCodigo_holder{
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+ 	-webkit-transform: translateZ(0); 
+	background-image: url(../img/uncodigo/bg.png);
+	background-size: 100%;
+}
+#SeccionUnCodigo{
+	position: absolute;
+}
+#UnCodigo_btn_volver{
+	position: absolute;
+	right: 6px;
+	top: 4px;
+}
+#UnCodigo_header_titulo{
+	position: relative;
+	
+	height: 35px;
+	width: 100%;
+	background-color: #ed1c24;
+	margin-top: 0px;
+}
+#UnCodigo_titulo_txt{
+	position: absolute;
+	height: 35px;
+	width: 90%;
+	color: #fff;
+	font-family: 'GothamBold';
+	font-size: 14px;
+	top: 9px;
+	left: 11px;
+}
+
+.UnaPromo_txt_copy1{
+    position: relative;
+	
+    margin-top: 11px;
+}
+.UnaPromo_txt_copy2{
+	bottom: 4px;
+	position: absolute;
+	font-size: 12px;
+}
+#UnaPromo_code{
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	text-align: center;
+	font-size: 40px;
+	margin-top: -30px;
+}

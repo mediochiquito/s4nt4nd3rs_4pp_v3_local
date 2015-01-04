@@ -25,18 +25,19 @@ function ManagePush(){
 
     	if ( device.platform == 'android' || device.platform == 'Android' )
 		{
+		   	self.plataform = 'android'
 		    pushNotification.register(
 		        successHandler,
 		        errorHandler, {
 		            "senderID":"888062220460",
 		            "ecb":"app._ManagePush.onNotificationGCM"
 		        });
-		    self.plataform = 'android'
+		   
 		 
 		}
 		else
 		{
-
+			self.plataform = 'ios'
 		    pushNotification.register(
 		        tokenHandler,
 		        errorHandler, {
@@ -45,7 +46,7 @@ function ManagePush(){
 		            "alert":"true",
 		            "ecb":"app._ManagePush.onNotificationAPN"
 		        });
-		       self.plataform = 'ios'
+		      
 		}
 		
 	}
@@ -82,17 +83,23 @@ function ManagePush(){
 			success:function(){
 
 				 app.db.transaction(function (tx) {
-					 tx.executeSql('UPDATE app SET push=?', [1]);
+
+				 		tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+							if(Number(resultado.rows.item(0).push) < 2 ) {
+								tx.executeSql('UPDATE app SET push=?', [1]);
+			    			}
+						})
+					
 				 });
 
+				if(_callback != null) _callback();
 
 
 			}
 		});	
 
 
-		if(_callback != null) _callback();
-
+		
 	}
 
 	function successHandler (result) {

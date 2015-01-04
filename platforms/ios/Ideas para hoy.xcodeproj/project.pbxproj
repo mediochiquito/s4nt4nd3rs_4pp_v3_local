@@ -672,7 +672,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "1cb1e75a-c964-4ab8-82fc-f5a00686db5b";
+				PROVISIONING_PROFILE = "81c565b0-483a-461b-8946-82d6040361ce";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -713,7 +713,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "1cb1e75a-c964-4ab8-82fc-f5a00686db5b";
+				PROVISIONING_PROFILE = "81c565b0-483a-461b-8946-82d6040361ce";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

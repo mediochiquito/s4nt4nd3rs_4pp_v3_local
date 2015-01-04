@@ -29,7 +29,7 @@ function SeccionListaOfertas()
 	var holder = document.createElement('div')
 	holder.id = 'ListaOfertas_holder'
 	holder.className = 'Tabs_holder'
-	$(holder).append('<div id="ListaOferta_banner"></div><div id="ListaOferta_holder_combo_deptos"><div id="ListaOferta_txt_deptos">Departamento:</div></div><div id="ListaOfertasWrapper">')
+	$(holder).append('<div id="ListaOferta_banner"></div><div id="ListaOferta_holder_combo_deptos"><div id="ListaOferta_txt_deptos">Departamento:</div></div><div id="ListaOfertasWrapper"></div>')
 	$(this.main).append(holder)
 
 	var array_ids_encontrados;
@@ -142,6 +142,7 @@ $(combo_deptos).attr('disabled', false)
 		$(combo_deptos).find('option[value="'+app.depto_que_me_encuentro+'"]').prop('selected', true)
 		
 		app.db.transaction(function (tx) {
+			
 			//alert("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE "+where+"  locales_departamentos_id="+app.depto_que_me_encuentro+" AND ofertas_estado=1  GROUP BY locales_ofertas_id ");
 			tx.executeSql("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE "+where+"  locales_departamentos_id="+app.depto_que_me_encuentro+" AND ofertas_estado=1  GROUP BY locales_ofertas_id " , [], function (tx, resultado) {
 		    	

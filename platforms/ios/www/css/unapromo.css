@@ -1,0 +1,177 @@
+
+#UnaPromo{
+	position: absolute;
+ 
+}
+	
+#ItemLocalPromo{
+	position: relative;
+
+
+}
+
+.ItemLocalPromo_disancia{
+	font-family: 'GothamBook';
+	font-size: 10px;
+	color: #8D8C8C;
+	position: absolute;
+	top: 13px;
+	right: 29px;
+	width: 60px;
+	text-align: right;
+}
+#ItemLocalPromo_header_titulo{
+	position: relative;
+	width: 100%;
+	background-color: #dedcdc;
+	border-bottom: solid 1px #fff;
+}
+#ItemLocalPromo_titulo_txt{
+	position: relative;
+	width: 80%;
+	color: #000;
+	font-family: 'GothamBold';
+	font-size: 12px;
+	padding: 10px;
+
+}
+
+#UnaPromo_btn_ver_en_mapa{
+
+	position: absolute;
+	right: 6px;
+	
+
+	top: 10px;
+}
+#UnaPromo_open_close_condiciones{
+
+	width: 150px;
+position: absolute;
+left: 50%;
+margin-left: -75px;
+top: 29px;
+}
+#UnaPromo_holder{
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+ 	-webkit-transform: translateZ(0); 
+}
+#SeccionUnaPromo{
+	position: absolute;
+}
+
+#SeccionUnaPromo_img{
+	position: relative;
+	min-height: 85px;
+}
+#UnaPromo_btn_volver{
+
+	position: absolute;
+	right: 6px;
+	
+
+	top: 4px;
+}
+#UnaPromo_hoy{
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 70px;
+}
+
+#UnaPromo_header_titulo{
+	position: relative;
+	
+	height: 35px;
+	width: 100%;
+	background-color: #ed1c24;
+	margin-top: -4px;
+}
+#UnaPromo_titulo_txt{
+	position: absolute;
+	
+	height: 35px;
+	width: 90%;
+	color: #fff;
+	font-family: 'GothamBold';
+	font-size: 14px;
+	top: 9px;
+	left: 11px;
+}
+
+#UnaPromo_desc_txt{
+	position: relative;
+	
+	width: 90%;
+	color: #ed1c24;
+	font-family: 'GothamBold';
+	font-size: 14px;
+
+	padding: 20px 10px 3px 10px;
+}
+
+
+#UnaPromo_holder_data{
+	position: relative;
+}
+
+.UnaPromo_reg{
+	position: relative;	
+}
+
+.UnaPromo_label{
+	position: absolute;
+	width: 120px;
+	font-family: 'GothamBold';
+	font-size: 12px;
+	top:5px;
+	left: 10px;
+}
+
+.UnaPromo_data{
+	position: relative;
+	font-family: 'GothamBook';
+	font-size: 12px;
+	float: left;
+
+	min-height: 25px;
+	width: 100%;
+	border-bottom: solid 1px #e5e5e5;
+}
+.UnaPromo_data>div{
+	padding: 5px;
+	margin-left: 130px;
+}
+
+#UnaPromo_holder_footer{
+	position: relative;
+	
+	height: 70px;
+}
+#UnaPromo_btn_compartir{
+	left: 50%;
+	top: 15px;
+	margin-left: -75px;
+}
+#UnaPromo_holder_btn_mas_condiciones{
+	position: relative;
+
+	height: 60px;
+	width: 100%;
+	background-image: -webkit-gradient( linear, left top, left center, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
+	margin-top: -31px;
+}
+
+.UnaPromo_condiciones_abierta{
+	
+	height: auto;
+	overflow: visible;
+}
+
+.UnaPromo_condiciones_cerrada{
+
+	height: 40px;
+	overflow: hidden;
+}
