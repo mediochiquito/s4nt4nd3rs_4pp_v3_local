@@ -87,12 +87,18 @@ function App(){
 			app.db.transaction(function (tx) {
 									
 				if(app.redirect_push_object.go == 'oferta'){
-						tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id=?  AND  ofertas_estado=1" , [app.redirect_push_object.id], 
-								function (tx, resultado) {
+						// tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id=?  AND  ofertas_estado=1" , [app.redirect_push_object.id], 
+						// 		function (tx, resultado) {
+						// 			if(resultado.rows.length == 1)
+					 //    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
+					 //    		}
+				  //   	);
+
+						tx.executeSql("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE ofertas_id =?  AND ofertas_estado=1 GROUP BY locales_ofertas_id " , [app.redirect_push_object.id], function (tx, resultado){
 									if(resultado.rows.length == 1)
-					    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
-					    		}
-				    	);
+						    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
+						    		}
+					    );
 				}
 
 				if(app.redirect_push_object.go == 'evento'){
@@ -104,6 +110,23 @@ function App(){
 					    	}
 				    	);					
 				}
+				
+
+
+	
+				if(app.redirect_push_object.go == 'promo'){
+					//app.alerta('5')
+					if(app.hay_internet())
+					 	app.secciones.go(app.secciones.seccionunapromo, 300, {row:{id:app.redirect_push_object.id, lugar:''}});
+					 else 
+					 	app.alerta('Debes conectarte para ver esta promoción.')
+
+					
+
+
+				}
+
+
 
 			});	
 
@@ -559,7 +582,7 @@ function App(){
 
 				},
 				error: function() {
-					app.alert('Ocurrio un error al cargar las promociones.')
+					app.alerta('Ocurrio un error al cargar las promociones.')
 				}
 			});
 
@@ -579,6 +602,9 @@ function App(){
 					tx.executeSql("SELECT sync_value,push FROM app" , [], function (tx, resultado) {
 		    				
 		    				sync_value = resultado.rows.item(0).sync_value
+		    				
+
+					//?
 		    				if(Number(resultado.rows.item(0).push) < 2 ) {
 		    					
 		    					self._ManagePush.registrar(function(){
@@ -590,7 +616,18 @@ function App(){
 
 			    			}else if(Number(resultado.rows.item(0).push)  ==  2 ) {
 		    					
-			    				guardar_push_promociones_solo_en_mi_depto_encontrado()
+			    				self._ManagePush.registrar(function(){
+		    						
+			    					if(!buscando_depto) guardar_push_promociones_solo_en_mi_depto_encontrado()
+			    						primer_registro_push = true
+									
+		    					});
+
+		    				}else {
+		    					
+			    				self._ManagePush.registrar(function(){
+		    						
+		    					});
 
 		    				}
 

@@ -96,6 +96,9 @@ function SeccionUnaOferta()
 			
 			var nombre_cate = ''
 			var tipos = (eval(app.json_db_tipo_ofertas))
+
+			alert($obj.row.ofertas_ofertas_tipo_id)
+
 			for(var i=0; i<tipos.length; i++){
 
 				 if($obj.row.ofertas_ofertas_tipo_id == tipos[i].ofertas_tipo_id){

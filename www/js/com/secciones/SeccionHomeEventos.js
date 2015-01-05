@@ -55,7 +55,7 @@ function SeccionHomeEventos()
 			};
 						
 			datePicker.show(options, function(date){
-			  alert(date)
+			  if(date == 'Invalid Date') return;
 			  var _date = new Date(date)
 			  app.secciones.go(app.secciones.seccionlistaeventos, 300, {fecha: ( _date.getFullYear() + '-' + (_date.getMonth()+1) + '-' + _date.getDate() )});
 

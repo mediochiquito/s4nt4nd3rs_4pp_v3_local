@@ -44,7 +44,6 @@ function SeccionUnEvento()
 	holder_data.id = 'UnEvento_holder_data'
 	$(holder).find('>div').append(holder_data)
 
-
 	var holder_footer =  document.createElement('div')
 	holder_footer.id = 'UnEvento_holder_footer'
 	$(holder).find('>div').append(holder_footer)
@@ -303,7 +302,7 @@ function SeccionUnEvento()
 
 				 }
 			}
-			$(titulo_seccion).html('Eventos / ' + nombre_cate)
+		$(titulo_seccion).html('Eventos / ' + nombre_cate)
 
 
 

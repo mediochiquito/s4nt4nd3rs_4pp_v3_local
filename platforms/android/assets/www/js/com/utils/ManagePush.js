@@ -25,18 +25,19 @@ function ManagePush(){
 
     	if ( device.platform == 'android' || device.platform == 'Android' )
 		{
+		   	self.plataform = 'android'
 		    pushNotification.register(
 		        successHandler,
 		        errorHandler, {
 		            "senderID":"888062220460",
 		            "ecb":"app._ManagePush.onNotificationGCM"
 		        });
-		    self.plataform = 'android'
+		   
 		 
 		}
 		else
 		{
-
+			self.plataform = 'ios'
 		    pushNotification.register(
 		        tokenHandler,
 		        errorHandler, {
@@ -45,7 +46,7 @@ function ManagePush(){
 		            "alert":"true",
 		            "ecb":"app._ManagePush.onNotificationAPN"
 		        });
-		       self.plataform = 'ios'
+		      
 		}
 		
 	}
@@ -82,17 +83,23 @@ function ManagePush(){
 			success:function(){
 
 				 app.db.transaction(function (tx) {
-					 tx.executeSql('UPDATE app SET push=?', [1]);
+
+				 		tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+							if(Number(resultado.rows.item(0).push) < 2 ) {
+								tx.executeSql('UPDATE app SET push=?', [1]);
+			    			}
+						})
+					
 				 });
 
+				if(_callback != null) _callback();
 
 
 			}
 		});	
 
 
-		if(_callback != null) _callback();
-
+		
 	}
 
 	function successHandler (result) {
@@ -144,6 +151,8 @@ function ManagePush(){
 		    break;
 
 		    case 'message':
+		    	//alert('asd')
+		   		
 		  		objeto_recibido(e.payload)
 
 		    break;
@@ -173,10 +182,18 @@ function ManagePush(){
 
 		if(typeof($obj_push.idevento) !='undefined'){
 			if($obj_push.idevento > 0){
+				app.redirigiendo_una_push = true;
+				app.redirect_push_object = {go: 'evento', id:$obj_push.idevento, no_depto:true};
+			}
+		}
+
+		
+		if(typeof($obj_push.p) !='undefined'){
+			
+			if($obj_push.p > 0){
+			
 				app.redirigiendo_una_push = true
-				app.redirect_push_object = {go: 'evento', id:$obj_push.idevento, no_depto:true}
-				
-				
+				app.redirect_push_object = {go: 'promo', id:$obj_push.p, no_depto:true}
 			}
 		}
 	}

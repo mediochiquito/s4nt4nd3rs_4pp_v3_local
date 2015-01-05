@@ -24,11 +24,10 @@ function SeccionTermsBanner()
 	var obj;
 
 	function doVolver(){
+		
 		if(obj.desde == 'home_oferta'){
 			app.secciones.go(app.secciones.seccionhomeofertas, 300)
-
 		}else{
-
 			app.secciones.go(app.secciones.seccionlistaofertas, 300)
 		}
 		

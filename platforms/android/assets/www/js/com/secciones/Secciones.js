@@ -49,6 +49,25 @@ function Secciones(){
 	$(this.main).append(this.seccionpush.main)
 	this.seccionpush.ocultar(0);
 
+	this.seccionlistapromos = new SeccionListaPromos();
+	$(this.main).append(this.seccionlistapromos.main)
+	this.seccionlistapromos.ocultar(0);
+
+	this.seccionunapromo = new SeccionUnaPromo();
+	$(this.main).append(this.seccionunapromo.main)
+	this.seccionunapromo.ocultar(0);
+
+	this.seccionuncodigo = new SeccionUnCodigo();
+	$(this.main).append(this.seccionuncodigo.main)
+	this.seccionuncodigo.ocultar(0);
+
+
+	this.seccionmiscodigos = new SeccionMisCodigos();
+	$(this.main).append(this.seccionmiscodigos.main)
+	this.seccionmiscodigos.ocultar(0);
+
+
+
 	var despazada = false;
 	var historia = new Array()
 

@@ -1,4 +1,5 @@
 revisar fecha con 0 en eventos
 
-revisar cancel calendario android muestre NaN
+cargar las promos cuando entra oline event
 
+push ir directo a una promo
