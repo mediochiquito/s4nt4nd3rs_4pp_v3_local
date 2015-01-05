@@ -51,12 +51,10 @@ function SeccionUnCodigo()
 	var obj;
 
 	function doVolver(){
-		
 	
 		if(obj.desde == 'una_promo') app.secciones.go(app.secciones.seccionunapromo, 300);
 		if(obj.desde == 'lista_codes') app.secciones.go(app.secciones.seccionmiscodigos, 300);
 		
-
 	}
 		
 

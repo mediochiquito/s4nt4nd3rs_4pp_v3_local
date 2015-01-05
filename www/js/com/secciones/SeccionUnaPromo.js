@@ -169,35 +169,29 @@ function SeccionUnaPromo()
 	function doCompartir(){
 		
 
-		
-			
 
-			guardar_promo('asdasdsa_asdsadsad_1111');
-
-	
-		
-
-
-        /* var params = {
+        var params = {
                     method: 'feed',
-                    name:  obj.row.ofertas_nombre,
+                    name:  obj.row.row.lugar,
                     link: 'http://www.ideasparahoy.com.uy',
                     picture: 'http://santander.crudo.com.uy/icon.png',
                     caption: 'http://www.ideasparahoy.com.uy/',
-	           		description: 'Encontré este descuento con la app "Ideas para hoy" de Banco Santander. Descargala GRATIS en www.ideasparahoy.com.uy y enterate de todos los beneficios que tenés con tus tarjetas Santander.'
+	           		description: 'COmpartiendo una promo. Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum.'
                   };
 
-		app._Facebook.conectar(function(){
-	       	 facebookConnectPlugin.showDialog(params,
-                function (result) {
-                    app.alerta("Has compartido esta oferta."); 
-                },
-	            function (e) {
-	               
-	            }
-	        );
-		})
-               */ 
+			app._Facebook.conectar(function(){
+		       	 facebookConnectPlugin.showDialog(params,
+	                function (result) {
+	                   // app.alerta("Has compartido esta oferta."); 
+	                    alert("Posted. " + JSON.stringify(result)); 
+	                    guardar_promo('asdasdsa_asdsadsad_1111');
+	                },
+		            function (e) {
+		               
+		            }
+		        );
+			})
+              
 	}
 
 	this._set = function ($obj){
