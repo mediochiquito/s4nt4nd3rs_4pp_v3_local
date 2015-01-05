@@ -8,23 +8,33 @@ switch($metodo){
 
 
 	case 'get_list_promos':
-	
-			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as depto  FROM promos WHERE   promos_activa = 1 AND
-									promos_vigencia_fin < DATE(NOW()) ORDER BY promos_vigencia_ini ASC');
+
+			$rs_pomos = mysql_query('SELECT promos_locales_promos_id as id, promos_lugar as lugar, promos_locales_departamentos_id as depto  FROM promos_locales 
+									 INNER JOIN promos ON promos_locales_promos_id=promos_id  
+									 WHERE promos_activa = 1 AND   
+								  	 promos_vigencia_fin < DATE(NOW())  GROUP BY id,depto  ORDER BY promos_vigencia_ini ASC');
 
 			while($row_pomos =  mysql_fetch_object($rs_pomos)){
 				$row_pomos->type= -1;
 				$r[] = $row_pomos;
 			}
 
-			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as depto FROM promos WHERE promos_activa = 1  AND  promos_vigencia_ini <= DATE(NOW()) AND promos_vigencia_fin >= DATE(NOW()) ORDER BY promos_vigencia_ini ASC');
+			$rs_pomos = mysql_query('SELECT promos_locales_promos_id as id, promos_lugar as lugar, promos_locales_departamentos_id as depto  FROM promos_locales 
+									 INNER JOIN promos ON promos_locales_promos_id=promos_id  
+									 WHERE promos_activa = 1 AND  promos_vigencia_ini <= DATE(NOW()) AND promos_vigencia_fin >= DATE(NOW())
+									 GROUP BY id,depto 
+									 ORDER BY promos_vigencia_ini ASC ');
+
 			while($row_pomos =  mysql_fetch_object($rs_pomos)){
 				$row_pomos->type= 0;
 				$r[] = $row_pomos;
 			}
 
-			$rs_pomos = mysql_query('SELECT promos_id as id, promos_lugar as lugar, promos_departamentos_id as depto FROM promos WHERE  promos_activa = 1 AND  
-									promos_vigencia_ini > DATE(NOW()) ORDER BY promos_vigencia_ini ASC');
+			$rs_pomos = mysql_query('SELECT promos_locales_promos_id as id, promos_lugar as lugar, promos_locales_departamentos_id as depto  FROM promos_locales 
+									 INNER JOIN promos ON promos_locales_promos_id=promos_id  
+									 WHERE promos_activa = 1 AND  
+									promos_vigencia_ini > DATE(NOW()) GROUP BY id,depto 
+																	  ORDER BY promos_vigencia_ini ASC ');
 			while($row_pomos =  mysql_fetch_object($rs_pomos)){
 				$row_pomos->type= 1;
 				$r[] = $row_pomos;
@@ -40,10 +50,11 @@ switch($metodo){
 	case 'get_una_promos':
 
 			$id =  mysql_real_escape_string($_GET['id']);
+			$depto =  mysql_real_escape_string($_GET['depto']);
 			$rs_pomos = mysql_query('SELECT *  FROM promos WHERE promos_id = "'. $id .'" ;');
 			$row_pomos =  mysql_fetch_object($rs_pomos);
 
-			$rs_locales = mysql_query('SELECT * FROM  promos_locales WHERE promos_locales_promos_id=' . $id);
+			$rs_locales = mysql_query('SELECT * FROM  promos_locales WHERE promos_locales_departamentos_id="'.$depto.'" AND  promos_locales_promos_id=' . $id);
 			while($row_locales =  mysql_fetch_object($rs_locales)){
 				$l[] = $row_locales;
 			}
@@ -70,10 +81,9 @@ switch($metodo){
 			else $where = ' promos_code_id='.$id;
 
 			$bucle++;
-		}
-		
+		}	
 	
-		$rs = mysql_query('SELECT promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin, promos.promos_departamentos_id FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id WHERE  (' . $where . ')');
+		$rs = mysql_query('SELECT promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id WHERE  (' . $where . ')');
 
 		while($row =  mysql_fetch_object($rs)){
 			$l[] = $row;
@@ -91,7 +101,7 @@ switch($metodo){
 		$promo_id =  mysql_real_escape_string($_GET['promo_id']);
 
 		// verifico si ya existe el codigo para ese usario:
-		$rs = mysql_query('SELECT promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin, promos.promos_departamentos_id FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id WHERE promos_code_uid="' . $uid . '" AND promos_code_promos_id="' . $promo_id . '" LIMIT 1;');
+		$rs = mysql_query('SELECT promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id WHERE promos_code_uid="' . $uid . '" AND promos_code_promos_id="' . $promo_id . '" LIMIT 1;');
 		if(mysql_num_rows($rs)==1){
 			echo json_encode(mysql_fetch_object($rs));
 			exit;
@@ -129,7 +139,7 @@ switch($metodo){
 
 
 
-				$rs = mysql_query('SELECT  promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin , promos.promos_departamentos_id 
+				$rs = mysql_query('SELECT  promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin 
 
 									 FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id
 									  WHERE 

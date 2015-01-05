@@ -20,8 +20,8 @@ function App(){
 
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
-	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/v4/';
-	this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
 	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/v3/';
 	//this.server = 'http://dev.santander.crudo.com.uy/';
@@ -81,30 +81,39 @@ function App(){
 
 	$(document).bind('CARGAR_LISTAS', doCargarListas);
 	
+
+	//setTimeout(function (){
+		
+	//	recibiendo_una_push()
+	///}, 2000);
+
+
 	this.recibiendo_una_push = function (){
 
 
 			app.db.transaction(function (tx) {
-									
+							
 				if(app.redirect_push_object.go == 'oferta'){
-						// tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id=?  AND  ofertas_estado=1" , [app.redirect_push_object.id], 
-						// 		function (tx, resultado) {
-						// 			if(resultado.rows.length == 1)
-					 //    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
-					 //    		}
-				  //   	);
+						
+						tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id=? AND ofertas_estado=1" , [app.redirect_push_object.id], 
+								function (tx, resultado) {
+									if(resultado.rows.length == 1)
+					    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
+					    		}
+				    	);
 
-						tx.executeSql("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE ofertas_id =?  AND ofertas_estado=1 GROUP BY locales_ofertas_id " , [app.redirect_push_object.id], function (tx, resultado){
+					/*	tx.executeSql("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE ofertas_id =?  AND ofertas_estado=1 GROUP BY locales_ofertas_id " , [app.redirect_push_object.id], function (tx, resultado){
 									if(resultado.rows.length == 1)
 						    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
 						    		}
-					    );
+					    );*/
 				}
 
 				if(app.redirect_push_object.go == 'evento'){
 
 						tx.executeSql('SELECT *, MIN(datetime_eventos_fecha_hora) as fecha_menor, COUNT(*) as cantidad FROM eventos INNER JOIN datetime_eventos ON datetime_eventos_eventos_id = eventos_id  WHERE eventos_id=? AND eventos_estado=1 GROUP BY eventos_id ORDER BY fecha_menor ASC, eventos_nombre ASC' , [app.redirect_push_object.id],	
 			    			function (tx, resultado) {
+
 									if(resultado.rows.length == 1)
 					    				app.secciones.go(app.secciones.seccionunevento, 300, {viene_de_push:true, row: resultado.rows.item(0)});
 					    	}
@@ -134,6 +143,9 @@ function App(){
 	}
 
 
+
+
+
 	this.crearTabla_Codes = function ($callback_complete){
 
 		app.db.transaction(function (tx) {
@@ -145,8 +157,7 @@ function App(){
 								  '"codes_ini" DATE, ' +
 								  '"codes_fin" DATE, ' + 
 								  '"codes_usado" DATETIME, ' + 
-								  '"codes_promo_id" INTEGER, ' + 
-								  '"codes_depto" INTEGER)', [], $callback_complete);
+								  '"codes_promo_id" INTEGER)', [], $callback_complete);
 
 		})
 
@@ -161,8 +172,7 @@ function App(){
     										' "codes_ini"=?, ' + 
     										' "codes_fin"=?, ' + 
     										' "codes_usado"=?,  ' + 
-    										' "codes_promo_id"=?,  ' + 
-    										' "codes_depto"=? WHERE codes_id=? ', 
+    										' "codes_promo_id"=? WHERE codes_id=? ', 
 													  [
 
 													 
@@ -173,14 +183,14 @@ function App(){
 													  $obj.promos_vigencia_fin, 
 													  $obj.promos_code_fecha_usado,
 													  $obj.promos_id,
-													  $obj.promos_departamentos_id,
+													
 													  $obj.promos_code_id
 													  ], function(){}, app.db_errorGeneral);
 
     }
      this.insertarUnCode = function($obj, $tx){
     
-    	$tx.executeSql('INSERT OR IGNORE INTO "codes" ("codes_id","codes_activo","codes_code","codes_lugar","codes_ini","codes_fin","codes_usado", "codes_promo_id", "codes_depto") VALUES (?,?,?,?,?,?,?,?,?)', 
+    	$tx.executeSql('INSERT OR IGNORE INTO "codes" ("codes_id","codes_activo","codes_code","codes_lugar","codes_ini","codes_fin","codes_usado", "codes_promo_id") VALUES (?,?,?,?,?,?,?,?)', 
 													  [
 
 													  $obj.promos_code_id, 
@@ -191,7 +201,7 @@ function App(){
 													  $obj.promos_vigencia_fin, 
 													  $obj.promos_code_fecha_usado,
 													  $obj.promos_id,
-													  $obj.promos_departamentos_id
+													
 													 
 													  ]);
 
@@ -305,6 +315,7 @@ function App(){
 		
 	   
 		self._ManagePush = new ManagePush();
+
 
 		if(app.is_phonegap()){
 
@@ -592,9 +603,12 @@ function App(){
 	function start(){
 		 
 			
-			if(app.secciones.get_obj_seccion_actual()==null)
+			if(!app.redirigiendo_una_push && app.secciones.get_obj_seccion_actual()==null)
 				app.secciones.go(app.secciones.seccionhome);
-	
+		
+			 obtener_promos()
+			 obtener_promos()
+			 obtener_promos()
 			 obtener_promos()
 
 		   	 app.db.transaction(function (tx) {
@@ -602,15 +616,13 @@ function App(){
 					tx.executeSql("SELECT sync_value,push FROM app" , [], function (tx, resultado) {
 		    				
 		    				sync_value = resultado.rows.item(0).sync_value
-		    				
 
-					//?
 		    				if(Number(resultado.rows.item(0).push) < 2 ) {
 		    					
 		    					self._ManagePush.registrar(function(){
 		    						
-			    					if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado()
-			    						primer_registro_push = true
+			    					if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado();
+			    						primer_registro_push = true;
 									
 		    					});
 

@@ -43,6 +43,7 @@ function ItemLocalPromo($row, $con_gps, $num)
 		header_titulo.addEventListener('click', doClick);
 
 	}
+	
 	if($num == 0) $(holder_regs).show();
 
 
