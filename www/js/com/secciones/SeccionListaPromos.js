@@ -83,9 +83,10 @@ function SeccionListaPromos()
 
 		$(combo_deptos).find('option[value="'+app.depto_que_me_encuentro+'"]').prop('selected', true)
 		$(holder).find('#ListaPromosWrapper').empty()
+		var catidad_promos = 0;
 		for(var promo in app.json_promos){
 			
-			var catidad_promos = 0;
+			
 			if(app.json_promos[promo].depto == app.depto_que_me_encuentro){
 				
 				var _ItemListaPromos = new ItemListaPromos(app.json_promos[promo]);
@@ -93,11 +94,13 @@ function SeccionListaPromos()
 				catidad_promos++;
 			}
 
-			if(catidad_promos==0){
+	          
+		}
+
+
+
+		if(catidad_promos==0){
 				$(holder).find('#ListaPromosWrapper').html('<div class="sin_resultados"><div>Actualmente no existen promociones para este departamento.</div></div>');
-			}
-					
-		          
 		}
 		
 
