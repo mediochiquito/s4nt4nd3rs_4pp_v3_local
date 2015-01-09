@@ -53,14 +53,15 @@ function SeccionUnaOferta()
 	btn_volver.main.id = 'UnaOferta_btn_volver'
 	$(holder_blanco_secciones).append(btn_volver.main)
 
-
 	var obj;
 
 	function doVolver(){
+		
 		if(obj.viene_de_push)
 			app.secciones.go(app.secciones.seccionhome, 300);
 		else
-		app.secciones.go(app.secciones.seccionlistaofertas, 300)
+			app.secciones.go(app.secciones.seccionlistaofertas, 300);
+
 	}
 	
 	
@@ -97,8 +98,7 @@ function SeccionUnaOferta()
 			var nombre_cate = ''
 			var tipos = (eval(app.json_db_tipo_ofertas))
 
-			alert($obj.row.ofertas_ofertas_tipo_id)
-
+			
 			for(var i=0; i<tipos.length; i++){
 
 				 if($obj.row.ofertas_ofertas_tipo_id == tipos[i].ofertas_tipo_id){
@@ -117,11 +117,18 @@ function SeccionUnaOferta()
 		$(holder_data).empty();
 		
 		app.db.transaction(function (tx) {
-
+		
 			tx.executeSql("SELECT * FROM locales WHERE locales_estado=1 AND locales_ofertas_id="+$obj.row.ofertas_id+" AND locales_departamentos_id="+app.depto_que_me_encuentro , [], function (tx, resulato_locales) {
 		    	
 		    	var cant_locales = resulato_locales.rows.length;
 		    	var array_locales = new Array();
+
+		    	if(cant_locales==0){
+
+		    		$(holder_data).html('<div class="sin_resultados"><div>No hay locales en este departamento.</div></div>')
+
+		    	}
+
 
 		        for(var i=0; i<cant_locales; i++){
 		        	

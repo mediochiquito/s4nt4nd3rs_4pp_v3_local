@@ -85,34 +85,31 @@
 			    	var cant_Codigos = resultado.rows.length;
 			    
 			    	$(holder).find('#MisCodigosWrapper').empty()
-			    	
-			    	if(cant_Codigos == 0){
+			    
+			     	var codigos_activos = 0;
+			        for(var i=0; i<cant_Codigos; i++){
+						if(resultado.rows.item(i).codes_activo==1){
+
+								var _ItemMisCodigos = new ItemMisCodigos(resultado.rows.item(i));
+								$(holder).find('#MisCodigosWrapper').append(_ItemMisCodigos.main);
+								codigos_activos++;
+						}
+			        }
+
+			        if(codigos_activos == 0){
 
 			    		$(holder).find('#MisCodigosWrapper').html('<div class="sin_resultados"><div>Aun no tienes ningún código.</div></div>')
 			    		
 			    	}
 
-			     
-			        for(var i=0; i<cant_Codigos; i++){
-						if(resultado.rows.item(i).codes_activo==1){
-
-								var _ItemMisCodigos = new ItemMisCodigos(resultado.rows.item(i));
-								$(holder).find('#MisCodigosWrapper').append(_ItemMisCodigos.main)
-						}
-					
-			          	
-			        }
-			})
+			        
+			}, app.db_errorGeneral)
 		}
 
 		this.listar =  function (){
-			
-
-			//$(combo_deptos).find('option[value="'+app.depto_que_me_encuentro+'"]').prop('selected', true)
 
 			app.db.transaction(function (tx) {
-
-					
+	
 				if(app.hay_internet()){
 
 					tx.executeSql("SELECT codes_id FROM codes" , [], function (tx, resultado) {
@@ -159,7 +156,7 @@
 
 				}else{
 
-					//listar_local(tx)
+					listar_local(tx)
 
 				}
 			  

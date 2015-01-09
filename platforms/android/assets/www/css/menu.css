@@ -70,7 +70,8 @@
 }
 .ItemMenu > img{
 	position: absolute;
-	width: 25px;
+	
 	top: 4px;
 	left: 5px;
+	height: 25px;
 }

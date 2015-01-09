@@ -578,6 +578,7 @@ function App(){
     
     function  obtener_promos(){
 
+    	
 
     		$.ajax({
 				type: "GET",
@@ -594,22 +595,33 @@ function App(){
 				error: function() {
 					app.alerta('Ocurrio un error al cargar las promociones.')
 				}
+
 			});
+
+    	
 
 
     }
+
+
 
 	function start(){
 		 
 			
 			if(!app.redirigiendo_una_push && app.secciones.get_obj_seccion_actual()==null)
 				app.secciones.go(app.secciones.seccionhome);
-		
-			 obtener_promos()
-			 obtener_promos()
-			 obtener_promos()
-			 obtener_promos()
+			
+			if(app.hay_internet()) obtener_promos();
+			else {	
+				
+				$('#SeccionHome .spinner').hide();
+				document.addEventListener("online", function (){
+					$('#SeccionHome .spinner').show();
+					obtener_promos();
+				}, false);
 
+			}
+			 
 		   	 app.db.transaction(function (tx) {
 
 					tx.executeSql("SELECT sync_value,push FROM app" , [], function (tx, resultado) {

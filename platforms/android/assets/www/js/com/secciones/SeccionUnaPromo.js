@@ -131,11 +131,12 @@ function SeccionUnaPromo()
 				type: "GET",
 				url: app.server + "promos.php",
 				data:{
+
 						method:'crear_codigo',
 						uid: app.usuario.uid,
 						at: app.usuario.access_token,
 						post_id:$post_id,
-						promo_id:obj.row.id,
+						promo_id:obj.row.id
 
 						},
 
@@ -167,10 +168,10 @@ function SeccionUnaPromo()
 
 
 	function doCompartir(){
-		
+			
+		if(app.is_phonegap()){
 
-
-        var params = {
+			  var params = {
                     method: 'feed',
                     name:  obj.row.lugar,
                     link: 'http://www.ideasparahoy.com.uy',
@@ -182,7 +183,7 @@ function SeccionUnaPromo()
 			app._Facebook.conectar(function(){
 		       	 facebookConnectPlugin.showDialog(params,
 	                function (result) {
-	                   	
+	                   	alert(JSON.stringify(result).post_id)
 	                   	guardar_promo(JSON.stringify(result).post_id);
 	                    
 	                   
@@ -192,6 +193,15 @@ function SeccionUnaPromo()
 		            }
 		        );
 			})
+
+		}	else{
+
+			 	guardar_promo('web');
+
+		}	
+
+
+      
               
 	}
 
@@ -219,7 +229,7 @@ function SeccionUnaPromo()
 		$.ajax({
 				type: "GET", 
 				url: app.server + "promos.php", 
-				data:{method:'get_una_promos', id:$obj.row.id}, 
+				data:{method:'get_una_promos', id:$obj.row.id, depto:app.depto_que_me_encuentro}, 
 				dataType: 'json', 
 				cache:false, 
 				success: function($json) {
@@ -234,7 +244,7 @@ function SeccionUnaPromo()
 
 					$(titulo_txt).html($json.promos_ugar);
 					$(img).css('width', app.ancho-40);
-					$(desc_txt).html($json.promos_desctipcion)
+					$(desc_txt).html($json.promos_descripcion)
 					$(txt_condiciones).html($json.promos_condiciones)
 					$(txt_vigencia).html(formatear_fecha($json.promos_vigencia_ini) + ' - ' + formatear_fecha($json.promos_vigencia_fin))
 
@@ -269,9 +279,10 @@ function SeccionUnaPromo()
 				        		array_locales.push([parseFloat(d), $json.array_locales[i]]);
 
 				        	}else{
+
 								var itemlocal = new ItemLocalPromo($json.array_locales[i], false,i);
 					        	$(holder_data).append(itemlocal.main)
-					        	if(cant_locales==1) itemlocal._click()
+					        	//if(cant_locales==1) itemlocal._click()
 				        	}
 							
 				        }
@@ -284,7 +295,7 @@ function SeccionUnaPromo()
 								var itemlocal = new ItemLocalPromo(array_locales[u][1], true, u);
 					        	$(holder_data).append(itemlocal.main)
 
-					        	if(cant_locales==1) itemlocal._click()
+					        	//if(cant_locales==1) itemlocal._click()
 
 					        }   
 				    	}
