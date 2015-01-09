@@ -21,11 +21,10 @@ function App(){
 	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3/server/';
 	//this.server = 'http://192.168.235.140:8888/s4nt4nd3rs_4pp_v3_local/server/v4/';
-	this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
+	//this.server = 'http://192.168.0.2/s4nt4nd3rs_4pp_v3_local/server/v4/';
 	//this.server = 'http://192.168.0.100:8888/s4nt4nd3rs_4pp_v3_local/server/';
 	//this.server = 'http://santander.crudo.com.uy/v3/';
-	//this.server = 'http://dev.santander.crudo.com.uy/';
-	
+	this.server = 'http://dev.santander.crudo.com.uy/v4/';
 	
 	this.json_db_tipo_ofertas = '[{"ofertas_tipo_id": 1,"ofertas_tipo_nombre": "Alquiler de autos","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 11,"ofertas_tipo_nombre": "Audio y video","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 12,"ofertas_tipo_nombre": "Automóvil","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 13,"ofertas_tipo_nombre": "Camping","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 14,"ofertas_tipo_nombre": "Confitería","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 15,"ofertas_tipo_nombre": "Deportes","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 16,"ofertas_tipo_nombre": "Entretenimiento","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 2,"ofertas_tipo_nombre": "Farmacia","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 23,"ofertas_tipo_nombre": "Ferretería","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 22,"ofertas_tipo_nombre": "Gimnasio","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 17,"ofertas_tipo_nombre": "Hogar y decoración","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 24,"ofertas_tipo_nombre": "Hogar y Electrodomésticos","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 18,"ofertas_tipo_nombre": "Institutos de enseñanza","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 3,"ofertas_tipo_nombre": "Joyería","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 4,"ofertas_tipo_nombre": "Librería","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 5,"ofertas_tipo_nombre": "Óptica","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 19,"ofertas_tipo_nombre": "Piscinas, Saunas y Spas","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 7,"ofertas_tipo_nombre": "Restaurantes","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 20,"ofertas_tipo_nombre": "Salud","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 21,"ofertas_tipo_nombre": "Tecnología e Informática","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 9,"ofertas_tipo_nombre": "Vestimenta infantil y juguetería","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 10,"ofertas_tipo_nombre": "Vestimenta y calzado","ofertas_tipo_activa": 1}, {"ofertas_tipo_id": 8,"ofertas_tipo_nombre": "Viajes y Turismo","ofertas_tipo_activa": 1}]',
 	this.db = openDatabase('santanders_app_punta', '1.0', 'santanders_app_punta', 2000000);
@@ -81,34 +80,69 @@ function App(){
 
 	$(document).bind('CARGAR_LISTAS', doCargarListas);
 	
+
+	//setTimeout(function (){
+		
+	//	recibiendo_una_push()
+	///}, 2000);
+
+
 	this.recibiendo_una_push = function (){
 
 
 			app.db.transaction(function (tx) {
-									
+							
 				if(app.redirect_push_object.go == 'oferta'){
-						tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id=?  AND  ofertas_estado=1" , [app.redirect_push_object.id], 
+						
+						tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id=? AND ofertas_estado=1" , [app.redirect_push_object.id], 
 								function (tx, resultado) {
 									if(resultado.rows.length == 1)
 					    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
 					    		}
 				    	);
+
+					/*	tx.executeSql("SELECT * FROM locales INNER JOIN ofertas ON locales_ofertas_id=ofertas_id WHERE ofertas_id =?  AND ofertas_estado=1 GROUP BY locales_ofertas_id " , [app.redirect_push_object.id], function (tx, resultado){
+									if(resultado.rows.length == 1)
+						    			app.secciones.go(app.secciones.seccionunaoferta, 300, {viene_de_push:true, row: resultado.rows.item(0)});
+						    		}
+					    );*/
 				}
 
 				if(app.redirect_push_object.go == 'evento'){
 
 						tx.executeSql('SELECT *, MIN(datetime_eventos_fecha_hora) as fecha_menor, COUNT(*) as cantidad FROM eventos INNER JOIN datetime_eventos ON datetime_eventos_eventos_id = eventos_id  WHERE eventos_id=? AND eventos_estado=1 GROUP BY eventos_id ORDER BY fecha_menor ASC, eventos_nombre ASC' , [app.redirect_push_object.id],	
 			    			function (tx, resultado) {
+
 									if(resultado.rows.length == 1)
 					    				app.secciones.go(app.secciones.seccionunevento, 300, {viene_de_push:true, row: resultado.rows.item(0)});
 					    	}
 				    	);					
 				}
+				
+
+
+	
+				if(app.redirect_push_object.go == 'promo'){
+					//app.alerta('5')
+					if(app.hay_internet())
+					 	app.secciones.go(app.secciones.seccionunapromo, 300, {row:{id:app.redirect_push_object.id, lugar:''}});
+					 else 
+					 	app.alerta('Debes conectarte para ver esta promoción.')
+
+					
+
+
+				}
+
+
 
 			});	
 
 
 	}
+
+
+
 
 
 	this.crearTabla_Codes = function ($callback_complete){
@@ -122,8 +156,7 @@ function App(){
 								  '"codes_ini" DATE, ' +
 								  '"codes_fin" DATE, ' + 
 								  '"codes_usado" DATETIME, ' + 
-								  '"codes_promo_id" INTEGER, ' + 
-								  '"codes_depto" INTEGER)', [], $callback_complete);
+								  '"codes_promo_id" INTEGER)', [], $callback_complete);
 
 		})
 
@@ -138,8 +171,7 @@ function App(){
     										' "codes_ini"=?, ' + 
     										' "codes_fin"=?, ' + 
     										' "codes_usado"=?,  ' + 
-    										' "codes_promo_id"=?,  ' + 
-    										' "codes_depto"=? WHERE codes_id=? ', 
+    										' "codes_promo_id"=? WHERE codes_id=? ', 
 													  [
 
 													 
@@ -150,14 +182,14 @@ function App(){
 													  $obj.promos_vigencia_fin, 
 													  $obj.promos_code_fecha_usado,
 													  $obj.promos_id,
-													  $obj.promos_departamentos_id,
+													
 													  $obj.promos_code_id
 													  ], function(){}, app.db_errorGeneral);
 
     }
      this.insertarUnCode = function($obj, $tx){
     
-    	$tx.executeSql('INSERT OR IGNORE INTO "codes" ("codes_id","codes_activo","codes_code","codes_lugar","codes_ini","codes_fin","codes_usado", "codes_promo_id", "codes_depto") VALUES (?,?,?,?,?,?,?,?,?)', 
+    	$tx.executeSql('INSERT OR IGNORE INTO "codes" ("codes_id","codes_activo","codes_code","codes_lugar","codes_ini","codes_fin","codes_usado", "codes_promo_id") VALUES (?,?,?,?,?,?,?,?)', 
 													  [
 
 													  $obj.promos_code_id, 
@@ -168,7 +200,7 @@ function App(){
 													  $obj.promos_vigencia_fin, 
 													  $obj.promos_code_fecha_usado,
 													  $obj.promos_id,
-													  $obj.promos_departamentos_id
+													
 													 
 													  ]);
 
@@ -282,6 +314,7 @@ function App(){
 		
 	   
 		self._ManagePush = new ManagePush();
+
 
 		if(app.is_phonegap()){
 
@@ -401,47 +434,80 @@ function App(){
 			});
 	}
 
+	function errorLocation(error) {
+
+		
+		app.db.transaction(function (tx) {
+				tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+						
+						if(Number(resultado.rows.item(0).push) < 2 ) {
+						
+		    				self._ManagePush.registrar(function(){
+		    						
+			    						guardar_push_solo_en_mi_depto_encontrado()
+			    						primer_registro_push = true
+									
+		    				});
+
+	    				}else if(Number(resultado.rows.item(0).push) == 2 ){
+
+	    						guardar_push_promociones_solo_en_mi_depto_encontrado()
+	    				}
+
+
+				})
+		});
+
+
+	}
 	function onLocation(position){
 		
-		self.posicion_global = position
+		app.posicion_global = position
 		//navigator.geolocation.clearWatch(watchid);
-	
+		//app.alerta('onLocation')
 		// geolocalizar
 		if(buscando_depto){
 				
 				buscando_depto = false;
 				
+				//app.alerta('cargando google')
 				$.ajax({
 					type: "GET",
 					url: "http://maps.googleapis.com/maps/api/geocode/json?latlng="+app.posicion_global.coords.latitude+","+app.posicion_global.coords.longitude+"&sensor=true&language=es",
 					dataType: 'json'
 					}).success(function($json) {
 					
-						for(var address_components in  $json.results[0].address_components){
 
-							if($json.results[0].address_components[address_components].types[0] == 'administrative_area_level_1'){
-								
-								var depto_encontrado = ($.inArray($json.results[0].address_components[address_components].short_name, array_deptos_google)+1);
-								
-								if(depto_encontrado>0){
+						for(var i=0; i<$json.results.length;i++){
 
-									self.depto_que_me_encuentro = depto_encontrado;
-									$(document).trigger('CARGAR_LISTAS')
+							for(var address_components in  $json.results[i].address_components){
+
+								if($json.results[i].address_components[address_components].types[0] == 'administrative_area_level_1'){
 									
+									var depto_encontrado = ($.inArray($json.results[i].address_components[address_components].short_name, array_deptos_google)+1);
+									
+									if(depto_encontrado>0){
 
-									if(primer_registro_push) guardar_push_solo_en_mi_depto_encontrado()
+										self.depto_que_me_encuentro = depto_encontrado;
+										//app.alerta('depto_encontrado: '  + depto_encontrado)
+										$(document).trigger('CARGAR_LISTAS')
+										if(primer_registro_push) guardar_push_solo_en_mi_depto_encontrado()
+										return;
+									}
 
 								}
-
 							}
+
 						}
 
-						app.cargando(false);
+						
+
+						//app.cargando(false);
 
 						
 					}).error(function(){
 
-						app.cargando(false);
+						//app.cargando(false);
 
 					});
 			
@@ -506,35 +572,7 @@ function App(){
 	}
 
 
-	function errorLocation(error) {
-		
-		//console.log('errorLocation error.code: ' + error.code + ', error.message: ' + error.message);
-		//if(primer_registro_push) guardar_push_solo_en_mi_depto_encontrado()
-
-
-		app.db.transaction(function (tx) {
-				tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
-						
-						if(Number(resultado.rows.item(0).push) < 2 ) {
-						
-		    				self._ManagePush.registrar(function(){
-		    						
-			    						guardar_push_solo_en_mi_depto_encontrado()
-			    						primer_registro_push = true
-									
-		    				});
-
-	    				}else if(Number(resultado.rows.item(0).push) == 2 ){
-
-	    						guardar_push_promociones_solo_en_mi_depto_encontrado()
-	    				}
-
-
-				})
-		});
-
-
-	}
+	
 
 	function comprobacion_total_tablas_creadas(e){
 
@@ -545,6 +583,7 @@ function App(){
     
     function  obtener_promos(){
 
+    	
 
     		$.ajax({
 				type: "GET",
@@ -559,38 +598,64 @@ function App(){
 
 				},
 				error: function() {
-					app.alert('Ocurrio un error al cargar las promociones.')
+					app.alerta('Ocurrio un error al cargar las promociones.')
 				}
+
 			});
+
+    	
 
 
     }
 
+
+
 	function start(){
 		 
 			
-			if(app.secciones.get_obj_seccion_actual()==null)
+			if(!app.redirigiendo_una_push && app.secciones.get_obj_seccion_actual()==null)
 				app.secciones.go(app.secciones.seccionhome);
-	
-			 obtener_promos()
+			
+			if(app.hay_internet()) obtener_promos();
+			else {	
+				
+				$('#SeccionHome .spinner').hide();
+				document.addEventListener("online", function (){
+					$('#SeccionHome .spinner').show();
+					obtener_promos();
+				}, false);
 
+			}
+			 
 		   	 app.db.transaction(function (tx) {
 
 					tx.executeSql("SELECT sync_value,push FROM app" , [], function (tx, resultado) {
 		    				
 		    				sync_value = resultado.rows.item(0).sync_value
+
 		    				if(Number(resultado.rows.item(0).push) < 2 ) {
 		    					
 		    					self._ManagePush.registrar(function(){
 		    						
-			    					if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado()
-			    						primer_registro_push = true
+			    					if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado();
+			    						primer_registro_push = true;
 									
 		    					});
 
 			    			}else if(Number(resultado.rows.item(0).push)  ==  2 ) {
 		    					
-			    				guardar_push_promociones_solo_en_mi_depto_encontrado()
+			    				self._ManagePush.registrar(function(){
+		    						
+			    					if(!buscando_depto) guardar_push_promociones_solo_en_mi_depto_encontrado()
+			    						primer_registro_push = true
+									
+		    					});
+
+		    				}else {
+		    					
+			    				self._ManagePush.registrar(function(){
+		    						
+		    					});
 
 		    				}
 

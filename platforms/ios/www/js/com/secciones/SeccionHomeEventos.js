@@ -55,9 +55,16 @@ function SeccionHomeEventos()
 			};
 						
 			datePicker.show(options, function(date){
-			  alert(date)
+			  if(date == 'Invalid Date') return;
 			  var _date = new Date(date)
-			  app.secciones.go(app.secciones.seccionlistaeventos, 300, {fecha: ( _date.getFullYear() + '-' + (_date.getMonth()+1) + '-' + _date.getDate() )});
+
+			  var mes =  (_date.getMonth()+1)
+			  if(mes<10) mes = '0' + mes;
+
+			  var dia = _date.getDate() 
+			  if(dia<10) dia = '0'+_date.getDate() 
+
+			  app.secciones.go(app.secciones.seccionlistaeventos, 300, {fecha: ( _date.getFullYear() + '-' + mes + '-' + dia )});
 
 			});
 

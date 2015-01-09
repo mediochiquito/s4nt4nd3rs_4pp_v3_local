@@ -151,6 +151,8 @@ function ManagePush(){
 		    break;
 
 		    case 'message':
+		    	//alert('asd')
+		   		
 		  		objeto_recibido(e.payload)
 
 		    break;
@@ -180,10 +182,18 @@ function ManagePush(){
 
 		if(typeof($obj_push.idevento) !='undefined'){
 			if($obj_push.idevento > 0){
+				app.redirigiendo_una_push = true;
+				app.redirect_push_object = {go: 'evento', id:$obj_push.idevento, no_depto:true};
+			}
+		}
+
+		
+		if(typeof($obj_push.p) !='undefined'){
+			
+			if($obj_push.p > 0){
+			
 				app.redirigiendo_una_push = true
-				app.redirect_push_object = {go: 'evento', id:$obj_push.idevento, no_depto:true}
-				
-				
+				app.redirect_push_object = {go: 'promo', id:$obj_push.p, no_depto:true}
 			}
 		}
 	}

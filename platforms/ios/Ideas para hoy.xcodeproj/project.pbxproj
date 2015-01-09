@@ -638,7 +638,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pablo Buela (7YV37643V7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: PIMOD SRL (C6X8LD6G28)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -671,7 +671,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "81c565b0-483a-461b-8946-82d6040361ce";
+				PROVISIONING_PROFILE = "65836634-ba48-4100-b2d7-db47f4319719";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -681,7 +681,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pablo Buela (7YV37643V7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: PIMOD SRL (C6X8LD6G28)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -712,7 +712,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Ideas para hoy";
-				PROVISIONING_PROFILE = "81c565b0-483a-461b-8946-82d6040361ce";
+				PROVISIONING_PROFILE = "65836634-ba48-4100-b2d7-db47f4319719";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
