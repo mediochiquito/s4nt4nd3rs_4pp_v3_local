@@ -434,16 +434,43 @@ function App(){
 			});
 	}
 
+	function errorLocation(error) {
+
+		
+		app.db.transaction(function (tx) {
+				tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+						
+						if(Number(resultado.rows.item(0).push) < 2 ) {
+						
+		    				self._ManagePush.registrar(function(){
+		    						
+			    						guardar_push_solo_en_mi_depto_encontrado()
+			    						primer_registro_push = true
+									
+		    				});
+
+	    				}else if(Number(resultado.rows.item(0).push) == 2 ){
+
+	    						guardar_push_promociones_solo_en_mi_depto_encontrado()
+	    				}
+
+
+				})
+		});
+
+
+	}
 	function onLocation(position){
 		
-		self.posicion_global = position
+		app.posicion_global = position
 		//navigator.geolocation.clearWatch(watchid);
-	
+		app.alerta('onLocation')
 		// geolocalizar
 		if(buscando_depto){
 				
 				buscando_depto = false;
 				
+				app.alerta('cargando google')
 				$.ajax({
 					type: "GET",
 					url: "http://maps.googleapis.com/maps/api/geocode/json?latlng="+app.posicion_global.coords.latitude+","+app.posicion_global.coords.longitude+"&sensor=true&language=es",
@@ -459,6 +486,11 @@ function App(){
 								if(depto_encontrado>0){
 
 									self.depto_que_me_encuentro = depto_encontrado;
+									
+
+									app.alerta('depto_encontrado: '  + depto_encontrado)
+
+
 									$(document).trigger('CARGAR_LISTAS')
 									
 
@@ -539,35 +571,7 @@ function App(){
 	}
 
 
-	function errorLocation(error) {
-		
-		//console.log('errorLocation error.code: ' + error.code + ', error.message: ' + error.message);
-		//if(primer_registro_push) guardar_push_solo_en_mi_depto_encontrado()
-
-
-		app.db.transaction(function (tx) {
-				tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
-						
-						if(Number(resultado.rows.item(0).push) < 2 ) {
-						
-		    				self._ManagePush.registrar(function(){
-		    						
-			    						guardar_push_solo_en_mi_depto_encontrado()
-			    						primer_registro_push = true
-									
-		    				});
-
-	    				}else if(Number(resultado.rows.item(0).push) == 2 ){
-
-	    						guardar_push_promociones_solo_en_mi_depto_encontrado()
-	    				}
-
-
-				})
-		});
-
-
-	}
+	
 
 	function comprobacion_total_tablas_creadas(e){
 

@@ -183,8 +183,8 @@ function SeccionUnaPromo()
 			app._Facebook.conectar(function(){
 		       	 facebookConnectPlugin.showDialog(params,
 	                function (result) {
-	                   	alert(JSON.stringify(result).post_id)
-	                   	guardar_promo(JSON.stringify(result).post_id);
+	                   
+	                   	guardar_promo(result.post_id);
 	                    
 	                   
 	                },
