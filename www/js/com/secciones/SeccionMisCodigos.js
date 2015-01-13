@@ -96,7 +96,7 @@
 
 		this.listar =  function (){
 
-			app.db.transaction(function (tx) {
+			
 	
 				if(app.hay_internet()){
 
@@ -150,12 +150,12 @@
 
 
 				}else{
-
-					listar_local(tx)
-
+					app.db.transaction(function (tx) {
+						listar_local(tx)
+					});
 				}
 			  
-			});
+			
 
 		}
 
