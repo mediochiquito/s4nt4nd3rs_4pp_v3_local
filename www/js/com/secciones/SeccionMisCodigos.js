@@ -67,7 +67,7 @@
 		
 
 		function listar_local (tx){
-			alert('listar')
+			
 			tx.executeSql("SELECT * FROM codes GROUP BY codes_promo_id ORDER BY codes_ini ASC, codes_id ASC" , [], function (tx, resultado) {
 			    	
 			    	var cant_Codigos = resultado.rows.length;
@@ -100,47 +100,54 @@
 	
 				if(app.hay_internet()){
 
-					tx.executeSql("SELECT codes_id FROM codes" , [], function (tx, resultado) {
-			    		
-						var array_ids = new Array();
-						var cant = resultado.rows.length;
-			    		for(var i=0; i<cant; i++){
-							array_ids.push(resultado.rows.item(i).codes_id);
-			       		}
 
-			       		app.cargando(true, '')
-						$.ajax({
-							type: "GET",
-							url: app.server + "promos.php",
-							data:{method:'get_todas_mis_promos', ids: array_ids},
-							dataType: 'json',
-							cache:false, 
-							success: function($json) {
+					app.crearTabla_Codes(function (tx, resultado1){
+
+						tx.executeSql("SELECT codes_id FROM codes" , [], function (tx, resultado) {
+				    		
+							var array_ids = new Array();
+							var cant = resultado.rows.length;
+				    		for(var i=0; i<cant; i++){
+								array_ids.push(resultado.rows.item(i).codes_id);
+				       		}
+
+				       		app.cargando(true, '')
+							$.ajax({
+								type: "GET",
+								url: app.server + "promos.php",
+								data:{method:'get_todas_mis_promos', ids: array_ids},
+								dataType: 'json',
+								cache:false, 
+								success: function($json) {
+									
 								
-								app.crearTabla_Codes(function (tx, resultado){
 
-									tx.executeSql('DELETE FROM codes', [], function (tx, resultado){
+										tx.executeSql('DELETE FROM codes', [], function (tx, resultado2){
 
-										for(var i in $json){
-											app.insertarUnCode($json[i], tx);
-										}
-										
-										listar_local(tx)
-										app.cargando(false)
+											for(var i in $json){
+												app.insertarUnCode($json[i], tx);
+											}
+											
+											listar_local(tx)
+											app.cargando(false)
 
-									});
+										});
 
-								})
 								
-							},
+									
+								},
 
-							error: function() {
-								app.alert('Ocurrio un error al cargar tus códigos.')
-							}
+								error: function() {
+									app.alert('Ocurrio un error al cargar tus códigos.')
+								}
 
-						});
+							});
+
+						})
 
 					})
+
+
 
 				}else{
 
