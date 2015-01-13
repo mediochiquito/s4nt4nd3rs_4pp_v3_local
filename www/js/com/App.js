@@ -440,26 +440,46 @@ function App(){
 		app.db.transaction(function (tx) {
 				tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
 						
-						if(Number(resultado.rows.item(0).push) < 2 ) {
-						
-		    				self._ManagePush.registrar(function(){
-		    						
-			    						guardar_push_solo_en_mi_depto_encontrado()
-			    						primer_registro_push = true
-									
-		    				});
-
-	    				}else if(Number(resultado.rows.item(0).push) == 2 ){
-
-	    						guardar_push_promociones_solo_en_mi_depto_encontrado()
-	    				}
-
-
-				})
+					buscando_depto = false;
+					guardar_push_defaults(Number(resultado.rows.item(0).push));
+					
+			})
 		});
+	}
+
+	function guardar_push_defaults($actual_push_value){
+
+
+				if($actual_push_value < 2 ) {
+		    					
+					self._ManagePush.registrar(function(){
+						
+    					if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado();
+    						primer_registro_push = true;
+						
+					});
+
+    			}else if($actual_push_value  ==  2 ) {
+					
+    				self._ManagePush.registrar(function(){
+						
+    					if(!buscando_depto) guardar_push_promociones_solo_en_mi_depto_encontrado()
+    						primer_registro_push = true
+						
+					});
+
+				}else {
+					
+    				self._ManagePush.registrar(function(){
+						
+					});
+
+				}
+
 
 
 	}
+
 	function onLocation(position){
 		
 		app.posicion_global = position
@@ -489,9 +509,15 @@ function App(){
 									if(depto_encontrado>0){
 
 										self.depto_que_me_encuentro = depto_encontrado;
-										//app.alerta('depto_encontrado: '  + depto_encontrado)
+										
 										$(document).trigger('CARGAR_LISTAS')
-										if(primer_registro_push) guardar_push_solo_en_mi_depto_encontrado()
+
+										app.db.transaction(function (tx) {
+											tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+												guardar_push_defaults(Number(resultado.rows.item(0).push));			
+											})
+										});
+
 										return;
 									}
 
@@ -500,14 +526,18 @@ function App(){
 
 						}
 
-						
 
-						//app.cargando(false);
+						app.db.transaction(function (tx) {
+							tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+								guardar_push_defaults(Number(resultado.rows.item(0).push));			
+							})
+						});
+
+						return;
+
 
 						
 					}).error(function(){
-
-						//app.cargando(false);
 
 					});
 			
@@ -633,33 +663,8 @@ function App(){
 		    				
 		    				sync_value = resultado.rows.item(0).sync_value
 
-		    				if(Number(resultado.rows.item(0).push) < 2 ) {
-		    					
-		    					self._ManagePush.registrar(function(){
-		    						
-			    					if(!buscando_depto) guardar_push_solo_en_mi_depto_encontrado();
-			    						primer_registro_push = true;
-									
-		    					});
-
-			    			}else if(Number(resultado.rows.item(0).push)  ==  2 ) {
-		    					
-			    				self._ManagePush.registrar(function(){
-		    						
-			    					if(!buscando_depto) guardar_push_promociones_solo_en_mi_depto_encontrado()
-			    						primer_registro_push = true
-									
-		    					});
-
-		    				}else {
-		    					
-			    				self._ManagePush.registrar(function(){
-		    						
-		    					});
-
-		    				}
-
-
+		    				
+		    				guardar_push_defaults(Number(resultado.rows.item(0).push))
 
 		    				if(app.hay_internet()) verfificar_sync();
 							else $(document).trigger('CARGAR_LISTAS');
