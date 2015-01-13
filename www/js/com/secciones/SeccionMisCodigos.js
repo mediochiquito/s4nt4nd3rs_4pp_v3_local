@@ -121,7 +121,7 @@
 								success: function($json) {
 									
 								
-
+									app.db.transaction(function (tx) {
 										tx.executeSql('DELETE FROM codes', [], function (tx, resultado2){
 
 											for(var i in $json){
@@ -132,7 +132,7 @@
 											app.cargando(false)
 
 										});
-
+									})
 								
 									
 								},
