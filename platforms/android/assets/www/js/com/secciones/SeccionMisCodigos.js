@@ -38,34 +38,22 @@
 		
 		var categoria_seleccionada = -1;
 
-	/*	setTimeout(function (){
-			$('#SeccionMisCodigos_holder_combo_deptos').append(combo_deptos);
-			
-		}, 0)*/
-
 		var btn_volver = new Boton2Frames("img/btn_volver_rojo.svg", 25, 50, doVolver)
 		btn_volver.main.id = 'SeccionMisCodigos_btn_volver'
 		$(holder_blanco_secciones).append(btn_volver.main)
 
 		var _self = this;
 
-	/*	$(document).bind('cerrando_menu', function(){
-			if($(_self.main).css('opacity')==1) $(combo_deptos).attr('disabled', false)
-		})*/
 
 		function doVolver(){
 			app.secciones.go(app.secciones.seccionhome, 300)
 		}
-/*
-		this._remove = function(){
-			$(combo_deptos).attr('disabled', true);
-		}*/
+
 
 		this._set = function ($data){
 		
 			$(titulo_seccion).html('Mis códigos de promoción');
 			this.listar();
-			//$(combo_deptos).attr('disabled', false);
 
 		}
 			
@@ -79,7 +67,7 @@
 		
 
 		function listar_local (tx){
-
+			
 			tx.executeSql("SELECT * FROM codes GROUP BY codes_promo_id ORDER BY codes_ini ASC, codes_id ASC" , [], function (tx, resultado) {
 			    	
 			    	var cant_Codigos = resultado.rows.length;
@@ -108,59 +96,66 @@
 
 		this.listar =  function (){
 
-			app.db.transaction(function (tx) {
+			
 	
 				if(app.hay_internet()){
 
-					tx.executeSql("SELECT codes_id FROM codes" , [], function (tx, resultado) {
-			    		
-						var array_ids = new Array();
-						var cant = resultado.rows.length;
-			    		for(var i=0; i<cant; i++){
-							array_ids.push(resultado.rows.item(i).codes_id);
-			       		}
 
-			       		app.cargando(true, '')
-						$.ajax({
-							type: "GET",
-							url: app.server + "promos.php",
-							data:{method:'get_todas_mis_promos', ids: array_ids},
-							dataType: 'json',
-							cache:false, 
-							success: function($json) {
+					app.crearTabla_Codes(function (tx, resultado1){
+
+						tx.executeSql("SELECT codes_id FROM codes" , [], function (tx, resultado) {
+				    		
+							var array_ids = new Array();
+							var cant = resultado.rows.length;
+				    		for(var i=0; i<cant; i++){
+								array_ids.push(resultado.rows.item(i).codes_id);
+				       		}
+
+				       		app.cargando(true, '')
+							$.ajax({
+								type: "GET",
+								url: app.server + "promos.php",
+								data:{method:'get_todas_mis_promos', ids: array_ids},
+								dataType: 'json',
+								cache:false, 
+								success: function($json) {
+									
 								
-								app.crearTabla_Codes(function (tx, resultado){
+									app.db.transaction(function (tx) {
+										tx.executeSql('DELETE FROM codes', [], function (tx, resultado2){
 
-									tx.executeSql('DELETE FROM codes', [], function (tx, resultado){
+											for(var i in $json){
+												app.insertarUnCode($json[i], tx);
+											}
+											
+											listar_local(tx)
+											app.cargando(false)
 
-										for(var i in $json){
-											app.insertarUnCode($json[i], tx);
-										}
-										
-										listar_local(tx)
-										app.cargando(false)
-
-									});
-
-								})
+										});
+									})
 								
-							},
+									
+								},
 
-							error: function() {
-								app.alert('Ocurrio un error al cargar tus códigos.')
-							}
+								error: function() {
+									app.alert('Ocurrio un error al cargar tus códigos.')
+								}
 
-						});
+							});
+
+						})
 
 					})
 
+
+
 				}else{
-
-					listar_local(tx)
-
+					app.db.transaction(function (tx) {
+						listar_local(tx)
+					});
 				}
 			  
-			});
+			
 
 		}
 

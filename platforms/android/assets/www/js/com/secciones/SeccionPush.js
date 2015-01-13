@@ -137,9 +137,9 @@ function SeccionPush()
 						 	dict_deptos[depto0]._clear()
 						 }
 
-						 app.db.transaction(function (tx) {
-							 tx.executeSql('UPDATE app SET push=?', ['2']);
-						 });
+						 // app.db.transaction(function (tx) {
+							//  tx.executeSql('UPDATE app SET push=?', ['3']);
+						 // });
 
 						 for(var depto in $json){
 						 	dict_deptos[$json[depto].push_deptos_departamentos_id-1]._select($json[depto].push_deptos_type)

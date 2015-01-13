@@ -39,8 +39,8 @@ function App(){
 	var new_sync_value = 0;
 	var btn_connect;
 	var buscando_depto = true;
-
-	this.json_promos = null
+	var encotro_location = false;
+	this.json_promos = null;
 
 	this.depto_que_me_encuentro = 9;
 
@@ -486,10 +486,8 @@ function App(){
 		//navigator.geolocation.clearWatch(watchid);
 		//app.alerta('onLocation')
 		// geolocalizar
-		if(buscando_depto){
-				
-				buscando_depto = false;
-				
+		if(!encotro_location){
+				encotro_location = true;
 				//app.alerta('cargando google')
 				$.ajax({
 					type: "GET",
@@ -523,9 +521,10 @@ function App(){
 
 								}
 							}
-
 						}
 
+
+						buscando_depto = false;
 
 						app.db.transaction(function (tx) {
 							tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
