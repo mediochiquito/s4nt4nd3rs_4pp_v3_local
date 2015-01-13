@@ -539,16 +539,14 @@ function App(){
 						
 					}).error(function(){
 
-					});
-			
-		}
-	
+			});	
 		
+		}
+
 	}
 
 
 	function guardar_push_promociones_solo_en_mi_depto_encontrado(){
-
 
 			$.ajax({
 

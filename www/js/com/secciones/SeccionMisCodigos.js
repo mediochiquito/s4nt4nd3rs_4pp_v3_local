@@ -38,34 +38,22 @@
 		
 		var categoria_seleccionada = -1;
 
-	/*	setTimeout(function (){
-			$('#SeccionMisCodigos_holder_combo_deptos').append(combo_deptos);
-			
-		}, 0)*/
-
 		var btn_volver = new Boton2Frames("img/btn_volver_rojo.svg", 25, 50, doVolver)
 		btn_volver.main.id = 'SeccionMisCodigos_btn_volver'
 		$(holder_blanco_secciones).append(btn_volver.main)
 
 		var _self = this;
 
-	/*	$(document).bind('cerrando_menu', function(){
-			if($(_self.main).css('opacity')==1) $(combo_deptos).attr('disabled', false)
-		})*/
 
 		function doVolver(){
 			app.secciones.go(app.secciones.seccionhome, 300)
 		}
-/*
-		this._remove = function(){
-			$(combo_deptos).attr('disabled', true);
-		}*/
+
 
 		this._set = function ($data){
 		
 			$(titulo_seccion).html('Mis códigos de promoción');
 			this.listar();
-			//$(combo_deptos).attr('disabled', false);
 
 		}
 			
@@ -79,7 +67,7 @@
 		
 
 		function listar_local (tx){
-
+			alert('listar')
 			tx.executeSql("SELECT * FROM codes GROUP BY codes_promo_id ORDER BY codes_ini ASC, codes_id ASC" , [], function (tx, resultado) {
 			    	
 			    	var cant_Codigos = resultado.rows.length;
