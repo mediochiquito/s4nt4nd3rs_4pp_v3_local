@@ -62,7 +62,7 @@ function ItemMisCodigos($row)
 	function doTocuhStart(){
 		document.addEventListener('touchmove', doTocuhMove);
 		haciendo_click = true
-		inter_pintar = setTimeout(pintar , 200)
+		inter_pintar = setTimeout(pintar , 200);
 	}
 
 	function doTocuhEnd(){
