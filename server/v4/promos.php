@@ -100,6 +100,9 @@ switch($metodo){
 		$post_id =  mysql_real_escape_string($_GET['post_id']);
 		$promo_id =  mysql_real_escape_string($_GET['promo_id']);
 
+		$array_post = explode('_', $post_id);
+		if($uid==0) $uid = $array_post[0];
+
 		// verifico si ya existe el codigo para ese usario:
 		$rs = mysql_query('SELECT promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id WHERE promos_code_uid="' . $uid . '" AND promos_code_promos_id="' . $promo_id . '" LIMIT 1;');
 		if(mysql_num_rows($rs)==1){

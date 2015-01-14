@@ -24,7 +24,8 @@ function Facebook(){
 		 facebookConnectPlugin.getLoginStatus(function (userData){
 
 		 	if(userData.status == 'connected'){
-
+		 		app.alerta('connected')
+		 								   
  				app.usuario.uid = userData.authResponse.userID;
  				app.usuario.access_token = userData.authResponse.accessToken;
 
