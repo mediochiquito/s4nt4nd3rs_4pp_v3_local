@@ -97,7 +97,7 @@ function SeccionUnaPromo()
 	$(titulo_seccion).html('Promociones');
 
 	var obj;
-
+	var json;
 	function doVolver(){
 
 		
@@ -177,16 +177,16 @@ function SeccionUnaPromo()
                     link: 'http://www.ideasparahoy.com.uy',
                     picture: 'http://santander.crudo.com.uy/icon.png',
                     caption: 'http://www.ideasparahoy.com.uy/',
-	           		description: 'COmpartiendo una promo. Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum.'
+	           		description: json.promos_descripcion
                   };
 
 			app._Facebook.conectar(function(){
 		       	 facebookConnectPlugin.showDialog(params,
+	              
 	                function (result) {
-	                   
-	                   	guardar_promo(result.post_id);
-	                    
-	                   
+	                  
+	                	if(typeof(result.post_id) !='undefined')  guardar_promo(result.post_id); 
+
 	                },
 		            function (e) {
 		               
@@ -233,7 +233,7 @@ function SeccionUnaPromo()
 				dataType: 'json', 
 				cache:false, 
 				success: function($json) {
-					
+					json = $json;
 					if($obj.type == 0) $(hoy).show();
 					else $(hoy).hide();
 
@@ -248,11 +248,16 @@ function SeccionUnaPromo()
 					$(txt_condiciones).html($json.promos_condiciones)
 					$(txt_vigencia).html(formatear_fecha($json.promos_vigencia_ini) + ' - ' + formatear_fecha($json.promos_vigencia_fin))
 
-						var ini = new Date($json.promos_vigencia_ini + ' 00:00:00')
+				
+						var array_fecha_ini  = $json.promos_vigencia_ini.split('-')
+
+						var ini = new Date(array_fecha_ini[0],(array_fecha_ini[1]-1),array_fecha_ini[2],0,0,0,0);
 
 						var now = new Date()
+						var ahora = new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0,0);
 
-						var ahora = new Date(now.getFullYear() + '-' + (now.getMonth()+1) + '-' + now.getDate() + ' 00:00:00');
+
+
 
 
 						if(ini.getTime()>ahora.getTime()){

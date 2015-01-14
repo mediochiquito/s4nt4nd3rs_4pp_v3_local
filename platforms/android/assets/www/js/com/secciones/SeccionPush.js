@@ -19,9 +19,9 @@ function SeccionPush()
 	$(holder_blanco_secciones).append(header_titulo)
 	
 	$(header_titulo).html('<div class="Push_col1">Departamento</div>'+
-							'<div class="Push_col2"><img src="img/push/event.svg" height="30" /></div>'+
-							'<div class="Push_col3"><img src="img/push/porc.svg" height="30" /></div>'+
-							'<div class="Push_col4"><img src="img/push/promo.svg" height="30" /></div>'
+							'<div class="Push_col2"><img src="img/push/event.svg" /></div>'+
+							'<div class="Push_col3"><img src="img/push/porc.svg"  /></div>'+
+							'<div class="Push_col4"><img src="img/push/promo.svg"  /></div>'
 							)
 
 	var holder = document.createElement('div')
@@ -60,7 +60,6 @@ function SeccionPush()
 			array_seleccionados.push(dict_deptos[depto].getValue());
 		}
 
-
 		app.cargando(true, 'Guardando...')
 			
 			$.ajax({
@@ -69,7 +68,8 @@ function SeccionPush()
 					url: app.server + "void.set_push_deptos.php",
 					dataType: 'text',
 					cache: false, 
-					data:{o: array_seleccionados, token:app._ManagePush.token, plataform: app._ManagePush.plataform}, 
+					data:{o: array_seleccionados, token:app._ManagePush.token, plataform: app._ManagePush.plataform},
+					
 					success:function(){
 						 
 						app.db.transaction(function (tx) {
@@ -119,6 +119,8 @@ function SeccionPush()
 			
 			btn_guardar.habil(false)
 			btn_cancelar.habil(false)
+
+
 
 			app.cargando(true, 'Obteniendo configuración...')
 			app._ManagePush.registrar(function(){

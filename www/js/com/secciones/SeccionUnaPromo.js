@@ -97,7 +97,7 @@ function SeccionUnaPromo()
 	$(titulo_seccion).html('Promociones');
 
 	var obj;
-
+	var json;
 	function doVolver(){
 
 		
@@ -177,16 +177,16 @@ function SeccionUnaPromo()
                     link: 'http://www.ideasparahoy.com.uy',
                     picture: 'http://santander.crudo.com.uy/icon.png',
                     caption: 'http://www.ideasparahoy.com.uy/',
-	           		description: 'COmpartiendo una promo. Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum  Loren Ipsum.'
+	           		description: json.promos_descripcion
                   };
 
 			app._Facebook.conectar(function(){
 		       	 facebookConnectPlugin.showDialog(params,
+	              
 	                function (result) {
-	                   
-	                   	guardar_promo(result.post_id);
-	                    
-	                   
+	                  
+	                	if(typeof(result.post_id) !='undefined')  guardar_promo(result.post_id); 
+
 	                },
 		            function (e) {
 		               
@@ -233,7 +233,7 @@ function SeccionUnaPromo()
 				dataType: 'json', 
 				cache:false, 
 				success: function($json) {
-					
+					json = $json;
 					if($obj.type == 0) $(hoy).show();
 					else $(hoy).hide();
 

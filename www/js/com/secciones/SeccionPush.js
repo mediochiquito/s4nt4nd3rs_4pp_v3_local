@@ -120,6 +120,8 @@ function SeccionPush()
 			btn_guardar.habil(false)
 			btn_cancelar.habil(false)
 
+
+
 			app.cargando(true, 'Obteniendo configuración...')
 			app._ManagePush.registrar(function(){
 

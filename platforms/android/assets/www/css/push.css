@@ -5,7 +5,12 @@
 	margin-top: 6px;
 	margin: 10px;
 }
-
+#Push_header_labels   img {
+	
+	width: 20px;
+	height: 20px;
+	
+}
 
 .Push_col1{
 	
@@ -25,7 +30,6 @@
 	color: #000;
 }
 .Push_col2{
-	height: 40px;
 	width: 16%;
 /*	background-color: red;*/
 	position: relative;
@@ -33,7 +37,7 @@
 	 box-sizing: border-box;
 	 text-align: center;
 	 
-	padding: 3px;
+	padding: 7px 3px 3px 3px;
 }
 
 #Push_holder .Push_col2 {
@@ -54,7 +58,8 @@
 	float: left;
 	 box-sizing: border-box;
 	 text-align: center;
-	 padding: 3px;
+	 
+	padding: 7px 3px 3px 3px;
 	}
 
 .Push_col4{
@@ -65,7 +70,8 @@
 	float: left;
 	 box-sizing: border-box;
 	 text-align: center;
-	 padding: 3px;
+	 
+	padding: 7px 3px 3px 3px;
 }
 #Push_holder {
 	overflow-y: auto;
