@@ -224,6 +224,12 @@
           <string>fb381248932009498</string>
         </array>
       </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb381248932009498</string>
+        </array>
+      </dict>
     </array>
     <key>CFBundleVersion</key>
     <string>4.0.0</string>

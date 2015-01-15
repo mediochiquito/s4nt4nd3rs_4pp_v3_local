@@ -4,6 +4,8 @@
 	//error_reporting( E_ALL ^ E_NOTICE);
 	error_reporting(0);
 
+	
+
 	if($_SERVER['HTTP_HOST'] == '127.0.0.1' || $_SERVER['HTTP_HOST'] == '192.168.0.2' || $_SERVER['HTTP_HOST'] == 'localhost') 	{
 
 		define("DB_HOST", "localhost");

@@ -140,8 +140,6 @@ switch($metodo){
 
 													  ;');
 
-
-
 				$rs = mysql_query('SELECT  promos_code.*, promos.promos_id, promos.promos_activa, promos.promos_lugar, promos.promos_vigencia_ini, promos.promos_vigencia_fin 
 
 									 FROM promos_code INNER JOIN promos ON promos_code_promos_id=promos_id

@@ -25,10 +25,59 @@ function Facebook(){
 
 		 	if(userData.status == 'connected'){
 
+		 		
+		 								   
  				app.usuario.uid = userData.authResponse.userID;
  				app.usuario.access_token = userData.authResponse.accessToken;
 
-			    $callback();
+
+ 				if(String(app.usuario.uid) == 'null'){
+
+ 					
+ 					app.cargando(true);
+
+ 					$.ajax({
+				
+						type: "GET",
+						url: "https://graph.facebook.com/v2.2/me?fields=id&access_token="+app.usuario.access_token,
+						dataType: 'json'
+
+					}).success(function(json) {
+
+						app.cargando(false);
+
+						if(typeof(json.id) != 'undefined'){
+
+							app.usuario.uid = json.id;
+							$callback();
+
+						}else{
+
+							facebookConnectPlugin.login(["public_profile"],
+		    	
+						    	function (userData) {
+
+								 	app.usuario.uid = userData.authResponse.userID;
+								    facebookConnectPlugin.getAccessToken(function(token) {
+								        app.usuario.access_token = token;
+								    }, function(err) {  });
+								    $callback();
+								},
+
+						    	function (error) { app.alerta("No se pudo conectar tu cuenta de Facebook. Por favor intentalo nuevamente.") }
+
+							);
+
+						}
+						
+					});
+
+ 				}else{
+
+ 					$callback();
+
+ 				}
+
 
 		 	}else{
 
@@ -51,38 +100,7 @@ function Facebook(){
 
 		 	}
 
-		 }, function(){})
-
-
-
-		
-		// facebookConnectPlugin.logout(function (){
- 
-			
-		// }, function (error) { 
-
-		// 	// //app.alerta("" + error) 
-		// 	// facebookConnectPlugin.login(["public_profile"],
-		    	
-		//  //    	function (userData) {
-
-		// 	// 	    //alert("2 UserInfo: " + JSON.stringify(userData));
-		// 	// 	 	app.usuario.uid = userData.authResponse.userID;
-		// 	// 	    facebookConnectPlugin.getAccessToken(function(token) {
-		// 	// 	        app.usuario.access_token = token;
-		// 	// 	        $callback();
-		// 	// 	    }, function(err) {
-		// 	// 	        app.alerta("No se pudo obtener el toke de usuario");
-		// 	// 	    });
-		// 	// 	},
-
-		//  //    	function (error) { app.alerta("No se pudo conectar tu cuenta de Facebook. Por favor intentalo nuevamente.") }
-
-		// 	// ); 
-	    
-		// })
-
-		 
+		 }, function(){});
 
 		
 	}

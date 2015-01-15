@@ -137,10 +137,6 @@ function App(){
 
 	}
 
-
-
-
-
 	this.crearTabla_Codes = function ($callback_complete){
 
 		app.db.transaction(function (tx) {
@@ -183,7 +179,8 @@ function App(){
 													  ], function(){}, app.db_errorGeneral);
 
     }
-     this.insertarUnCode = function($obj, $tx){
+
+    this.insertarUnCode = function($obj, $tx){
     
     	$tx.executeSql('INSERT OR IGNORE INTO "codes" ("codes_id","codes_activo","codes_code","codes_lugar","codes_ini","codes_fin","codes_usado", "codes_promo_id") VALUES (?,?,?,?,?,?,?,?)', 
 													  [
@@ -201,8 +198,6 @@ function App(){
 													  ]);
 
     }
-
-
 
 	function doCargarListas(e){
 
@@ -445,6 +440,8 @@ function App(){
 
 	function guardar_push_defaults($actual_push_value){
 
+				//app.alerta('guardar_push_defaults: ' + $actual_push_value);
+
 
 				if($actual_push_value < 2 ) {
 		    					
@@ -479,12 +476,10 @@ function App(){
 	function onLocation(position){
 		
 		app.posicion_global = position
-		//navigator.geolocation.clearWatch(watchid);
-		//app.alerta('onLocation')
-		// geolocalizar
+		
 		if(!encotro_location){
 				encotro_location = true;
-				//app.alerta('cargando google')
+				
 				$.ajax({
 					type: "GET",
 					url: "http://maps.googleapis.com/maps/api/geocode/json?latlng="+app.posicion_global.coords.latitude+","+app.posicion_global.coords.longitude+"&sensor=true&language=es",
@@ -508,6 +503,7 @@ function App(){
 
 										app.db.transaction(function (tx) {
 											tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+												buscando_depto = false;
 												guardar_push_defaults(Number(resultado.rows.item(0).push));			
 											})
 										});
@@ -520,10 +516,11 @@ function App(){
 						}
 
 
-						buscando_depto = false;
+						
 
 						app.db.transaction(function (tx) {
 							tx.executeSql("SELECT push FROM app" , [], function (tx, resultado) {
+								buscando_depto = false;
 								guardar_push_defaults(Number(resultado.rows.item(0).push));			
 							})
 						});
