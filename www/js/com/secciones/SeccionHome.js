@@ -20,23 +20,33 @@ function SeccionHome()
 
 
 	var btn_promos = new BotonDashboard('promos/promo', 'Promociones', doVerPromos)
-
 	btn_promos.main.id = 'SeccionHome_btn_promos'
 	$(this.main).append(btn_promos.main)
-	btn_promos.habil(false)
+
+	//btn_promos.habil(false)
+	$(btn_promos.main).hide()
+	$(btn_promos.main).transition({scale:.5, opacity:0})
 
 
 	$(document).bind('on_cargo_pommos', on_cargo_pommos);
 
-	$(this.main).append('<div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>');
+	//$(this.main).append('<div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>');
 		
 	function on_cargo_pommos(){
 
-		$('#SeccionHome .spinner').hide()
+		//$('#SeccionHome .spinner').hide()
 		if(app.json_promos != null){
-			btn_promos.habil(true)
+			$(btn_promos.main).show()
+
+			$(btn_descuentos.main).css('margin-left', -130)
+			$(btn_eventos.main).css('margin-left', -45)
+			$(btn_promos.main).delay(300).transition({scale:1, opacity:1})
+
 		}else{
-			btn_promos.habil(false)
+			$(btn_promos.main).hide()
+
+
+
 		}
 	}
 

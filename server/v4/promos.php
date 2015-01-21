@@ -8,7 +8,7 @@ switch($metodo){
 
 
 	case 'get_list_promos':
-
+			
 			$rs_pomos = mysql_query('SELECT promos_locales_promos_id as id, promos_lugar as lugar, promos_locales_departamentos_id as depto  FROM promos_locales 
 									 INNER JOIN promos ON promos_locales_promos_id=promos_id  
 									 WHERE promos_activa = 1 AND   
