@@ -17,7 +17,7 @@ function Menu()
 	var btn_promos = new ItemMenu('Promociones', 'icon_promos.svg', doPromos)
 	
 	$(holder).append(btn_promos.main)
-btn_promos.habil(false)
+	$(btn_promos.main).hide()
 
 	var btn_codigos = new ItemMenu('Mis Códigos de Promoción', 'icon_codigos.svg', doCodigos)
 	$(holder).append(btn_codigos.main)
@@ -38,9 +38,9 @@ btn_promos.habil(false)
 	function on_cargo_pommos(){
 
 		if(app.json_promos != null){
-			btn_promos.habil(true)
+			$(btn_promos.main).show()
 		}else{
-			btn_promos.habil(false)
+			$(btn_promos.main).hide()
 		}
 	
 	}
